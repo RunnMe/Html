@@ -25,6 +25,17 @@ class testElementsGroupSchema extends ElementsGroup {
     ];
 }
 
+class testElementsGroupNested extends ElementsGroup {
+    protected static $schema = [
+        'test' => [
+            'class' => TextField::class,
+        ],
+        'inner' => [
+            'class' => testElementsGroupSchema::class,
+        ],
+    ];
+}
+
 class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -127,6 +138,27 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(2, $group->field2->getOptions());
         $this->assertSame('bar', $group->field2->getOptions()->foo);
         $this->assertSame(42, $group->field2->getOptions()->baz);
+    }
+
+    public function testNestedGroup()
+    {
+        $group = new testElementsGroupNested();
+
+        $this->assertCount(2, $group);
+
+        // test:
+
+        $this->assertInstanceOf(TextField::class, $group->test);
+        $this->assertSame($group, $group->test->getParent());
+
+        $this->assertSame('test', $group->test->getName());
+        $this->assertNull($group->test->getValue());
+
+        // inner:
+
+        $this->assertInstanceOf(ElementsGroup::class, $group->inner);
+        $this->assertSame($group, $group->inner->getParent());
+        $this->assertCount(3, $group->inner);
     }
 
 }
