@@ -1,0 +1,27 @@
+{
+  "name": "runn/html",
+  "description": "Runn Me! HTML Library",
+  "keywords": ["runn", "runn.me", "framework", "html", "form"],
+  "type": "library",
+  "license": "LGPL v.3",
+  "authors": [
+    {
+      "name": "Albert Stepantsev"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.0",
+    "runn/core": "dev-master",
+    "runn/valueobjects": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Runn\\": "src/"
+    }
+  }
+}
