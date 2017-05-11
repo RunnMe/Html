@@ -1,7 +1,7 @@
 {
   "name": "runn/html",
   "description": "Runn Me! HTML Library",
-  "keywords": ["runn", "runn.me", "framework", "html", "form"],
+  "keywords": ["runn", "runn.me", "framework", "html", "form", "element"],
   "type": "library",
   "license": "LGPL v.3",
   "authors": [
