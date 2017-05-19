@@ -3,7 +3,7 @@
 namespace Runn\Html;
 
 /**
- * Common interface for all elements that have some options (any element, any options!)
+ * Common interface for all elements that have some options (any element, any options, not tag attributes!)
  *
  * Interface HasOptionsInterface
  * @package Runn\Html
@@ -28,7 +28,7 @@ interface HasOptionsInterface
      * @param iterable|null $options
      * @return $this
      */
-    public function options(/*iterable */$options = null);
+    public function setOptions(/*iterable */$options = null);
 
     /**
      * @return \Runn\Core\Std

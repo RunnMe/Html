@@ -5,7 +5,7 @@ namespace Runn\Html;
 use Runn\Core\Std;
 
 /**
- * Trait for elements that have name (like form inputs)
+ * Trait for all elements that have some options (any element, any options, not tag attributes!)
  *
  * Trait HasOptionsTrait
  * @package Runn\Html
@@ -46,7 +46,7 @@ trait HasOptionsTrait
      * @param iterable|null $options
      * @return $this
      */
-    public function options(/*iterable */$options = null)
+    public function setOptions(/*iterable */$options = null)
     {
         $this->options = new Std;
         if (null !== $options) {

@@ -24,7 +24,7 @@ class HasOptionsTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('val1',  $element->getOptions()->opt1);
         $this->assertSame('val1',  $element->getOption('opt1'));
 
-        $element->options(['opt1' => 1, 'opt2' => 2]);
+        $element->setOptions(['opt1' => 1, 'opt2' => 2]);
 
         $this->assertCount(2, $element->getOptions());
         $this->assertSame(1,  $element->getOptions()->opt1);
@@ -32,7 +32,7 @@ class HasOptionsTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(2,  $element->getOptions()->opt2);
         $this->assertSame(2,  $element->getOption('opt2'));
 
-        $element->options(new Std(['opt11' => 11, 'opt22' => '22']));
+        $element->setOptions(new Std(['opt11' => 11, 'opt22' => '22']));
 
         $this->assertCount(2, $element->getOptions());
         $this->assertSame(11,    $element->getOptions()->opt11);

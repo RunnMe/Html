@@ -5,7 +5,7 @@ namespace Runn\Html;
 use Runn\Core\Std;
 
 /**
- * Trait for elements that have name (like form inputs)
+ * Trait for all elements that have html attributes (forms, form inputs, another html tags)
  *
  * Trait HasAttributesTrait
  * @package Runn\Html
@@ -29,7 +29,7 @@ trait HasAttributesTrait
         if (null === $this->attributes ) {
             $this->attributes  = new Std;
         }
-        $this->attributes ->$key = $val;
+        $this->attributes->$key = $val;
         return $this;
     }
 
@@ -37,7 +37,7 @@ trait HasAttributesTrait
      * @param string $key
      * @return string|null
      */
-    public function getAttribute($key)
+    public function getAttribute(string $key)/*: ?string*/
     {
         return $this->attributes->$key ?? null;
     }
@@ -46,7 +46,7 @@ trait HasAttributesTrait
      * @param null $attributes
      * @return $this
      */
-    public function attributes(/*iterable */$attributes = null)
+    public function setAttributes(/*iterable */$attributes = null)
     {
         $this->attributes = new Std;
         if (null !== $attributes) {

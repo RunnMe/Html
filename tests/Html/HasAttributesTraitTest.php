@@ -24,7 +24,7 @@ class HasAttributesTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('val1',  $element->getAttributes()->attr1);
         $this->assertSame('val1',  $element->getAttribute('attr1'));
 
-        $element->attributes(['attr1' => 1, 'attr2' => 2]);
+        $element->setAttributes(['attr1' => 1, 'attr2' => 2]);
 
         $this->assertCount(2, $element->getAttributes());
         $this->assertSame('1',  $element->getAttributes()->attr1);
@@ -32,7 +32,7 @@ class HasAttributesTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('2',  $element->getAttributes()->attr2);
         $this->assertSame('2',  $element->getAttribute('attr2'));
 
-        $element->attributes(new Std(['attr11' => 11, 'attr22' => '22']));
+        $element->setAttributes(new Std(['attr11' => 11, 'attr22' => '22']));
 
         $this->assertCount(2, $element->getAttributes());
         $this->assertSame('11',    $element->getAttributes()->attr11);

@@ -22,6 +22,15 @@ trait HasValueWithValueObjectTrait
     }
 
     /**
+     * @codeCoverageIgnore
+     * @return string
+     */
+    public static function getValueObjectClass(): string
+    {
+        return SimpleValueObject::class;
+    }
+
+    /**
      * @param mixed $value
      * @return $this
      * @throws \Runn\ValueObjects\Exception
@@ -37,15 +46,6 @@ trait HasValueWithValueObjectTrait
         }
         $this->traitSetValue($value);
         return $this;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     * @return string
-     */
-    public static function getValueObjectClass(): string
-    {
-        return SimpleValueObject::class;
     }
 
     /**

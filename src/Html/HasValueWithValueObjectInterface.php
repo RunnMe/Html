@@ -13,7 +13,6 @@ interface HasValueWithValueObjectInterface
 {
 
     /**
-     * @codeCoverageIgnore
      * @return string
      */
     public static function getValueObjectClass(): string;

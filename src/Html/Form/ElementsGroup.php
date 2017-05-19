@@ -83,11 +83,11 @@ abstract class ElementsGroup
             }
 
             if (($new instanceof HasOptionsInterface) && isset($element['options'])) {
-                $new->options($element['options']);
+                $new->setOptions($element['options']);
             }
 
             if (($new instanceof Field) && isset($element['attributes'])) {
-                $new->attributes($element['attributes']);
+                $new->setAttributes($element['attributes']);
                 $new->setAttribute('name', $element['name'] ?? $key);
             }
 

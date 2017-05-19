@@ -3,7 +3,7 @@
 namespace Runn\Html;
 
 /**
- * Common interface for all elements that have html attributes (forms, form inputs)
+ * Common interface for all elements that have html attributes (forms, form inputs, another html tags)
  *
  * Interface HasAttributesInterface
  * @package Runn\Html
@@ -22,13 +22,13 @@ interface HasAttributesInterface
      * @param string $key
      * @return string|null
      */
-    public function getAttribute($key);
+    public function getAttribute(string $key)/*: ?string*/;
 
     /**
      * @param iterable|null $attributes
      * @return $this
      */
-    public function attributes(/*iterable */$attributes = null);
+    public function setAttributes(/*iterable */$attributes = null);
 
     /**
      * @return \Runn\Core\Std

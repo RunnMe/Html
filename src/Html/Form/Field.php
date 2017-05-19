@@ -29,8 +29,8 @@ abstract class Field
      */
     public function __construct(string $name = null, $value = null, /*iterable */$attributes = null, /*iterable */$options = null)
     {
-        $this->attributes($attributes);
-        $this->options($options);
+        $this->setAttributes($attributes);
+        $this->setOptions($options);
         if (null !== $name) {
             $this->setName($name);
         }
