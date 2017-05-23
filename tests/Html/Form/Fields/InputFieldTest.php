@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\Form\Fields\InputField;
 
+use Runn\Fs\File;
 use Runn\Html\Form\Fields\InputField;
 use Runn\Html\RenderableInterface;
 
@@ -48,7 +49,7 @@ class InputFieldTest extends \PHPUnit_Framework_TestCase
         file_put_contents($filename, 'Render: <?php echo $this->getName(); ?>=<?php echo $this->getValue(); ?>');
 
         $field = new InputField('foo', 42);
-        $this->assertSame('Render: foo=42', $field->render($filename));
+        $this->assertSame('Render: foo=42', $field->render(new File($filename)));
 
         unlink($filename);
     }

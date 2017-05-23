@@ -2,6 +2,8 @@
 
 namespace Runn\Html;
 
+use Runn\Html\Renderers\NativeRenderer;
+
 /**
  * RendererAwareInterface simplest implementation
  *
@@ -27,11 +29,11 @@ trait RendererAwareTrait
     }
 
     /**
-     * @return \Runn\Html\RendererInterface|null
+     * @return \Runn\Html\RendererInterface
      */
-    public function getRenderer(): /*?*/RendererInterface
+    public function getRenderer(): RendererInterface
     {
-        return $this->renderer;
+        return $this->renderer ?? new NativeRenderer();
     }
 
 }

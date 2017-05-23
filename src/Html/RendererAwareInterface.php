@@ -16,8 +16,8 @@ interface RendererAwareInterface
     public function setRenderer(/*?*/RendererInterface $renderer);
 
     /**
-     * @return \Runn\Html\RendererInterface|null
+     * @return \Runn\Html\RendererInterface
      */
-    public function getRenderer(): /*?*/RendererInterface;
+    public function getRenderer(): RendererInterface;
 
 }

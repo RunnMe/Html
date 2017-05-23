@@ -3,6 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\SelectField;
 
 use Runn\Core\Std;
+use Runn\Fs\File;
 use Runn\Html\Form\Fields\SelectField;
 use Runn\Html\RenderableInterface;
 
@@ -43,7 +44,7 @@ class SelectFieldTest extends \PHPUnit_Framework_TestCase
         file_put_contents($filename, 'Render: <?php echo $this->getName(); ?>=<?php echo $this->getValue(); ?>');
 
         $field = new SelectField('foo', 42);
-        $this->assertSame('Render: foo=42', $field->render($filename));
+        $this->assertSame('Render: foo=42', $field->render(new File($filename)));
 
         unlink($filename);
     }

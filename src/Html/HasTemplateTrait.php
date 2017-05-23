@@ -32,7 +32,7 @@ trait HasTemplateTrait
     /**
      * @return \Runn\Storages\SingleValueStorageInterface|null
      */
-    public function getTemplate(): /*?*/SingleValueStorageInterface
+    public function getTemplate()/*: ?SingleValueStorageInterface*/
     {
         return $this->template;
     }

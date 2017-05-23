@@ -22,6 +22,6 @@ interface HasTemplateInterface
     /**
      * @return \Runn\Storages\SingleValueStorageInterface|null
      */
-    public function getTemplate(): /*?*/SingleValueStorageInterface;
+    public function getTemplate()/*: ?SingleValueStorageInterface*/;
 
 }

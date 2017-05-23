@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\Form\ElementsGroup;
 
+use Runn\Fs\File;
 use Runn\Html\Form\ElementsGroup;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
@@ -16,12 +17,12 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
 
     public function testGetTemplatePath()
     {
-        $method = new \ReflectionMethod(testElementsGroup::class, 'getTemplatePath');
+        $method = new \ReflectionMethod(testElementsGroup::class, 'getTemplate');
         $method->setAccessible(true);
 
         $elements = new testElementsGroup();
 
-        $this->assertSame(__DIR__ . '/ElementsGroupTest.template.html', $method->invoke($elements));
+        $this->assertEquals(new File(__DIR__ . '/ElementsGroupTest.template.html'), $method->invoke($elements));
     }
 
     /**
