@@ -2,3 +2,4 @@
 ===================
 * Первая релизная версия. Перенос кода из проекта Running.FM
 * Добавлены RendererInterface и класс NativeRenderer
+* Добавлены интерфейс RendererAwareInterface и его эталонная реализация RendererAwareTrait
