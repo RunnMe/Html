@@ -23,23 +23,37 @@ class NativeRenderer
      */
     public function render(/*iterable */$data, SingleValueStorageInterface $template): string
     {
-        foreach ($data as $key => $val) {
-            $$key = $val;
+        $rendering = function ($data) use ($template) {
+
+            foreach ($data as $key => $val) {
+                $$key = $val;
+            }
+
+            ob_start();
+
+            if (($template instanceof File) && $template->isReadable()) {
+                @include $template->getPath();
+            } else {
+                $template->load();
+                eval("?>" . $template->get() . "<?php ");
+            }
+
+            $contents = ob_get_contents();
+            ob_end_clean();
+
+            return $contents;
+
+        };
+
+        if (isset($data['this'])) {
+            if (is_object($data['this'])) {
+                $rendering = $rendering->bindTo($data['this']);
+            }
+            unset($data['this']);
         }
 
-        ob_start();
+        return $rendering($data);
 
-        if (($template instanceof File) && $template->isReadable()) {
-            @include $template->getPath();
-        } else {
-            $template->load();
-            eval("?>" . $template->get() . "<?php ");
-        }
-
-        $contents = ob_get_contents();
-        ob_end_clean();
-
-        return $contents;
     }
 
 }
