@@ -3,3 +3,4 @@
 * First released version. Code is transfered from Running.FM project
 * RendererInterface and NativeRenderer class are added
 * RendererAwareInterface and RendererAwareTrait are added
+* HasTemplateInterface and HasTemplateTrait are added
