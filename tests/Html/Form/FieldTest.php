@@ -5,8 +5,7 @@ namespace Runn\tests\Html\Form\Field;
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
 use Runn\Html\RenderableInterface;
-use Runn\ValueObjects\IntValue;
-use Runn\ValueObjects\StringValue;
+use Runn\Storages\SingleValueStorageInterface;
 
 class FieldTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +13,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testEmptyConstruct()
     {
         $field = new class extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return 'Rendered!';
             }
         };
@@ -36,7 +35,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testConstructAndName()
     {
         $field = new class('foo') extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return 'Rendered!';
             }
         };
@@ -61,7 +60,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testConstructAndAttributes()
     {
         $field = new class(null, null, ['bar' => 'baz', 'bla' => 42], []) extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return 'Rendered!';
             }
         };
@@ -76,7 +75,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testConstructAndOptions()
     {
         $field = new class('foo', null, [], ['bar' => 'baz', 'bla' => 42]) extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return 'Rendered!';
             }
         };
@@ -91,7 +90,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testName()
     {
         $field = new class('foo', null, ['bar' => 'baz', 'bla' => 42], []) extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return 'Rendered!';
             }
         };
@@ -115,7 +114,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testValue()
     {
         $field = new class('foo', 'somevalue') extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return 'Rendered!';
             }
         };
@@ -135,7 +134,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     public function testEscape()
     {
         $field = new class extends Field {
-            public function render(string $template = null): string {
+            public function render(SingleValueStorageInterface $template = null): string {
                 return $this->escape($this->getValue());
             }
         };
