@@ -3,6 +3,8 @@
 namespace Runn\Html;
 
 /**
+ * Basic trait for renderable objects (inputs, groups, forms etc)
+ *
  * Trait RenderableTrait
  * @package Runn\Html
  *

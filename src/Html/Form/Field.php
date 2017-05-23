@@ -6,6 +6,8 @@ use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasAttributesTrait;
 
 /**
+ * Abstract form field class
+ *
  * Class Field
  * @package Runn\Html\Form
  */
