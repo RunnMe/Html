@@ -31,11 +31,13 @@ trait ElementTrait
     use HasTitleTrait;
     use HasValueTrait;
     use HasOptionsTrait;
-    use BelongsToFormTrait;
-    use RenderableTrait;
 
-    /** @var \Runn\Html\Form\ElementInterface|null  */
-    protected $parent = null;
+    use ElementHasParentTrait {
+        setParent as traitSetParent;
+    }
+    use BelongsToFormTrait;
+
+    use RenderableTrait;
 
     /**
      * @return string|null
@@ -56,35 +58,12 @@ trait ElementTrait
      */
     public function setParent(ElementInterface $parent)
     {
-        $this->parent = $parent;
         if ($parent instanceof Form) {
             $this->setForm($parent);
         } elseif ($parent->belongsToForm()) {
             $this->setForm($parent->getForm());
         }
-        return $this;
-    }
-
-    /**
-     * @return \Runn\Html\Form\ElementInterface|null
-     */
-    public function getParent()/*: ?ElementInterface*/
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @return \Runn\Html\Form\ElementsCollection|\Runn\Html\Form\ElementInterface[]
-     */
-    public function getParents(): ElementsCollection
-    {
-        $parents = new ElementsCollection;
-        $element = $this;
-        while (null !== ($parent = $element->getParent())) {
-            $parents->prepend($parent);
-            $element = $parent;
-        }
-        return $parents;
+        return $this->traitSetParent($parent);
     }
 
 }

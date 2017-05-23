@@ -13,31 +13,18 @@ use Runn\Html\RenderableInterface;
  * Common interface for all form elements: inputs, groups, collections
  *
  * Interface ElementInterface
- * @package Runn\Html
+ * @package Runn\Html\Form
  */
 interface ElementInterface
-    extends HasNameInterface, HasTitleInterface, HasValueInterface, HasOptionsInterface, BelongsToFormInterface, RenderableInterface
+    extends
+    HasNameInterface, HasTitleInterface, HasValueInterface, HasOptionsInterface,
+    ElementHasParentInterface, BelongsToFormInterface,
+    RenderableInterface
 {
 
     /**
      * @return string|null
      */
     public function getNameHash()/*: ?string*/;
-
-    /**
-     * @param \Runn\Html\Form\ElementInterface $parent
-     * @return $this
-     */
-    public function setParent(ElementInterface $parent);
-
-    /**
-     * @return \Runn\Html\Form\ElementInterface|null
-     */
-    public function getParent()/*: ?ElementInterface*/;
-
-    /**
-     * @return \Runn\Html\Form\ElementsCollection|\Runn\Html\Form\ElementInterface[]
-     */
-    public function getParents(): ElementsCollection;
 
 }

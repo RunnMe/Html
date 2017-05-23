@@ -4,3 +4,4 @@
 * Добавлены RendererInterface и класс NativeRenderer
 * Добавлены интерфейс RendererAwareInterface и его эталонная реализация RendererAwareTrait
 * Добавлены интерфейс HasTemplateInterface и его эталонная реализация HasTemplateTrait
+* Добавлены интерфейс ElementHasParentInterface и его эталонная реализация ElementHasParentTrait

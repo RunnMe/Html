@@ -13,33 +13,6 @@ use Runn\Html\Form\ElementTrait;
 class ElementTraitTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testSetGetParent()
-    {
-        $element = new class implements ElementInterface {
-            use ElementTrait;
-        };
-
-        $el = new class extends ElementsGroup {};
-
-        $res = $element->setParent($el);
-        $this->assertSame($element, $res);
-        $this->assertSame($el, $element->getParent());
-    }
-
-    public function testGetParents()
-    {
-        $grand = new class extends ElementsGroup {};
-        $this->assertEquals(new ElementsCollection([]), $grand->getParents());
-
-        $parent = new class extends ElementsSet {};
-        $parent->setParent($grand);
-        $this->assertEquals(new ElementsCollection([$grand]), $parent->getParents());
-
-        $element = new InputField;
-        $element->setParent($parent);
-        $this->assertEquals(new ElementsCollection([$grand, $parent]), $element->getParents());
-    }
-
     public function testGetForm()
     {
         $form = new Form;
