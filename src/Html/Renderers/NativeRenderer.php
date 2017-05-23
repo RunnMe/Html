@@ -47,7 +47,7 @@ class NativeRenderer
 
         if (isset($data['this'])) {
             if (is_object($data['this'])) {
-                $rendering = $rendering->bindTo($data['this']);
+                $rendering = $rendering->bindTo($data['this'], get_class($data['this']));
             }
             unset($data['this']);
         }

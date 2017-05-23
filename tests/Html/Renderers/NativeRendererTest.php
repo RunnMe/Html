@@ -20,7 +20,7 @@ class testStorage implements SingleValueStorageInterface
 class testStorageWithThis extends testStorage
 {
     public function get() {
-        return 'Foo by storage: <?php echo $this->foo; ?>; Baz by storage: <?php echo $this->baz; ?>';
+        return 'Foo by this: <?php echo $this->foo; ?>; Baz by this: <?php echo $this->baz; ?>';
     }
 }
 
@@ -45,10 +45,12 @@ class NativeRendererTest extends \PHPUnit_Framework_TestCase
 
     public function testRenderWithThis()
     {
-        $obj = new Std(['foo' => 'bar', 'baz' => 42]);
+        $obj = new class {
+            protected $foo = 'bar';
+            public $baz = 42;
+        };
         $template = new testStorageWithThis();
-
-        $this->assertSame("Foo by storage: bar; Baz by storage: 42", (new NativeRenderer)->render(['this' => $obj], $template));
+        $this->assertSame("Foo by this: bar; Baz by this: 42", (new NativeRenderer)->render(['this' => $obj], $template));
     }
 
 }
