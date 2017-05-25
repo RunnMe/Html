@@ -40,19 +40,6 @@ trait ElementTrait
     use RenderableTrait;
 
     /**
-     * @return string|null
-     */
-    public function getNameHash()/*: ?string*/
-    {
-        $name = $this->getName();
-        if (null === $name) {
-            return null;
-        }
-
-        return sha1(implode('+', $this->getParents()->collect(function ($x) {return $x->getName();})) . '+' . $name);
-    }
-
-    /**
      * @param \Runn\Html\Form\ElementInterface $parent
      * @return $this
      */
@@ -64,6 +51,16 @@ trait ElementTrait
             $this->setForm($parent->getForm());
         }
         return $this->traitSetParent($parent);
+    }
+
+    /**
+     * Full element's name includes all it's parents names
+     * @return string|null
+     */
+    public function getFullName(): /*?*/string
+    {
+        // @todo: remove "??" at 7.1
+        return $this->getName() ?? '';
     }
 
 }

@@ -62,33 +62,14 @@ class ElementTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new ElementsCollection([$form]), $element->getParents());
     }
 
-    public function testGetNameHashParents()
+    public function testGetFullName()
     {
-        $first = new class extends ElementsGroup {};
+        $el = new class implements ElementInterface { use \Runn\Html\Form\ElementTrait; };
+        // @todo: assertNull() in 7.1
+        $this->assertEmpty($el->getFullName());
 
-        $this->assertNull($first->getNameHash());
-
-        $first->setName('first');
-
-        $parent = new class extends ElementsSet {protected static $elementsType = InputField::class;};
-        $parent->setName('set');
-        $first->element = $parent;
-
-        $element = new InputField('foo');
-        $parent[] = $element;
-
-        $this->assertSame(sha1('first+set+foo'), $element->getNameHash());
-    }
-
-    public function testGetNameHashNullParentName()
-    {
-        $parent = new class implements ElementInterface {
-            use ElementTrait;
-        };
-        $element = new InputField('foo');
-        $element->setParent($parent);
-
-        $this->assertSame(sha1('+foo'), $element->getNameHash());
+        $el->setName('foo');
+        $this->assertSame('foo', $el->getFullName());
     }
 
 }

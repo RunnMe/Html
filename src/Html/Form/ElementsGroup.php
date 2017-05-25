@@ -132,23 +132,6 @@ abstract class ElementsGroup
     }
 
     /**
-     * @param iterable $request
-     */
-    public function setValueFromRequest(/*iterable */$request = [])
-    {
-        foreach ($this as $key => $el) {
-            if ($el instanceof Field) {
-                $hash = $el->getNameHash();
-                if (isset($request[$hash])) {
-                    $el->setValue($request[$hash]);
-                }
-            } elseif ($el instanceof ElementsGroup) {
-                $el->setValueFromRequest($request);
-            }
-        }
-    }
-
-    /**
      * @return array
      */
     public function getValue()

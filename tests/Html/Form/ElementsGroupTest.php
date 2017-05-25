@@ -78,38 +78,6 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(['el1' => 'value1', 'el2' => 'value2'], $group->getValue());
     }
 
-    public function testSetValueFromRequestSimple()
-    {
-        $el1 = new TextField('foo');
-        $el2 = new PasswordField('bar');
-        $group = new testElementsGroup(['el1' => $el1, 'el2' => $el2]);
-
-        $names = [$el1->getNameHash(), $el2->getNameHash()];
-
-        $group->setValueFromRequest(array_combine($names, ['baz', 42]));
-
-        $this->assertSame('baz', $el1->getValue());
-        $this->assertSame(42,    $el2->getValue());
-    }
-
-    public function testSetValueFromRequestDelegation()
-    {
-        $el1 = new TextField('foo');
-        $el2 = new PasswordField('bar');
-        $group1 = new testElementsGroup(['el1' => $el1, 'el2' => $el2]);
-
-        $el3 = new NumberField('baz');
-        $group = new testElementsGroup(['inner' => $group1, 'el' => $el3]);
-
-        $names = [$el1->getNameHash(), $el2->getNameHash(), $el3->getNameHash()];
-
-        $group->setValueFromRequest(array_combine($names, ['bla', 'password', 42]));
-
-        $this->assertSame('bla',      $el1->getValue());
-        $this->assertSame('password', $el2->getValue());
-        $this->assertSame(42,         $el3->getValue());
-    }
-
     public function testRender()
     {
         $elements = new testElementsGroup();
