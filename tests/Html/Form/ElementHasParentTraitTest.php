@@ -2,8 +2,6 @@
 
 namespace Runn\tests\Html\Form\HasParentTrait;
 
-use Runn\Core\Collection;
-use Runn\Core\Std;
 use Runn\Html\Form\ElementHasParentInterface;
 use Runn\Html\Form\ElementInterface;
 use Runn\Html\Form\ElementsCollection;
@@ -18,6 +16,7 @@ class HasParentTraitTest extends \PHPUnit_Framework_TestCase
             use \Runn\Html\Form\ElementHasParentTrait;
         };
 
+        $this->assertFalse($element->hasParent());
         $this->assertNull($element->getParent());
         $this->assertEquals(new ElementsCollection(), $element->getParents());
         $this->assertTrue($element->getParents()->empty());
@@ -28,6 +27,7 @@ class HasParentTraitTest extends \PHPUnit_Framework_TestCase
 
         $res = $element->setParent($parent);
         $this->assertSame($element, $res);
+        $this->assertTrue($element->hasParent());
         $this->assertSame($parent, $element->getParent());
         $this->assertEquals(new ElementsCollection([$parent]), $element->getParents());
     }
