@@ -26,6 +26,6 @@ interface ElementInterface
      * Full element's name includes all it's parents names
      * @return string|null
      */
-    public function getFullName(): /*?*/string;
+    public function getFullName()/*: ?string*/;
 
 }

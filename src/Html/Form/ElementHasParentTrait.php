@@ -35,6 +35,14 @@ trait ElementHasParentTrait
     }
 
     /**
+     * @return bool
+     */
+    public function hasParent(): bool
+    {
+        return null !== $this->parent;
+    }
+
+    /**
      * @return \Runn\Html\Form\ElementsCollection|\Runn\Html\Form\ElementInterface[]
      */
     public function getParents(): ElementsCollection

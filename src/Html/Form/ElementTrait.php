@@ -2,6 +2,7 @@
 
 namespace Runn\Html\Form;
 
+use Runn\Core\Collection;
 use Runn\Html\BelongsToFormTrait;
 use Runn\Html\Form;
 use Runn\Html\HasNameTrait;
@@ -57,10 +58,41 @@ trait ElementTrait
      * Full element's name includes all it's parents names
      * @return string|null
      */
-    public function getFullName(): /*?*/string
+    public function getFullName()/*: ?string*/
     {
-        // @todo: remove "??" at 7.1
-        return $this->getName() ?? '';
-    }
+        if (null === $this->getName()) {
+            return null;
+        }
 
+        $parents = $this->getParents();
+
+        if ($parents->empty()) {
+            return $this->getName();
+        }
+
+        $chain = $parents->append($this);
+        $sliced = new Collection();
+        foreach ($chain->reverse() as $el) {
+            if (null === $el->getName()) {
+                break;
+            }
+            $sliced->prepend($el);
+        }
+        if (1 === count($sliced)) {
+            return $this->getName();
+        }
+
+        $names = [];
+        $first = $sliced->first();
+        foreach ($sliced as $el) {
+            if ($el === $first) {
+                $names[] = $el->getName();
+            } else {
+                $names[] = $el->getParent()->searchSame($el);
+            }
+        }
+
+        return $names[0] . '[' . implode('][', array_slice($names, 1)) . ']';
+
+    }
 }

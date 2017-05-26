@@ -23,6 +23,11 @@ interface ElementHasParentInterface
     public function getParent()/*: ?ElementInterface*/;
 
     /**
+     * @return bool
+     */
+    public function hasParent(): bool;
+
+    /**
      * @return \Runn\Html\Form\ElementsCollection|\Runn\Html\Form\ElementInterface[]
      */
     public function getParents(): ElementsCollection;
