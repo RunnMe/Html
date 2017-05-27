@@ -2,34 +2,40 @@
 
 namespace Runn\Html\Form;
 
-use Runn\Core\ObjectAsArrayInterface;
-use Runn\Core\ObjectAsArrayTrait;
+use Runn\Core\TypedCollection;
 use Runn\Html\HasValueInterface;
 
 /**
  * Set of elements with same class
- * It is not collection! Classes must be a same, not inherited!
+ * Strict typed collection
  *
  * Class ElementsSet
  * @package Runn\Html\Form
  */
 abstract class ElementsSet
-    implements ObjectAsArrayInterface, ElementInterface
+    extends TypedCollection
+    implements ElementInterface
 {
-
-    protected static $elementsType = ElementInterface::class;
-    protected static $elementsName = null;
 
     /**
      * @return string
+     * @codeCoverageIgnore
      */
-    public static function getElementsType()
+    public static function getType()
     {
-        return static::$elementsType;
+        return ElementInterface::class;
     }
 
-    use ObjectAsArrayTrait {
-        innerSet as protected traitInnerSet;
+    protected function checkValueType($value)
+    {
+        $class = static::getType();
+        if (!(is_subclass_of($class, ElementInterface::class))) {
+            throw new Exception('Invalid ElementsSet base class "' . $class.'"');
+        }
+        // turn on strict type check!
+        if (!$this->isValueTypeValid($value, true)) {
+            throw new Exception('Elements set type mismatch');
+        }
     }
 
     use ElementTrait;
@@ -39,21 +45,12 @@ abstract class ElementsSet
      * @param $val
      * @throws \Runn\Html\Form\Exception
      */
-    protected function innerSet($key, $val)
+    public function innerSet($key, $val)
     {
         if (!(null === $key || is_numeric($key))) {
             throw new Exception('Invalid ElementsSet (' . static::class . ') key: "' . $key . '"');
         }
-
-        $class = static::getElementsType();
-        if (!(is_subclass_of($class, ElementInterface::class))) {
-            throw new Exception('Invalid ElementsSet base class "' . $class.'"');
-        }
-        if (!(is_object($val) && get_class($val) == $class)) {
-            throw new Exception('Invalid class for element "' . $key  .'"');
-        }
-
-        $this->traitInnerSet($key, $val);
+        parent::innerSet($key, $val);
         $val->setParent($this);
     }
 
@@ -63,8 +60,7 @@ abstract class ElementsSet
     public function getValue()
     {
         $values = [];
-        foreach ($this as $key => $el)
-        {
+        foreach ($this as $key => $el) {
             if ($el instanceof HasValueInterface) {
                 $values[$key] = $el->getValue();
             }

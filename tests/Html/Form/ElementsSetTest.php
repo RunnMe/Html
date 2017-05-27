@@ -10,31 +10,25 @@ use Runn\Html\RenderableInterface;
 class ExtendedTextField extends TextField {}
 
 class testElementsSet extends ElementsSet {
-    protected static $elementsType = TextField::class;
+    public static function getType() {
+        return TextField::class;
+    }
 }
 
 class testElementsSetInvalidBaseClass extends ElementsSet {
-    protected static $elementsType = \stdClass::class;
+    public static function getType() {
+        return \stdClass::class;
+    }
 }
 
 class testElementsSetFixedName extends ElementsSet {
-    protected static $elementsType = TextField::class;
-    protected static $elementsName = 'fixed';
+    public static function getType() {
+        return TextField::class;
+    }
 }
 
 class ElementsSetTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function testGetType()
-    {
-        $prop = new \ReflectionProperty(testElementsSet::class, 'elementsType');
-        $prop->setAccessible(true);
-
-        $set = new testElementsSet;
-
-        $this->assertSame($prop->getValue(), $set->getElementsType());
-        $this->assertSame($prop->getValue(), testElementsSet::getElementsType());
-    }
 
     /**
      * @expectedException \Runn\Html\Form\Exception
@@ -48,7 +42,7 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid class for element "1"
+     * @expectedExceptionMessage Elements set type mismatch
      */
     public function testInvalidElementClass1()
     {
@@ -58,7 +52,7 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid class for element "1"
+     * @expectedExceptionMessage Elements set type mismatch
      */
     public function testInvalidElementClass2()
     {
@@ -68,7 +62,7 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid class for element "1"
+     * @expectedExceptionMessage Elements set type mismatch
      */
     public function testInvalidElementClass3()
     {

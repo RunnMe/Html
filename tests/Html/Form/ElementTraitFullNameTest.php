@@ -54,11 +54,12 @@ class ElementTraitFullNameTest extends \PHPUnit_Framework_TestCase
 
     public function testElementHasParentSet()
     {
-        $element = new TextField;
         $set = new class extends ElementsSet {
-            protected static $elementsType = TextField::class;
+            public static function getType() {
+                return TextField::class;
+            }
         };
-
+        $element = new TextField;
         $set[1] = $element;
 
         $this->assertSame($set, $element->getParent());
@@ -83,7 +84,7 @@ class ElementTraitFullNameTest extends \PHPUnit_Framework_TestCase
         $innerGroup = new testGroup;
         $innerGroup->element = $element;
 
-        $set = new class extends ElementsSet { protected static $elementsType = testGroup::class; };
+        $set = new class extends ElementsSet { public static function getType() {return testGroup::class;} };
         $set[1] = $innerGroup;
 
         $outerGroup = new class extends ElementsGroup {};
