@@ -58,22 +58,6 @@ abstract class ElementsSet
     }
 
     /**
-     * @param int $count
-     * @param array ...$args
-     */
-    public function add($count = 1, ...$args)
-    {
-        for($i = 1; $i<=$count; $i++) {
-            $class = static::getElementsType();
-            $element = new $class(...$args);
-            if (!empty(static::$elementsName)) {
-                $element->setName(static::$elementsName);
-            }
-            $this[] = $element;
-        }
-    }
-
-    /**
      * @return array
      */
     public function getValue()

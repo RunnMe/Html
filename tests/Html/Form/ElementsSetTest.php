@@ -98,48 +98,14 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($set, $field->getParent());
     }
 
-    public function testAdd()
-    {
-        $set = new testElementsSet;
-
-        $this->assertCount(0, $set);
-
-        $set->add();
-
-        $this->assertCount(1, $set);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[0]);
-        $this->assertSame($set, $set[0]->getParent());
-
-        $set->add(2);
-
-        $this->assertCount(3, $set);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[0]);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[1]);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[2]);
-
-        $set->add(1, 'foo');
-
-        $this->assertCount(4, $set);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[0]);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[1]);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[2]);
-        $this->assertInstanceOf(testElementsSet::getElementsType(), $set[3]);
-        $this->assertSame('foo', $set[3]->getName());
-
-        $set = new testElementsSetFixedName;
-        $set->add(1, 'foo');
-
-        $this->assertSame('fixed', $set[0]->getName());
-    }
-
     public function testHasValueInterface()
     {
         $set = new testElementsSet;
         $this->assertInstanceOf(HasValueInterface::class, $set);
         $this->assertSame([], $set->getValue());
 
-        $set->add(1, 'foo', 'value1');
-        $set->add(1, 'bar', 'value2');
+        $set[] = new TextField('foo', 'value1');
+        $set[] = new TextField('bar', 'value2');
 
         $this->assertSame([0 => 'value1', 1 => 'value2'], $set->getValue());
     }
@@ -147,11 +113,11 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
     public function testRender()
     {
         $set = new testElementsSetFixedName();
-        $set->add(1, null, 42);
-        $set->add(1, null, 24);
+        $set[] = new TextField('foo', 42);
+        $set[] = new TextField('bar', 24);
 
         $this->assertInstanceOf(RenderableInterface::class, $set);
-        $this->assertSame("Test template|fixed=42||fixed=24|", $set->render());
+        $this->assertSame("Test template|foo=42||bar=24|", $set->render());
     }
 
 }
