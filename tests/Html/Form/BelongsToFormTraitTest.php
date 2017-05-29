@@ -1,9 +1,9 @@
 <?php
 
-namespace Runn\tests\Html\BelongsToFormTrait;
+namespace Runn\tests\Html\Form\BelongsToFormTrait;
 
-use Runn\Html\BelongsToFormInterface;
-use Runn\Html\BelongsToFormTrait;
+use Runn\Html\Form\BelongsToFormInterface;
+use Runn\Html\Form\BelongsToFormTrait;
 use Runn\Html\Form\Form;
 
 class BelongsToFormTraitTest extends \PHPUnit_Framework_TestCase

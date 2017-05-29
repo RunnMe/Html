@@ -1,16 +1,14 @@
 <?php
 
-namespace Runn\Html;
-
-use Runn\Html\Form\Form;
+namespace Runn\Html\Form;
 
 /**
  * Trait for elements that belong to some form
  *
  * Trait BelongsToFormTrait
- * @package Runn\Html
+ * @package Runn\Html\Form
  *
- * @implements \Runn\Html\BelongsToFormInterface
+ * @implements \Runn\Html\Form\BelongsToFormInterface
  */
 trait BelongsToFormTrait
     /*implements BelongsToFormInterface*/

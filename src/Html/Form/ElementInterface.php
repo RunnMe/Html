@@ -2,7 +2,6 @@
 
 namespace Runn\Html\Form;
 
-use Runn\Html\BelongsToFormInterface;
 use Runn\Html\HasNameInterface;
 use Runn\Html\HasOptionsInterface;
 use Runn\Html\HasTitleInterface;

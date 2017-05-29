@@ -1,14 +1,12 @@
 <?php
 
-namespace Runn\Html;
-
-use Runn\Html\Form\Form;
+namespace Runn\Html\Form;
 
 /**
  * Common interface for all elements that belong to some form
  *
  * Interface BelongsToFormInterface
- * @package Runn\Html
+ * @package Runn\Html\Form
  */
 interface BelongsToFormInterface
 {
