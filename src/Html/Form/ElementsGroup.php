@@ -129,4 +129,21 @@ abstract class ElementsGroup
         return $values;
     }
 
+    /**
+     * @param iterable $value
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        // @todo: is_iterable()
+        if ( is_array($value) || $value instanceof \Traversable ) {
+                foreach ($value as $key => $val) {
+                    if (isset($this->$key) && ($this->$key instanceof HasValueInterface)) {
+                        $this->$key->setValue($val);
+                    }
+                }
+        }
+        return $this;
+    }
+
 }
