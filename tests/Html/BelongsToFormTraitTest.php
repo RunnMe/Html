@@ -4,7 +4,7 @@ namespace Runn\tests\Html\BelongsToFormTrait;
 
 use Runn\Html\BelongsToFormInterface;
 use Runn\Html\BelongsToFormTrait;
-use Runn\Html\Form;
+use Runn\Html\Form\Form;
 
 class BelongsToFormTraitTest extends \PHPUnit_Framework_TestCase
 {

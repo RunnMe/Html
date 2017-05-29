@@ -4,7 +4,6 @@ namespace Runn\Html\Form;
 
 use Runn\Core\Collection;
 use Runn\Html\BelongsToFormTrait;
-use Runn\Html\Form;
 use Runn\Html\HasNameTrait;
 use Runn\Html\HasOptionsTrait;
 use Runn\Html\HasTitleTrait;

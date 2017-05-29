@@ -2,6 +2,8 @@
 
 namespace Runn\Html;
 
+use Runn\Html\Form\Form;
+
 /**
  * Trait for elements that belong to some form
  *
@@ -14,7 +16,7 @@ trait BelongsToFormTrait
     /*implements BelongsToFormInterface*/
 {
 
-    /** @var \Runn\Html\Form|null  */
+    /** @var \Runn\Html\Form\Form|null  */
     protected $form = null;
 
     /**
@@ -26,7 +28,7 @@ trait BelongsToFormTrait
     }
 
     /**
-     * @param \Runn\Html\Form $form
+     * @param \Runn\Html\Form\Form $form
      * @return $this
      */
     public function setForm(Form $form)
@@ -36,7 +38,7 @@ trait BelongsToFormTrait
     }
 
     /**
-     * @return \Runn\Html\Form|null
+     * @return \Runn\Html\Form\Form|null
      */
     public function getForm()/*: ?Form*/
     {

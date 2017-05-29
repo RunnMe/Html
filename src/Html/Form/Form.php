@@ -1,15 +1,15 @@
 <?php
 
-namespace Runn\Html;
+namespace Runn\Html\Form;
 
-use Runn\Html\Form\ElementInterface;
-use Runn\Html\Form\ElementsGroup;
+use Runn\Html\HasAttributesInterface;
+use Runn\Html\HasAttributesTrait;
 
 /**
  * HTML <form>
  *
  * Class Form
- * @package Runn\Html
+ * @package Runn\Html\Form
  */
 class Form
     extends ElementsGroup

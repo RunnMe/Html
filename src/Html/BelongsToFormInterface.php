@@ -2,6 +2,8 @@
 
 namespace Runn\Html;
 
+use Runn\Html\Form\Form;
+
 /**
  * Common interface for all elements that belong to some form
  *
@@ -17,13 +19,13 @@ interface BelongsToFormInterface
     public function belongsToForm(): bool;
 
     /**
-     * @param \Runn\Html\Form $form
+     * @param \Runn\Html\Form\Form $form
      * @return $this
      */
     public function setForm(Form $form);
 
     /**
-     * @return \Runn\Html\Form|null
+     * @return \Runn\Html\Form\Form|null
      */
     public function getForm()/*: ?Form*/;
 

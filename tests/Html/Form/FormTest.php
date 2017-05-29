@@ -1,8 +1,8 @@
 <?php
 
-namespace Runn\tests\Html\Form;
+namespace Runn\tests\Html\Form\Form;
 
-use Runn\Html\Form;
+use Runn\Html\Form\Form;
 use Runn\Html\Form\ElementsGroup;
 
 class FormTest extends \PHPUnit_Framework_TestCase

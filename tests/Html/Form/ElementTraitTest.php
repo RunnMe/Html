@@ -2,7 +2,7 @@
 
 namespace Runn\tests\Html\Form\ElementTrait;
 
-use Runn\Html\Form;
+use Runn\Html\Form\Form;
 use Runn\Html\Form\ElementsCollection;
 use Runn\Html\Form\ElementsGroup;
 use Runn\Html\Form\ElementsSet;
