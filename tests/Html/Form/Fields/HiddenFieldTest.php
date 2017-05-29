@@ -1,6 +1,6 @@
 <?php
 
-namespace Runn\tests\Html\Form\Fields\TextField;
+namespace Runn\tests\Html\Form\Fields\HiddenField;
 
 use Runn\Html\Form\Fields\HiddenField;
 use Runn\Html\RenderableInterface;
