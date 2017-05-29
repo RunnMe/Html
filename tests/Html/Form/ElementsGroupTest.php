@@ -125,4 +125,26 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($elements->getForm());
     }
 
+    public function testSetValue()
+    {
+        $group = new testElementsGroup();
+
+        $group->setValue([]);
+        $this->assertEmpty($group->getValue());
+
+        $group->setValue(['foo' => 'bar']);
+        $this->assertEmpty($group->getValue());
+
+        $element1 = new TextField();
+        $group->foo = $element1;
+
+        $group->setValue([]);
+        $this->assertSame(['foo' => null], $group->getValue());
+
+        $group->setValue(['foo' => 'bar']);
+        $this->assertSame(['foo' => 'bar'], $group->getValue());
+
+        $group->setValue(['foo' => 'baz', 'bla' => 42]);
+        $this->assertSame(['foo' => 'baz'], $group->getValue());
+    }
 }
