@@ -18,4 +18,5 @@ class ElementsCollection
     {
         return ElementInterface::class;
     }
+
 }
