@@ -3,9 +3,9 @@
 namespace Runn\Html\Form\Fields;
 
 /**
- * <input type="text"> tag
+ * <input type="hidden"> tag
  *
- * Class TextField
+ * Class HiddenField
  * @package Runn\Html\Form\Fields
  */
 class HiddenField
