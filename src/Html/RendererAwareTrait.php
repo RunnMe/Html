@@ -19,8 +19,10 @@ trait RendererAwareTrait
     protected $renderer;
 
     /**
-     * @param \Runn\Html\RendererInterface|null $renderer
+     * @param \Runn\Html\RendererInterface $renderer
      * @return $this
+     *
+     * @7.1
      */
     public function setRenderer(/*?*/RendererInterface $renderer)
     {
@@ -30,8 +32,10 @@ trait RendererAwareTrait
 
     /**
      * @return \Runn\Html\RendererInterface
+     *
+     * @7.1
      */
-    public function getRenderer(): RendererInterface
+    public function getRenderer(): /*?*/RendererInterface
     {
         return $this->renderer ?? new NativeRenderer();
     }

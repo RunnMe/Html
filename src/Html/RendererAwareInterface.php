@@ -10,14 +10,18 @@ interface RendererAwareInterface
 {
 
     /**
-     * @param \Runn\Html\RendererInterface|null $renderer
+     * @param \Runn\Html\RendererInterface $renderer
      * @return $this
+     *
+     * @7.1
      */
     public function setRenderer(/*?*/RendererInterface $renderer);
 
     /**
      * @return \Runn\Html\RendererInterface
+     *
+     * @7.1
      */
-    public function getRenderer(): RendererInterface;
+    public function getRenderer(): /*?*/RendererInterface;
 
 }

@@ -17,17 +17,17 @@ class NativeRenderer
 {
 
     /**
-     * @param iterable $data
      * @param \Runn\Storages\SingleValueStorageInterface $template
+     * @param iterable|null $data
      * @return string
      *
      * @7.1
      */
-    public function render(/*iterable */$data, SingleValueStorageInterface $template): string
+    public function render(SingleValueStorageInterface $template, /*iterable */$data = null): string
     {
         $rendering = function ($data) use ($template) {
 
-            /* @7.1 delete this because of type hint */
+            /* @7.1 change to null !== $data this because of type hint */
             if (is_array($data) || ($data instanceof \Traversable)) {
                 foreach ($data as $key => $val) {
                     $$key = $val;

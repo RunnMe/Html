@@ -60,7 +60,7 @@ trait RenderableTrait
             return '';
         }
 
-        return $this->getRenderer()->render(['this' => $this], $template);
+        return $this->getRenderer()->render($template, ['this' => $this]);
     }
 
 }

@@ -13,12 +13,12 @@ class RendererAwareTraitTest extends \PHPUnit_Framework_TestCase
     public function testTrait()
     {
         $obj = new class implements RendererAwareInterface{ use RendererAwareTrait; };
-        // @todo: uncomment in PHP 7.1
+        // @7.1
         //$this->assertNull($obj->getRenderer());
 
         $renderer = new class implements RendererInterface {
-            public function render($data, SingleValueStorageInterface $template): string
-            {
+            /** @7.1 */
+            public function render(SingleValueStorageInterface $template, /*iterable */$data = null): string {
                 return 'test';
             }
         };

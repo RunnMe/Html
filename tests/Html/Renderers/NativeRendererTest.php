@@ -39,12 +39,12 @@ class NativeRendererTest extends \PHPUnit_Framework_TestCase
         $data = ['foo' => 'bar', 'baz' => 42];
         $template = new File(__DIR__ . '/native.template.php');
 
-        $this->assertSame("Foo: bar; Baz: 42", (new NativeRenderer)->render($data, $template));
+        $this->assertSame("Foo: bar; Baz: 42", (new NativeRenderer)->render($template, $data));
 
         $data = new Std(['foo' => 'bla', 'baz' => 13]);
         $template = new File(__DIR__ . '/native.template.php');
 
-        $this->assertSame("Foo: bla; Baz: 13", (new NativeRenderer)->render($data, $template));
+        $this->assertSame("Foo: bla; Baz: 13", (new NativeRenderer)->render($template, $data));
     }
 
     public function testRenderByStorage()
@@ -52,21 +52,21 @@ class NativeRendererTest extends \PHPUnit_Framework_TestCase
         $data = ['foo' => 'bar', 'baz' => 42];
         $template = new testStorage();
 
-        $this->assertSame("Foo by storage: bar; Baz by storage: 42", (new NativeRenderer)->render($data, $template));
+        $this->assertSame("Foo by storage: bar; Baz by storage: 42", (new NativeRenderer)->render($template, $data));
 
         $data = new Std(['foo' => 'bla', 'baz' => 13]);
         $template = new testStorage();
 
-        $this->assertSame("Foo by storage: bla; Baz by storage: 13", (new NativeRenderer)->render($data, $template));
+        $this->assertSame("Foo by storage: bla; Baz by storage: 13", (new NativeRenderer)->render($template, $data));
     }
 
     public function testNotBindThis()
     {
         $template = new testStorageWithoutThis();
-        $this->assertSame("Class: " . NativeRenderer::class . ";", (new NativeRenderer)->render([], $template));
+        $this->assertSame("Class: " . NativeRenderer::class . ";", (new NativeRenderer)->render($template));
 
         $template = new File(__DIR__ . '/this.notbind.template.php');
-        $this->assertSame("Class: " . NativeRenderer::class . ";", (new NativeRenderer)->render([], $template));
+        $this->assertSame("Class: " . NativeRenderer::class . ";", (new NativeRenderer)->render($template));
     }
 
     public function testRenderWithBindThis()
@@ -77,10 +77,10 @@ class NativeRendererTest extends \PHPUnit_Framework_TestCase
         };
 
         $template = new testStorageWithThis();
-        $this->assertSame("Foo by this: bar; Baz by this: 42;", (new NativeRenderer)->render(['this' => $obj], $template));
+        $this->assertSame("Foo by this: bar; Baz by this: 42;", (new NativeRenderer)->render($template, ['this' => $obj]));
 
         $template = new File(__DIR__ . '/this.bind.template.php');
-        $this->assertSame("Foo by this: bar; Baz by this: 42;", (new NativeRenderer)->render(['this' => $obj], $template));
+        $this->assertSame("Foo by this: bar; Baz by this: 42;", (new NativeRenderer)->render($template, ['this' => $obj]));
     }
 
 }
