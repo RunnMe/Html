@@ -13,13 +13,11 @@
       "email": "fasderq@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "require": {
     "php": ">=7.0",
-    "runn/core": "dev-master",
-    "runn/fs": "dev-master",
-    "runn/valueobjects": "dev-master"
+    "runn/core": "7.0.*",
+    "runn/fs": "7.0.*",
+    "runn/valueobjects": "7.0.*"
   },
   "require-dev": {
     "phpunit/phpunit": "5.*"
