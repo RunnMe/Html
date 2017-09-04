@@ -44,13 +44,15 @@ abstract class Field
     }
 
     /**
-     * @param string $val
-     * @return \Runn\Html\Form\Field $this
+     * @param string|null $name
+     * @return $this
+     *
+     * @7.1
      */
-    public function setName(string $val)
+    public function setName(?string $name)
     {
-        $this->setAttribute('name', $val);
-        $this->traitSetName($val);
+        $this->setAttribute('name', $name);
+        $this->traitSetName($name);
         return $this;
     }
 

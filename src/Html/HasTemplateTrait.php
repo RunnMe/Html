@@ -25,7 +25,7 @@ trait HasTemplateTrait
      *
      * @7.1
      */
-    public function setTemplate(/*?*/SingleValueStorageInterface $template = null)
+    public function setTemplate(?SingleValueStorageInterface $template)
     {
         $this->template = $template;
         return $this;
@@ -36,7 +36,7 @@ trait HasTemplateTrait
      *
      * @7.1
      */
-    public function getTemplate()/*: ?SingleValueStorageInterface*/
+    public function getTemplate(): ?SingleValueStorageInterface
     {
         return $this->template;
     }

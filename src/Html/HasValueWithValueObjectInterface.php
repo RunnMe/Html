@@ -2,6 +2,8 @@
 
 namespace Runn\Html;
 
+use Runn\ValueObjects\ValueObjectInterface;
+
 /**
  * Common interface for all elements that have value (like form inputs) and can cast it to Value Object
  *
@@ -22,6 +24,6 @@ interface HasValueWithValueObjectInterface
      *
      * @7.1
      */
-    public function getValueObject()/*: ?ValueObjectInterface*/;
+    public function getValueObject(): ?ValueObjectInterface;
 
 }

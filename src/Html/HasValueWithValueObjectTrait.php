@@ -53,7 +53,7 @@ trait HasValueWithValueObjectTrait
      *
      * @7.1
      */
-    public function getValueObject()/*: ?ValueObjectInterface*/
+    public function getValueObject(): ?ValueObjectInterface
     {
         $class = static::getValueObjectClass();
         $value = $this->getValue();
