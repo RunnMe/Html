@@ -7,7 +7,7 @@ use Runn\Html\RendererInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
 /**
- * Native (PHP) templates renderer
+ * Native (PHP) template renderer
  *
  * Class NativeRenderer
  * @package Runn\HtmlRenderers
@@ -20,13 +20,18 @@ class NativeRenderer
      * @param iterable $data
      * @param \Runn\Storages\SingleValueStorageInterface $template
      * @return string
+     *
+     * @7.1
      */
     public function render(/*iterable */$data, SingleValueStorageInterface $template): string
     {
         $rendering = function ($data) use ($template) {
 
-            foreach ($data as $key => $val) {
-                $$key = $val;
+            /* @7.1 delete this because of type hint */
+            if (is_array($data) || ($data instanceof \Traversable)) {
+                foreach ($data as $key => $val) {
+                    $$key = $val;
+                }
             }
 
             ob_start();
@@ -53,7 +58,6 @@ class NativeRenderer
         }
 
         return $rendering($data);
-
     }
 
 }

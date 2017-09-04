@@ -1,0 +1,1 @@
+Foo by this: <?php echo $this->foo; ?>; Baz by this: <?php echo $this->baz; ?>;
