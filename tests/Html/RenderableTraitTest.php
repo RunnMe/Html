@@ -18,9 +18,9 @@ class RenderableTraitTest extends \PHPUnit_Framework_TestCase
         };
         $this->assertInstanceOf(SingleValueStorageInterface::class, $obj->getDefaultTemplate());
         $this->assertInstanceOf(File::class, $obj->getDefaultTemplate());
-        $this->assertEquals(new File(__DIR__ . '/' . basename(__FILE__, '.php') . '.template.html'), $obj->getDefaultTemplate());
+        $this->assertEquals(new File(__DIR__ . '/' . basename(__FILE__, '.php') . '.template.php'), $obj->getDefaultTemplate());
 
-        $this->assertSame('Template test!', $obj->render());
+        $this->assertSame('File template test!', $obj->render());
     }
 
     public function testGetDefaultTemplateNotExists()
@@ -36,7 +36,7 @@ class RenderableTraitTest extends \PHPUnit_Framework_TestCase
             use RenderableTrait;
         };
         $this->assertEquals($obj->getDefaultTemplate(), $obj->getTemplate());
-        $this->assertEquals(new File(__DIR__ . '/' . basename(__FILE__, '.php') . '.template.html'), $obj->getTemplate());
+        $this->assertEquals(new File(__DIR__ . '/' . basename(__FILE__, '.php') . '.template.php'), $obj->getTemplate());
     }
 
     public function testGetTemplateNotNull()

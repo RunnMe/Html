@@ -22,17 +22,19 @@ trait RenderableTrait
 
     use RendererAwareTrait;
     use HasTemplateTrait {
-        getTemplate as traitGetTemplate;
+        getTemplate as trait_getTemplate;
     }
 
     /**
      * @return \Runn\Fs\File|null
+     *
+     * @7.1
      */
-    public function getDefaultTemplate()/*: ?string*/
+    public function getDefaultTemplate()/*: ?File*/
     {
         $reflector = new \ReflectionClass(get_class($this));
         $file = $reflector->getFileName();
-        $filename = dirname($file) . '/' . basename($file, '.php') . '.template.html';
+        $filename = dirname($file) . '/' . basename($file, '.php') . '.template.php';
         if (is_readable($filename)) {
             return new File($filename);
         } else {
@@ -40,9 +42,14 @@ trait RenderableTrait
         }
     }
 
+    /**
+     * @return \Runn\Storages\SingleValueStorageInterface|null
+     *
+     * @7.1
+     */
     public function getTemplate()/*: ?SingleValueStorageInterface*/
     {
-        $template = $this->traitGetTemplate();
+        $template = $this->trait_getTemplate();
         if (null === $template) {
             return $this->getDefaultTemplate();
         }

@@ -22,7 +22,7 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
 
         $elements = new testElementsGroup();
 
-        $this->assertEquals(new File(__DIR__ . '/ElementsGroupTest.template.html'), $method->invoke($elements));
+        $this->assertEquals(new File(__DIR__ . '/ElementsGroupTest.template.php'), $method->invoke($elements));
     }
 
     /**
