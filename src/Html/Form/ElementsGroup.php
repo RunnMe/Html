@@ -55,6 +55,8 @@ abstract class ElementsGroup
     /**
      * Constructor.
      * @param iterable|null $data
+     *
+     * @7.1
      */
     public function __construct(/* iterable */ $data = null)
     {
@@ -93,6 +95,8 @@ abstract class ElementsGroup
      * @param iterable $def
      * @return mixed
      * @throws \Runn\Html\Form\Exception
+     *
+     * @7.1
      */
     protected function prepareValueBySchemaDef($key, /*iterable */$def)
     {
@@ -148,10 +152,12 @@ abstract class ElementsGroup
     /**
      * @param iterable $value
      * @return $this
+     *
+     * @7.1
      */
-    public function setValue($value)
+    public function setValue(/*iterable */$value)
     {
-        // @todo: is_iterable()
+        // @7.1 delete this because of type hint
         if ( is_array($value) || $value instanceof \Traversable ) {
                 foreach ($value as $key => $val) {
                     if (isset($this->$key) && ($this->$key instanceof HasValueInterface)) {

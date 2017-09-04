@@ -19,8 +19,10 @@ trait ElementHasParentTrait
     /**
      * @param \Runn\Html\Form\ElementInterface $parent
      * @return $this
+     *
+     * @7.1
      */
-    public function setParent(ElementInterface $parent)
+    public function setParent(/*?*/ElementInterface $parent)
     {
         $this->parent = $parent;
         return $this;
@@ -28,6 +30,8 @@ trait ElementHasParentTrait
 
     /**
      * @return \Runn\Html\Form\ElementInterface|null
+     *
+     * @7.1
      */
     public function getParent()/*: ?ElementInterface*/
     {

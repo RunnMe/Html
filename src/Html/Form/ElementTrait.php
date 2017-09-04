@@ -41,8 +41,10 @@ trait ElementTrait
     /**
      * @param \Runn\Html\Form\ElementInterface $parent
      * @return $this
+     *
+     * @7.1
      */
-    public function setParent(ElementInterface $parent)
+    public function setParent(/*?*/ElementInterface $parent)
     {
         if ($parent instanceof Form) {
             $this->setForm($parent);
@@ -54,7 +56,9 @@ trait ElementTrait
 
     /**
      * Full element's name includes all it's parents names
-     * @return string|null
+     * @return string
+     *
+     * @7.1
      */
     public function getFullName()/*: ?string*/
     {

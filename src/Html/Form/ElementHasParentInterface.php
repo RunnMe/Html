@@ -14,11 +14,15 @@ interface ElementHasParentInterface
     /**
      * @param \Runn\Html\Form\ElementInterface $parent
      * @return $this
+     *
+     * @7.1
      */
-    public function setParent(ElementInterface $parent);
+    public function setParent(/*?*/ElementInterface $parent);
 
     /**
      * @return \Runn\Html\Form\ElementInterface|null
+     *
+     * @7.1
      */
     public function getParent()/*: ?ElementInterface*/;
 

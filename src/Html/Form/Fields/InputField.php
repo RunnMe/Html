@@ -31,6 +31,8 @@ class InputField
 
     /**
      * @return string|null
+     *
+     * @7.1
      */
     public function getType()/*: ?string*/
     {

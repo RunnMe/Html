@@ -28,8 +28,10 @@ trait BelongsToFormTrait
     /**
      * @param \Runn\Html\Form\Form $form
      * @return $this
+     *
+     * @7.1
      */
-    public function setForm(Form $form)
+    public function setForm(/*?*/Form $form)
     {
         $this->form = $form;
         return $this;
@@ -37,6 +39,8 @@ trait BelongsToFormTrait
 
     /**
      * @return \Runn\Html\Form\Form|null
+     *
+     * @7.1
      */
     public function getForm()/*: ?Form*/
     {

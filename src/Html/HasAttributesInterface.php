@@ -13,25 +13,33 @@ interface HasAttributesInterface
 
     /**
      * @param string $key
-     * @param string $val
+     * @param string|null $val
      * @return $this
+     *
+     * @7.1
      */
-    public function setAttribute(string $key, string $val);
+    public function setAttribute(string $key, /*?*/string $val = null);
 
     /**
      * @param string $key
      * @return string|null
+     *
+     * @7.1
      */
     public function getAttribute(string $key)/*: ?string*/;
 
     /**
      * @param iterable|null $attributes
      * @return $this
+     *
+     * @7.1
      */
     public function setAttributes(/*iterable */$attributes = null);
 
     /**
      * @return \Runn\Core\Std
+     *
+     * @7.1
      */
     public function getAttributes()/*: ?\Runn\Core\Std*/;
 

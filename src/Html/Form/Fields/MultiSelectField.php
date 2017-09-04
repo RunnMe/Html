@@ -19,7 +19,15 @@ class MultiSelectField
         render as protected traitRender;
     }
 
-    public function __construct($name = null, $value = null, $attributes = null, $options = null)
+    /**
+     * @param string|null $name
+     * @param string|null $value
+     * @param iterable $attributes
+     * @param iterable $options
+     *
+     * @7.1
+     */
+    public function __construct(string $name = null, $value = null, /*iterable */$attributes = null, /*iterable */$options = null)
     {
         parent::__construct($name, $value, $attributes, $options);
         $this->setAttribute('multiple', null);
@@ -28,6 +36,8 @@ class MultiSelectField
     /**
      * @param iterable|null $values
      * @return \Runn\Html\Form\Fields\MultiSelectField $this
+     *
+     * @7.1
      */
     public function values(/*iterable */$values = null)
     {

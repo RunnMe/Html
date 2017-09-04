@@ -34,17 +34,20 @@ class CheckboxFieldTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($field->isChecked());
         $this->assertSame('<input type="checkbox" name="foo" value="42">', $field->render());
 
-        $field->setChecked();
+        $ret = $field->setChecked();
+        $this->assertSame($field, $ret);
         $this->assertTrue($field->isChecked());
         $this->assertNull($field->getAttributes()->checked);
 
-        $field->setChecked(true);
+        $ret = $field->setChecked(true);
+        $this->assertSame($field, $ret);
         $this->assertTrue($field->isChecked());
         $this->assertNull($field->getAttributes()->checked);
 
         $this->assertSame('<input type="checkbox" name="foo" checked value="42">', $field->render());
 
-        $field->setChecked(false);
+        $ret = $field->setChecked(false);
+        $this->assertSame($field, $ret);
         $this->assertFalse($field->isChecked());
         $this->assertFalse(isset($field->getAttributes()->checked));
     }

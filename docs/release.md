@@ -5,3 +5,4 @@
 * RendererAwareInterface and RendererAwareTrait are added
 * HasTemplateInterface and HasTemplateTrait are added
 * ElementHasParentInterface and ElementHasParentTrait are added
+* Rendering sub-system improvements

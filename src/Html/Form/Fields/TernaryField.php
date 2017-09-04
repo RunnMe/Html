@@ -13,6 +13,10 @@ class TernaryField
     extends CheckboxField
 {
 
+    /**
+     * @param \Runn\ValueObjects\SingleValueObject|string $val
+     * @return \Runn\Html\Form\Field $this
+     */
     public function setValue($val)
     {
         $val = (null === $val || '' === $val) ? null : (bool)$val;
