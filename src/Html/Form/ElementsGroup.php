@@ -23,13 +23,29 @@ abstract class ElementsGroup
     implements ObjectAsArrayInterface, StdGetSetInterface, HasSchemaInterface, ElementInterface
 {
 
-    protected $__notgetters = ['schema', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
-    protected $__notsetters = ['name', 'title', 'value', 'option', 'options', 'parent', 'form'];
     use StdGetSetTrait {
         innerSet as traitInnerSet;
     }
 
+    /**
+     * @return array
+     */
+    protected function notgetters(): array
+    {
+        return ['schema', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
+    }
+
+    /**
+     * @return array
+     */
+    protected function notsetters(): array
+    {
+        return ['name', 'title', 'value', 'option', 'options', 'parent', 'form'];
+    }
+
+
     protected static $schema = [];
+
     use HasSchemaTrait {
         prepareValueBySchemaDef as traitPrepareValueBySchemaDef;
     }

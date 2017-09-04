@@ -4,14 +4,14 @@ namespace Runn\tests\Html\HasValueWithValueObjectTrait;
 
 use Runn\Html\HasValueWithValueObjectInterface;
 use Runn\Html\HasValueWithValueObjectTrait;
-use Runn\ValueObjects\IntValue;
-use Runn\ValueObjects\StringValue;
+use Runn\ValueObjects\Values\IntValue;
+use Runn\ValueObjects\Values\StringValue;
 
 class HasValueWithValueObjectTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @expectedException \Runn\ValueObjects\Exception
-     * @expectedExceptionMessage Invalid value object class: "Runn\ValueObjects\StringValue"
+     * @expectedExceptionMessage Invalid value object class: "Runn\ValueObjects\Values\StringValue"
      */
     public function testInvalidValueObjectClass()
     {
