@@ -12,13 +12,17 @@ interface HasTitleInterface
 {
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
+     *
+     * @7.1
      */
-    public function setTitle(string $title);
+    public function setTitle(/*?*/string $title = null);
 
     /**
      * @return string|null
+     *
+     * @7.1
      */
     public function getTitle()/*: ?string*/;
 

@@ -3,7 +3,7 @@
 namespace Runn\Html;
 
 use Runn\ValueObjects\Exception;
-use Runn\ValueObjects\SimpleValueObject;
+use Runn\ValueObjects\SingleValueObject;
 use Runn\ValueObjects\ValueObjectInterface;
 
 /**
@@ -27,7 +27,7 @@ trait HasValueWithValueObjectTrait
      */
     public static function getValueObjectClass(): string
     {
-        return SimpleValueObject::class;
+        return SingleValueObject::class;
     }
 
     /**
@@ -50,6 +50,8 @@ trait HasValueWithValueObjectTrait
 
     /**
      * @return \Runn\ValueObjects\ValueObjectInterface|null
+     *
+     * @7.1
      */
     public function getValueObject()/*: ?ValueObjectInterface*/
     {

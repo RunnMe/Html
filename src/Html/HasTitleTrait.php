@@ -18,10 +18,12 @@ trait HasTitleTrait
     protected $title = null;
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
+     *
+     * @7.1
      */
-    public function setTitle(string $title)
+    public function setTitle(/*?*/string $title = null)
     {
         $this->title = $title;
         return $this;
@@ -29,6 +31,8 @@ trait HasTitleTrait
 
     /**
      * @return string|null
+     *
+     * @7.1
      */
     public function getTitle()/*: ?string*/
     {

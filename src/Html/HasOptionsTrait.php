@@ -45,6 +45,8 @@ trait HasOptionsTrait
     /**
      * @param iterable|null $options
      * @return $this
+     *
+     * @7.1
      */
     public function setOptions(/*iterable */$options = null)
     {
@@ -59,6 +61,8 @@ trait HasOptionsTrait
 
     /**
      * @return \Runn\Core\Std|null
+     *
+     * @7.1
      */
     public function getOptions()/*: ?\Runn\Core\Std*/
     {

@@ -55,13 +55,15 @@ abstract class Field
     }
 
     /**
-     * @param string $val
+     * @param string|null $title
      * @return \Runn\Html\Form\Field $this
+     *
+     * @7.1
      */
-    public function setTitle(string $val)
+    public function setTitle(/*?*/string $title = null)
     {
-        $this->setAttribute('title', $val);
-        $this->traitSetTitle($val);
+        $this->setAttribute('title', $title);
+        $this->traitSetTitle($title);
         return $this;
     }
 

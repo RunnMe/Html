@@ -19,6 +19,8 @@ interface HasValueWithValueObjectInterface
 
     /**
      * @return \Runn\ValueObjects\ValueObjectInterface|null
+     *
+     * @7.1
      */
     public function getValueObject()/*: ?ValueObjectInterface*/;
 

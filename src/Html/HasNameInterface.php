@@ -14,11 +14,15 @@ interface HasNameInterface
     /**
      * @param string $name
      * @return $this
+     *
+     * @7.1
      */
-    public function setName(string $name);
+    public function setName(/*?*/string $name);
 
     /**
      * @return string|null
+     *
+     * @7.1
      */
     public function getName()/*: ?string*/;
 

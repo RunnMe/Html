@@ -47,7 +47,7 @@ trait HasAttributesTrait
     }
 
     /**
-     * @param null $attributes
+     * @param iterable|null $attributes
      * @return $this
      *
      * @7.1
