@@ -12,7 +12,7 @@ if (null === $value) {
     $hiddenimg = '';
 }
 
-foreach ($this->getAttributes() as $key => $val) {
+foreach ($this->getAttributes() ?? [] as $key => $val) {
     if ('value' == $key) {
         continue;
     }
