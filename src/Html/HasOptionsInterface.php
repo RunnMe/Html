@@ -30,13 +30,13 @@ interface HasOptionsInterface
      *
      * @7.1
      */
-    public function setOptions(/*iterable */$options = null);
+    public function setOptions(iterable $options = null);
 
     /**
      * @return \Runn\Core\Std
      *
      * @7.1
      */
-    public function getOptions()/*: ?\Runn\Core\Std*/;
+    public function getOptions(): ?\Runn\Core\Std;
 
 }

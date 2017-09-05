@@ -15,13 +15,13 @@ interface RendererAwareInterface
      *
      * @7.1
      */
-    public function setRenderer(/*?*/RendererInterface $renderer = null);
+    public function setRenderer(?RendererInterface $renderer);
 
     /**
      * @return \Runn\Html\RendererInterface|null
      *
      * @7.1
      */
-    public function getRenderer()/*: ?RendererInterface*/;
+    public function getRenderer(): ?RendererInterface;
 
 }

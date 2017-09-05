@@ -24,7 +24,7 @@ trait RendererAwareTrait
      *
      * @7.1
      */
-    public function setRenderer(/*?*/RendererInterface $renderer = null)
+    public function setRenderer(?RendererInterface $renderer)
     {
         $this->renderer = $renderer;
         return $this;
@@ -35,7 +35,7 @@ trait RendererAwareTrait
      *
      * @7.1
      */
-    public function getRenderer()/*: ?RendererInterface*/
+    public function getRenderer(): ?RendererInterface
     {
         return $this->renderer ?? new NativeRenderer();
     }

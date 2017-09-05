@@ -24,6 +24,6 @@ interface HasValueWithValueObjectInterface
      *
      * @7.1
      */
-    public function getValueObject()/*: ?ValueObjectInterface*/;
+    public function getValueObject(): ?ValueObjectInterface;
 
 }
