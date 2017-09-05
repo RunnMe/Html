@@ -18,7 +18,7 @@ trait HasValueWithValueObjectTrait
 {
 
     use HasValueTrait {
-        setValue as protected traitSetValue;
+        setValue as protected trait_setValue;
     }
 
     /**
@@ -44,7 +44,7 @@ trait HasValueWithValueObjectTrait
             }
             $value = $value->getValue();
         }
-        $this->traitSetValue($value);
+        $this->trait_setValue($value);
         return $this;
     }
 

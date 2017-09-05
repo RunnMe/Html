@@ -15,11 +15,17 @@ class HasTemplateTraitTest extends \PHPUnit_Framework_TestCase
             use HasTemplateTrait;
         };
 
+        $this->assertNull($element->getTemplate());
+
         $template = new File(__FILE__);
 
         $res = $element->setTemplate($template);
         $this->assertSame($element, $res);
         $this->assertSame($template, $element->getTemplate());
+
+        $res = $element->setTemplate(null);
+        $this->assertSame($element, $res);
+        $this->assertNull($element->getTemplate());
     }
 
 }

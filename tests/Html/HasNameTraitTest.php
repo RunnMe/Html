@@ -23,6 +23,10 @@ class HasNameTraitTest extends \PHPUnit_Framework_TestCase
         $res = $element->setName('foo');
         $this->assertSame($element, $res);
         $this->assertSame('foo', $element->getName());
+
+        $res = $element->setName(null);
+        $this->assertSame($element, $res);
+        $this->assertNull($element->getName());
     }
 
 }

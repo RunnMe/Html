@@ -54,17 +54,19 @@ trait HasAttributesTrait
      */
     public function setAttributes(iterable $attributes = null)
     {
+        if (null === $attributes) {
+            $this->attributes = null;
+            return $this;
+        }
         $this->attributes = new Std;
-        if (null !== $attributes) {
-            foreach ($attributes as $key => $val) {
-                $this->setAttribute($key, $val);
-            }
+        foreach ($attributes as $key => $val) {
+            $this->setAttribute($key, $val);
         }
         return $this;
     }
 
     /**
-     * @return \Runn\Core\Std
+     * @return \Runn\Core\Std|null
      *
      * @7.1
      */

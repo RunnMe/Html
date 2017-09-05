@@ -28,7 +28,7 @@ class SelectField
      */
     public function values(/*iterable */$values = null)
     {
-        $this->options->values = new Std;
+        $this->setOption('values', new Std);
         if (null !== $values) {
             foreach ($values as $key => $val) {
                 $this->options->values[$key] = $val;

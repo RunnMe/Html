@@ -23,6 +23,10 @@ class HasTitleTraitTest extends \PHPUnit_Framework_TestCase
         $res = $element->setTitle('foo');
         $this->assertSame($element, $res);
         $this->assertSame('foo', $element->getTitle());
+
+        $res = $element->setTitle(null);
+        $this->assertSame($element, $res);
+        $this->assertNull($element->getTitle());
     }
 
 }

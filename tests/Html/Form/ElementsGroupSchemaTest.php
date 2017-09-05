@@ -104,7 +104,7 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('text', $group->foo->getAttributes()->type);
         $this->assertSame('foo', $group->foo->getAttributes()->name);
 
-        $this->assertCount(0, $group->foo->getOptions());
+        $this->assertNull($group->foo->getOptions());
 
         // field1:
 
@@ -120,7 +120,7 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('Title One', $group->field1->getAttributes()->title);
         $this->assertSame('name1', $group->field1->getAttributes()->name);
 
-        $this->assertCount(0, $group->foo->getOptions());
+        $this->assertNull($group->foo->getOptions());
 
         // field2 :
 
