@@ -1,9 +1,9 @@
 ---
-title: Документация по библиотеке Runn Me! HTML Library
+title: Библиотека Runn Me! HTML Library
 layout: slate
 ---
 
-Документация по библиотеке Runn Me! HTML Library
-==================================================
+Библиотека Runn Me! HTML Library
+================================
 
-Данная папка содержит документацию по библиотеке Runn Me! HTML Library.
+1. [Быстрый старт](./getting-started.md)
