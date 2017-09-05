@@ -26,7 +26,7 @@ trait HasAttributesTrait
      *
      * @7.1
      */
-    public function setAttribute(string $key, ?string $val)
+    public function setAttribute(string $key, /*?*/string $val = null)
     {
         if (null === $this->attributes ) {
             $this->attributes  = new Std;
@@ -41,7 +41,7 @@ trait HasAttributesTrait
      *
      * @7.1
      */
-    public function getAttribute(string $key): ?string
+    public function getAttribute(string $key)/*: ?string*/
     {
         return $this->attributes->$key ?? null;
     }
@@ -52,7 +52,7 @@ trait HasAttributesTrait
      *
      * @7.1
      */
-    public function setAttributes(iterable $attributes = null)
+    public function setAttributes(/*iterable */$attributes = null)
     {
         if (null === $attributes) {
             $this->attributes = null;
@@ -70,7 +70,7 @@ trait HasAttributesTrait
      *
      * @7.1
      */
-    public function getAttributes(): ?\Runn\Core\Std
+    public function getAttributes()/*: ?\Runn\Core\Std*/
     {
         return $this->attributes;
     }

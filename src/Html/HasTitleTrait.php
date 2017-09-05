@@ -23,7 +23,7 @@ trait HasTitleTrait
      *
      * @7.1
      */
-    public function setTitle(?string $title)
+    public function setTitle(/*?*/string $title = null)
     {
         $this->title = $title;
         return $this;
@@ -34,7 +34,7 @@ trait HasTitleTrait
      *
      * @7.1
      */
-    public function getTitle(): ?string
+    public function getTitle()/*: ?string*/
     {
         return $this->title;
     }

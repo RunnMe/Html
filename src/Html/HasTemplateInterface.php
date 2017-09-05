@@ -19,13 +19,13 @@ interface HasTemplateInterface
      *
      * @7.1
      */
-    public function setTemplate(?SingleValueStorageInterface $template);
+    public function setTemplate(/*?*/SingleValueStorageInterface $template = null);
 
     /**
      * @return \Runn\Storages\SingleValueStorageInterface|null
      *
      * @7.1
      */
-    public function getTemplate(): ?SingleValueStorageInterface;
+    public function getTemplate()/*: ?SingleValueStorageInterface*/;
 
 }

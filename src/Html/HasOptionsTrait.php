@@ -48,7 +48,7 @@ trait HasOptionsTrait
      *
      * @7.1
      */
-    public function setOptions(iterable $options = null)
+    public function setOptions(/*iterable */$options = null)
     {
         if (null === $options) {
             $this->options = null;
@@ -66,7 +66,7 @@ trait HasOptionsTrait
      *
      * @7.1
      */
-    public function getOptions(): ?\Runn\Core\Std
+    public function getOptions()/*: ?\Runn\Core\Std*/
     {
         return $this->options;
     }

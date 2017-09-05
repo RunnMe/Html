@@ -49,7 +49,7 @@ abstract class Field
      *
      * @7.1
      */
-    public function setName(?string $name)
+    public function setName(/*?*/string $name = null)
     {
         $this->setAttribute('name', $name);
         $this->traitSetName($name);

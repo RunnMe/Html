@@ -19,7 +19,7 @@ class RendererAwareTraitTest extends \PHPUnit_Framework_TestCase
 
         $renderer = new class implements RendererInterface {
             /** @7.1 */
-            public function render(SingleValueStorageInterface $template, iterable $data = null): string {
+            public function render(SingleValueStorageInterface $template, /*iterable */$data = null): string {
                 return 'test';
             }
         };
