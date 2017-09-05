@@ -24,7 +24,7 @@ class HasValueWithValueObjectTraitTest extends \PHPUnit_Framework_TestCase
             }
         };
 
-        $res = $element->setValue(new StringValue('42'));
+        $ret = $element->setValue(new StringValue('42'));
     }
 
     public function testSetGetValue()
@@ -37,15 +37,15 @@ class HasValueWithValueObjectTraitTest extends \PHPUnit_Framework_TestCase
             }
         };
 
-        $res = $element->setValue(42);
+        $ret = $element->setValue(42);
 
-        $this->assertSame($element, $res);
+        $this->assertSame($element, $ret);
         $this->assertSame(42, $element->getValue());
         $this->assertEquals(new IntValue(42), $element->getValueObject());
 
-        $res = $element->setValue(new IntValue(24));
+        $ret = $element->setValue(new IntValue(24));
 
-        $this->assertSame($element, $res);
+        $this->assertSame($element, $ret);
         $this->assertSame(24, $element->getValue());
         $this->assertEquals(new IntValue(24), $element->getValueObject());
     }

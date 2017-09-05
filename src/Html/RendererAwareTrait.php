@@ -19,23 +19,23 @@ trait RendererAwareTrait
     protected $renderer;
 
     /**
-     * @param \Runn\Html\RendererInterface $renderer
+     * @param \Runn\Html\RendererInterface|null $renderer
      * @return $this
      *
      * @7.1
      */
-    public function setRenderer(/*?*/RendererInterface $renderer)
+    public function setRenderer(/*?*/RendererInterface $renderer = null)
     {
         $this->renderer = $renderer;
         return $this;
     }
 
     /**
-     * @return \Runn\Html\RendererInterface
+     * @return \Runn\Html\RendererInterface|null
      *
      * @7.1
      */
-    public function getRenderer(): /*?*/RendererInterface
+    public function getRenderer()/*: ?RendererInterface*/
     {
         return $this->renderer ?? new NativeRenderer();
     }

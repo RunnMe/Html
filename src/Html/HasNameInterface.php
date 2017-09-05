@@ -12,12 +12,12 @@ interface HasNameInterface
 {
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return $this
      *
      * @7.1
      */
-    public function setName(/*?*/string $name);
+    public function setName(/*?*/string $name = null);
 
     /**
      * @return string|null

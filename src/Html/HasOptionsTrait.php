@@ -50,11 +50,13 @@ trait HasOptionsTrait
      */
     public function setOptions(/*iterable */$options = null)
     {
+        if (null === $options) {
+            $this->options = null;
+            return $this;
+        }
         $this->options = new Std;
-        if (null !== $options) {
-            foreach ($options as $key => $val) {
-                $this->setOption($key, $val);
-            }
+        foreach ($options as $key => $val) {
+            $this->setOption($key, $val);
         }
         return $this;
     }

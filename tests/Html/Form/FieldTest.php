@@ -21,12 +21,10 @@ class FieldTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Field::class, $field);
         $this->assertInstanceOf(RenderableInterface::class, $field);
 
-        $this->assertInstanceOf(Std::class, $field->getAttributes());
-        $this->assertCount(0, $field->getAttributes());
+        $this->assertNull($field->getAttributes());
         $this->assertNull($field->getName());
 
-        $this->assertInstanceOf(Std::class, $field->getOptions());
-        $this->assertCount(0, $field->getOptions());
+        $this->assertNull($field->getOptions());
         $this->assertNull($field->getValue());
 
         $this->assertSame('Rendered!', $field->render());
@@ -40,8 +38,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
             }
         };
 
-        $this->assertInstanceOf(Std::class, $field->getOptions());
-        $this->assertCount(0, $field->getOptions());
+        $this->assertNull($field->getOptions());
         $this->assertNull($field->getValue());
 
         $this->assertInstanceOf(Std::class, $field->getAttributes());

@@ -18,12 +18,12 @@ trait HasNameTrait
     protected $name = null;
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return $this
      *
      * @7.1
      */
-    public function setName(/*?*/string $name)
+    public function setName(/*?*/string $name = null)
     {
         $this->name = $name;
         return $this;
