@@ -19,13 +19,13 @@ class InputField
     use RenderableTrait;
 
     /**
-     * @param string $val
+     * @param string $type
      * @return \Runn\Html\Form\Fields\InputField $this
      */
-    public function setType(string $val)
+    public function setType(string $type)
     {
         /* set type to first place! */
-        $this->attributes = (new Std(['type' => $val]))->merge($this->attributes ?: []);
+        $this->attributes = (new Std(['type' => $type]))->merge($this->attributes ?: []);
         return $this;
     }
 
