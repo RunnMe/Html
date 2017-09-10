@@ -32,7 +32,7 @@ abstract class ElementsGroup
      */
     protected function notgetters(): array
     {
-        return ['schema', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
+        return ['schema', 'template', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
     }
 
     /**
@@ -40,7 +40,7 @@ abstract class ElementsGroup
      */
     protected function notsetters(): array
     {
-        return ['name', 'title', 'value', 'option', 'options', 'parent', 'form'];
+        return ['name', 'template', 'title', 'value', 'option', 'options', 'parent', 'form'];
     }
 
 
