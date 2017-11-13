@@ -13,4 +13,4 @@ foreach ($this->getAttributes() ?? [] as $key => $val) {
     }
 }
 
-?><button<?php echo $attrs ? ' ' . implode(' ', $attrs) : ''; ?>><?php echo $this->escape($this->getTitle()); ?></button>
+?><button<?php echo $attrs ? ' ' . implode(' ', $attrs) : ''; ?>><?php echo $this->escape($this->getTitle() ?? ''); ?></button>

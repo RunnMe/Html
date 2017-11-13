@@ -1,6 +1,6 @@
 <?php
 
-namespace Runn\tests\Html\Form\Field;
+namespace Runn\tests\Html\Form\Button;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Button;
