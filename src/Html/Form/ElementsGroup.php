@@ -83,7 +83,7 @@ abstract class ElementsGroup
         if ('' === $key || is_numeric($key)) {
             throw new Exception('Invalid ElementsGroup (' . static::class . ') key: ' . $key);
         }
-        if (!($val instanceof ElementInterface)) {
+        if (!($val instanceof ElementInterface) && !($val instanceof ButtonInterface)) {
             throw new Exception('Invalid ElementsGroup (' . static::class . ') value by key: ' . $key);
         }
         $this->traitInnerSet($key, $val);
