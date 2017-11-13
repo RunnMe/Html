@@ -1,6 +1,6 @@
 7.0.0, 7.1.0, 7.2.0
 ===================
-* `Button` abstract class is added
+* `Button` abstract class and `SubmitButton`, `ResetButton` classes are added
 
 7.0.0, 7.1.0, 7.2.0
 ===================
