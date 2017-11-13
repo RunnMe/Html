@@ -3,7 +3,6 @@
 namespace Runn\Html\Form;
 
 use Runn\Html\HasTitleInterface;
-use Runn\Html\RenderableInterface;
 
 /**
  * Common interface for all form buttons
@@ -12,9 +11,6 @@ use Runn\Html\RenderableInterface;
  * @package Runn\Html\Form
  */
 interface ButtonInterface
-    extends
-    HasTitleInterface,
-    ElementHasParentInterface, BelongsToFormInterface,
-    RenderableInterface
+    extends FormElementInterface, HasTitleInterface
 {
 }

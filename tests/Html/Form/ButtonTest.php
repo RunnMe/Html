@@ -5,6 +5,8 @@ namespace Runn\tests\Html\Form\Button;
 use Runn\Core\Std;
 use Runn\Html\Form\Button;
 use Runn\Html\Form\ButtonInterface;
+use Runn\Html\Form\FormElementInterface;
+use Runn\Html\HasAttributesInterface;
 use Runn\Html\RenderableInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
@@ -15,8 +17,10 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
     {
         $button = new class extends Button {};
 
-        $this->assertInstanceOf(ButtonInterface::class, $button);
+        $this->assertInstanceOf(FormElementInterface::class, $button);
+        $this->assertInstanceOf(HasAttributesInterface::class, $button);
         $this->assertInstanceOf(RenderableInterface::class, $button);
+        $this->assertInstanceOf(ButtonInterface::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
@@ -33,8 +37,10 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
     {
         $button = new class('submit') extends Button {};
 
-        $this->assertInstanceOf(ButtonInterface::class, $button);
+        $this->assertInstanceOf(FormElementInterface::class, $button);
+        $this->assertInstanceOf(HasAttributesInterface::class, $button);
         $this->assertInstanceOf(RenderableInterface::class, $button);
+        $this->assertInstanceOf(ButtonInterface::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
@@ -61,8 +67,10 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
     {
         $button = new class('submit', 'sometitle') extends Button {};
 
-        $this->assertInstanceOf(ButtonInterface::class, $button);
+        $this->assertInstanceOf(FormElementInterface::class, $button);
+        $this->assertInstanceOf(HasAttributesInterface::class, $button);
         $this->assertInstanceOf(RenderableInterface::class, $button);
+        $this->assertInstanceOf(ButtonInterface::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
