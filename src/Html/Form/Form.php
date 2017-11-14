@@ -23,4 +23,28 @@ class Form
         throw new \BadMethodCallException();
     }
 
+    /**
+     * @param string|null $action
+     * @return $this
+     *
+     * @7.1
+     */
+    public function action(/*?*/string $action = null)
+    {
+        $this->setAttribute('action', $action);
+        return $this;
+    }
+
+    /**
+     * @param string|null $method
+     * @return $this
+     *
+     * @7.1
+     */
+    public function method(/*?*/string $method = null)
+    {
+        $this->setAttribute('method', $method);
+        return $this;
+    }
+
 }
