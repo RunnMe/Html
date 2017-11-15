@@ -4,7 +4,7 @@ namespace Runn\tests\Html\Form\Button;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Button;
-use Runn\Html\Form\ButtonInterface;
+use Runn\Html\Form\FormButtonInterface;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\RenderableInterface;
@@ -20,7 +20,7 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(FormElementInterface::class, $button);
         $this->assertInstanceOf(HasAttributesInterface::class, $button);
         $this->assertInstanceOf(RenderableInterface::class, $button);
-        $this->assertInstanceOf(ButtonInterface::class, $button);
+        $this->assertInstanceOf(FormButtonInterface::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
@@ -40,7 +40,7 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(FormElementInterface::class, $button);
         $this->assertInstanceOf(HasAttributesInterface::class, $button);
         $this->assertInstanceOf(RenderableInterface::class, $button);
-        $this->assertInstanceOf(ButtonInterface::class, $button);
+        $this->assertInstanceOf(FormButtonInterface::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
@@ -70,7 +70,7 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(FormElementInterface::class, $button);
         $this->assertInstanceOf(HasAttributesInterface::class, $button);
         $this->assertInstanceOf(RenderableInterface::class, $button);
-        $this->assertInstanceOf(ButtonInterface::class, $button);
+        $this->assertInstanceOf(FormButtonInterface::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());

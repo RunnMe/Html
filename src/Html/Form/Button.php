@@ -14,7 +14,7 @@ use Runn\Html\RenderableTrait;
  * @package Runn\Html\Form
  */
 abstract class Button
-    implements ButtonInterface
+    implements FormButtonInterface
 {
 
     use HasAttributesTrait, ElementHasParentTrait, BelongsToFormTrait, RenderableTrait, HasTitleTrait;

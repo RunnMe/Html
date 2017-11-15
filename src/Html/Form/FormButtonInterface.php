@@ -7,10 +7,10 @@ use Runn\Html\HasTitleInterface;
 /**
  * Common interface for all form buttons
  *
- * Interface ButtonInterface
+ * Interface FormButtonInterface
  * @package Runn\Html\Form
  */
-interface ButtonInterface
+interface FormButtonInterface
     extends FormElementInterface, HasTitleInterface
 {
 }
