@@ -19,7 +19,8 @@ abstract class Button
 
     use HasAttributesTrait, ElementHasParentTrait, BelongsToFormTrait, RenderableTrait, HasTitleTrait;
 
-    public const DEFAULT_TYPE = 'submit';
+    // @7.1
+    /*public */const DEFAULT_TYPE = 'submit';
 
     /**
      * @param string|null $type
