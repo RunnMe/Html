@@ -2,6 +2,7 @@
 
 namespace Runn\Html\Form;
 
+use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasTitleInterface;
 
 /**
@@ -11,6 +12,9 @@ use Runn\Html\HasTitleInterface;
  * @package Runn\Html\Form
  */
 interface FormButtonInterface
-    extends FormElementInterface, HasTitleInterface
+    extends
+    FormElementInterface,
+    HasAttributesInterface,
+    HasTitleInterface
 {
 }

@@ -2,16 +2,15 @@
 
 namespace Runn\Html\Form;
 
-use Runn\Html\HasAttributesInterface;
 use Runn\Html\RenderableInterface;
 
 /**
- * Common interface for all form elements: inputs, outputs, datasets, buttons etc
+ * Common interface for all form elements: input fields, output areas, datasets, buttons etc
  *
  * Interface FormElementInterface
  * @package Runn\Html\Form
  */
 interface FormElementInterface
-    extends HasAttributesInterface, ElementHasParentInterface, BelongsToFormInterface, RenderableInterface
+    extends ElementHasParentInterface, BelongsToFormInterface, RenderableInterface
 {
 }
