@@ -30,6 +30,38 @@ class FormTest extends \PHPUnit_Framework_TestCase
         $group->part = $form;
     }
 
+    public function testAction()
+    {
+        $form = new Form;
+        $this->assertNull($form->getAttribute('action'));
+
+        $ret = $form->action();
+
+        $this->assertSame($form, $ret);
+        $this->assertNull($form->getAttribute('action'));
+
+        $ret = $form->action('index.php');
+
+        $this->assertSame($form, $ret);
+        $this->assertSame('index.php', $form->getAttribute('action'));
+    }
+
+    public function testMethod()
+    {
+        $form = new Form;
+        $this->assertNull($form->getAttribute('method'));
+
+        $ret = $form->method();
+
+        $this->assertSame($form, $ret);
+        $this->assertNull($form->getAttribute('method'));
+
+        $ret = $form->method('get');
+
+        $this->assertSame($form, $ret);
+        $this->assertSame('get', $form->getAttribute('method'));
+    }
+
     public function testRender()
     {
         $form =

@@ -1,6 +1,7 @@
 7.0.0, 7.1.0, 7.2.0
 ===================
 * `Button` abstract class and `SubmitButton`, `ResetButton` classes are added
+* `Form::action()` and `Form::method()` methods are added
 
 7.0.0, 7.1.0, 7.2.0
 ===================
