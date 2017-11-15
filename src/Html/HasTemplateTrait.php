@@ -16,7 +16,7 @@ trait HasTemplateTrait
     /*implements HasTemplateInterface*/
 {
 
-    /** @var mixed|null  */
+    /** @var \Runn\Storages\SingleValueStorageInterface|null  */
     protected $template = null;
 
     /**

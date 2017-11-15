@@ -15,6 +15,7 @@ use Runn\ValueObjects\ValueObjectInterface;
  * @implements \Runn\Html\HasValueWithValueObjectInterface
  */
 trait HasValueWithValueObjectTrait
+    /*implements HasValueWithValueObjectInterface*/
 {
 
     use HasValueTrait {
