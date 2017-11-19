@@ -14,7 +14,7 @@ use Runn\Html\HasValueInterface;
  * Interface FormInputInterface
  * @package Runn\Html\Form
  */
-interface FormInputInterface
+interface FormInputElementInterface
     extends
     FormElementInterface,
     HasAttributesInterface,
