@@ -1,7 +1,6 @@
-7.0.0, 7.1.0, 7.2.0
+7.0.1, 7.1.1, 7.2.1
 ===================
-* `Button` abstract class and `SubmitButton`, `ResetButton` classes are added
-* `Form::action()` and `Form::method()` methods are added
+* License identifier update
 
 7.0.0, 7.1.0, 7.2.0
 ===================
@@ -11,3 +10,5 @@
 * `HasTemplateInterface` and `HasTemplateTrait` are added
 * `ElementHasParentInterface` and `ElementHasParentTrait` are added
 * Rendering sub-system improvements
+* `Button` abstract class and `SubmitButton`, `ResetButton` classes are added
+* `Form::action()` and `Form::method()` methods are added
