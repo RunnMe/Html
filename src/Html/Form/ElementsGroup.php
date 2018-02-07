@@ -32,7 +32,7 @@ abstract class ElementsGroup
      */
     protected function notgetters(): array
     {
-        return ['schema', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
+        return ['schema', 'template', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
     }
 
     /**
@@ -40,7 +40,7 @@ abstract class ElementsGroup
      */
     protected function notsetters(): array
     {
-        return ['name', 'title', 'value', 'option', 'options', 'parent', 'form'];
+        return ['name', 'template', 'title', 'value', 'option', 'options', 'parent', 'form'];
     }
 
 
@@ -83,7 +83,7 @@ abstract class ElementsGroup
         if ('' === $key || is_numeric($key)) {
             throw new Exception('Invalid ElementsGroup (' . static::class . ') key: ' . $key);
         }
-        if (!($val instanceof ElementInterface)) {
+        if (!($val instanceof ElementInterface) && !($val instanceof FormButtonInterface)) {
             throw new Exception('Invalid ElementsGroup (' . static::class . ') value by key: ' . $key);
         }
         $this->traitInnerSet($key, $val);

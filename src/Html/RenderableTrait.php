@@ -32,14 +32,17 @@ trait RenderableTrait
      */
     public function getDefaultTemplate(): ?File
     {
-        $reflector = new \ReflectionClass(get_class($this));
-        $file = $reflector->getFileName();
-        $filename = dirname($file) . '/' . basename($file, '.php') . '.template.php';
-        if (is_readable($filename)) {
-            return new File($filename);
-        } else {
-            return null;
-        }
+        $class = get_class($this);
+        $reflector = new \ReflectionClass($class);
+        do {
+            $file = $reflector->getFileName();
+            $filename = dirname($file) . '/' . basename($file, '.php') . '.template.php';
+            if (is_readable($filename)) {
+                return new File($filename);
+            }
+            $reflector = $reflector->getParentClass();
+        } while (false !== $reflector);
+        return null;
     }
 
     /**

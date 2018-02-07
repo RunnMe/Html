@@ -11,6 +11,7 @@ use Runn\Html\Renderers\NativeRenderer;
  * @package Runn\Core
  */
 trait RendererAwareTrait
+    /*implements RendererAwareInterface*/
 {
 
     /**
