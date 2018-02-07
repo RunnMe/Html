@@ -4,7 +4,7 @@
 
 $attrs = [];
 
-foreach ($this->getAttributes() as $key => $val) {
+foreach ($this->getAttributes() ?? [] as $key => $val) {
     if (null !== $val) {
         if ('name' == $key) {
             $val .= '[]';
