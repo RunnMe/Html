@@ -27,7 +27,7 @@ class NativeRenderer
     {
         $rendering = function ($data) use ($template) {
 
-            /* @7.1 change to null !== $data this because of type hint */
+            /* @7.1 change this to null !== $data because of type hint */
             if (is_array($data) || ($data instanceof \Traversable)) {
                 foreach ($data as $key => $val) {
                     $$key = $val;

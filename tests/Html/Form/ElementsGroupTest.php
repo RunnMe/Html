@@ -3,6 +3,7 @@
 namespace Runn\tests\Html\Form\ElementsGroup;
 
 use Runn\Fs\File;
+use Runn\Html\Form\Buttons\SubmitButton;
 use Runn\Html\Form\ElementsGroup;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
@@ -145,6 +146,11 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(['foo' => 'bar'], $group->getValue());
 
         $group->setValue(['foo' => 'baz', 'bla' => 42]);
+        $this->assertSame(['foo' => 'baz'], $group->getValue());
+
+        $submit = new SubmitButton('Click me!');
+        $group->submit = $submit;
+
         $this->assertSame(['foo' => 'baz'], $group->getValue());
     }
 }

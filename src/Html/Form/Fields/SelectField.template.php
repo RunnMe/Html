@@ -4,7 +4,7 @@
 
 $attrs = [];
 
-foreach ($this->getAttributes() as $key => $val) {
+foreach ($this->getAttributes() ?? [] as $key => $val) {
     if (null !== $val) {
         $attrs[] = $key . '="' . $this->escape($val) . '"';
     } else {
@@ -15,7 +15,7 @@ foreach ($this->getAttributes() as $key => $val) {
 $html  = '<select' . ($attrs ? ' ' . implode(' ', $attrs) : '') . '>';
 
 $options = [];
-foreach ($this->getValues() as $key => $val) {
+foreach ($this->getValues() ?? [] as $key => $val) {
     $options[] =
         '<option value="' . $this->escape($key) . '"' . ($this->getValue() == $val ? ' selected' : '') . '>'
         . $this->escape($val)
