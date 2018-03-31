@@ -3,7 +3,7 @@
 namespace Runn\Html;
 
 /**
- * Common interface for renderable (with template and renderer) objects (inputs, groups, forms etc)
+ * Common interface for renderable (with template and renderer) objects (tags, blocks, inputs, groups, forms etc)
  *
  * Interface RenderableInterface
  * @package Runn\Html

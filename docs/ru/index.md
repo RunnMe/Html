@@ -2,7 +2,8 @@
 ================================
 
 1. [Быстрый старт](./getting-started.md)
-2. [Поля форм](./form/fields.md)
+2. [Рендеринг](./rendering.md)
+3. [Поля форм](./form/fields.md)
     1. [Boolean](./form/fields/booleanfield.md)
     2. [Checkbox](./form/fields/checkboxfield.md)
     3. [Date](./form/fields/datefield.md)
@@ -16,11 +17,11 @@
     11. [Ternary](./form/fields/ternaryfield.md)
     12. [Textarea](./form/fields/textareafield.md)
     13. [Text](./form/fields/textfield.md)
-3. [Элементы](./form/elements.md)
-4. [Наборы элементов](./form/elementssets.md)
-5. [Коллекции элементов](./form/elementscollections.md)
-6. [Группы элементов](./form/elementsgroups.md)
-7. [Формы](./form/forms.md)
+4. [Элементы](./form/elements.md)
+5. [Наборы элементов](./form/elementssets.md)
+6. [Коллекции элементов](./form/elementscollections.md)
+7. [Группы элементов](./form/elementsgroups.md)
+8. [Формы](./form/forms.md)
 
 ### Приложения
 
