@@ -38,12 +38,15 @@ trait HasValueWithValueObjectTrait
      */
     public function setValue($value)
     {
+        $class = static::getValueObjectClass();
         if ($value instanceof ValueObjectInterface) {
-            $class = static::getValueObjectClass();
             if (!($value instanceof $class)) {
                 throw new Exception('Invalid value object class: "' . get_class($value) . '"');
             }
             $value = $value->getValue();
+        } else {
+            $valueObject = new $class($value);
+            $value = $valueObject->getValue();
         }
         $this->trait_setValue($value);
         return $this;
