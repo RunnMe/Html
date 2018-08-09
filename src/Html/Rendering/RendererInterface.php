@@ -1,6 +1,6 @@
 <?php
 
-namespace Runn\Html;
+namespace Runn\Html\Rendering;
 
 use Runn\Storages\SingleValueStorageInterface;
 
@@ -8,7 +8,7 @@ use Runn\Storages\SingleValueStorageInterface;
  * Common interface for all renderers (native, Twig, etc...)
  *
  * Interface RendererInterface
- * @package Runn\Html
+ * @package Runn\Html\Rendering
  */
 interface RendererInterface
 {

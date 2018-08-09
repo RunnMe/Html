@@ -4,7 +4,7 @@ namespace Runn\tests\Html\Form\Field;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
 class FieldTest extends \PHPUnit_Framework_TestCase

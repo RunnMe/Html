@@ -1,10 +1,10 @@
 <?php
 
-namespace Runn\tests\Html\Renderers\NativeRenderer;
+namespace Runn\tests\Html\Rendering\Renderers\NativeRenderer;
 
 use Runn\Core\Std;
 use Runn\Fs\File;
-use Runn\Html\Renderers\NativeRenderer;
+use Runn\Html\Rendering\Renderers\NativeRenderer;
 use Runn\Storages\SingleValueStorageInterface;
 
 class testStorage implements SingleValueStorageInterface

@@ -6,7 +6,7 @@ use Runn\Html\HasNameInterface;
 use Runn\Html\HasOptionsInterface;
 use Runn\Html\HasTitleInterface;
 use Runn\Html\HasValueInterface;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 /**
  * Common interface for all form elements: inputs, groups, collections

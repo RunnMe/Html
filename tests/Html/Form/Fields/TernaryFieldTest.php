@@ -3,7 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\TernaryField;
 
 use Runn\Html\Form\Fields\TernaryField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class TernaryFieldTest extends \PHPUnit_Framework_TestCase
 {

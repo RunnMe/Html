@@ -9,7 +9,7 @@ use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\HasValueInterface;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class testElementsGroup extends ElementsGroup {}
 
@@ -153,4 +153,5 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame(['foo' => 'baz'], $group->getValue());
     }
+
 }

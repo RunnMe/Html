@@ -7,7 +7,7 @@ use Runn\Html\HasNameTrait;
 use Runn\Html\HasOptionsTrait;
 use Runn\Html\HasTitleTrait;
 use Runn\Html\HasValueTrait;
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * Class ElementTrait
@@ -20,7 +20,7 @@ use Runn\Html\RenderableTrait;
  * @implements \Runn\Html\HasValueInterface
  * @implements \Runn\Html\HasOptionsInterface
  * @implements \Runn\Html\BelongsToFormInterface
- * @implements \Runn\Html\RenderableInterface
+ * @implements \Runn\Html\Rendering\RenderableInterface
  */
 trait ElementTrait
     /*implements ElementInterface*/

@@ -3,7 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\FileField;
 
 use Runn\Html\Form\Fields\FileField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class FileFieldTest extends \PHPUnit_Framework_TestCase
 {

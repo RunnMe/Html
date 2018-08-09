@@ -4,7 +4,7 @@ namespace Runn\tests\Html\Form\Fields\InputField;
 
 use Runn\Fs\File;
 use Runn\Html\Form\Fields\InputField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class InputFieldTest extends \PHPUnit_Framework_TestCase
 {

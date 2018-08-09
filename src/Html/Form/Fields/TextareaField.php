@@ -3,7 +3,7 @@
 namespace Runn\Html\Form\Fields;
 
 use Runn\Html\Form\Field;
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <textarea> tag

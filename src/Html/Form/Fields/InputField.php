@@ -4,7 +4,7 @@ namespace Runn\Html\Form\Fields;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <input> tag

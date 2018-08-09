@@ -3,7 +3,7 @@
 namespace Runn\Html\Form\Fields;
 
 use Runn\Core\Std;
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <select> with <option>s tags with "multiple" attribute

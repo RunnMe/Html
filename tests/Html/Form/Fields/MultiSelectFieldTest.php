@@ -4,7 +4,7 @@ namespace Runn\tests\Html\Form\Fields\MultiSelectField;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Fields\MultiSelectField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class MultiSelectFieldTest extends \PHPUnit_Framework_TestCase
 {

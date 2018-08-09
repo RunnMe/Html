@@ -2,7 +2,7 @@
 
 namespace Runn\Html\Form;
 
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * Trait that implements FormElementInterface

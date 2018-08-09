@@ -5,7 +5,7 @@ namespace Runn\tests\Html\Form\ElementsSet;
 use Runn\Html\Form\ElementsSet;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\HasValueInterface;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class ExtendedTextField extends TextField {}
 

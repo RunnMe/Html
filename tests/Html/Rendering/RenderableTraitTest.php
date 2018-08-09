@@ -1,12 +1,12 @@
 <?php
 
-namespace Runn\tests\Html\RenderableTrait;
+namespace Runn\tests\Html\Rendering\RenderableTrait;
 
 use Runn\Fs\File;
-use Runn\Html\RenderableInterface;
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableInterface;
+use Runn\Html\Rendering\RenderableTrait;
 use Runn\Storages\SingleValueStorageInterface;
-use Runn\tests\Html\Form\RenderableTraitTestEmptyTemplate;
+use Runn\tests\Html\Rendering\RenderableTraitTestEmptyTemplate;
 
 class RenderableTraitTest extends \PHPUnit_Framework_TestCase
 {

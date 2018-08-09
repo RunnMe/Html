@@ -3,7 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\PasswordField;
 
 use Runn\Html\Form\Fields\PasswordField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class PasswordFieldTest extends \PHPUnit_Framework_TestCase
 {

@@ -3,7 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\DateField;
 
 use Runn\Html\Form\Fields\DateField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class DateFieldTest extends \PHPUnit_Framework_TestCase
 {

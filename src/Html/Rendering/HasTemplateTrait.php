@@ -1,6 +1,6 @@
 <?php
 
-namespace Runn\Html;
+namespace Runn\Html\Rendering;
 
 use Runn\Storages\SingleValueStorageInterface;
 
@@ -10,7 +10,7 @@ use Runn\Storages\SingleValueStorageInterface;
  * Trait HasTemplateTrait
  * @package Runn\Html
  *
- * @implements \Runn\Html\HasTemplateInterface
+ * @implements \Runn\Html\Rendering\HasTemplateInterface
  */
 trait HasTemplateTrait
     /*implements HasTemplateInterface*/

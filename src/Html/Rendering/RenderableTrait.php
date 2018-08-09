@@ -1,6 +1,6 @@
 <?php
 
-namespace Runn\Html;
+namespace Runn\Html\Rendering;
 
 use Runn\Fs\File;
 use Runn\Storages\SingleValueStorageInterface;
@@ -9,12 +9,12 @@ use Runn\Storages\SingleValueStorageInterface;
  * Basic trait for renderable objects (inputs, groups, forms etc)
  *
  * Trait RenderableTrait
- * @package Runn\Html
+ * @package Runn\Html\Rendering
  *
- * @implements \Runn\Html\RenderableInterface
+ * @implements \Runn\Html\Rendering\RenderableInterface
  *
  * @implements \Runn\Html\RendererAwareInterface
- * @implements \Runn\Html\HasTemplateInterface
+ * @implements \Runn\Html\Rendering\HasTemplateInterface
  */
 trait RenderableTrait
     /*implements RenderableInterface*/

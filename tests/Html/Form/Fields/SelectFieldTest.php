@@ -5,7 +5,7 @@ namespace Runn\tests\Html\Form\Fields\SelectField;
 use Runn\Core\Std;
 use Runn\Fs\File;
 use Runn\Html\Form\Fields\SelectField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class SelectFieldTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Runn\tests\Html\HasTemplateTrait;
+namespace Runn\tests\Html\Rendering\HasTemplateTrait;
 
 use Runn\Fs\File;
-use Runn\Html\HasTemplateInterface;
-use Runn\Html\HasTemplateTrait;
+use Runn\Html\Rendering\HasTemplateInterface;
+use Runn\Html\Rendering\HasTemplateTrait;
 
 class HasTemplateTraitTest extends \PHPUnit_Framework_TestCase
 {

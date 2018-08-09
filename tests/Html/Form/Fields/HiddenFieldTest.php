@@ -3,7 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\HiddenField;
 
 use Runn\Html\Form\Fields\HiddenField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class HiddenFieldTest extends \PHPUnit_Framework_TestCase
 {

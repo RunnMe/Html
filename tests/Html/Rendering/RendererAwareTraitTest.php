@@ -1,11 +1,11 @@
 <?php
 
-namespace Runn\tests\Html\RendererAwareTrait;
+namespace Runn\tests\Html\Rendering\RendererAwareTrait;
 
-use Runn\Html\RendererAwareInterface;
-use Runn\Html\RendererAwareTrait;
-use Runn\Html\RendererInterface;
-use Runn\Html\Renderers\NativeRenderer;
+use Runn\Html\Rendering\RendererAwareInterface;
+use Runn\Html\Rendering\RendererAwareTrait;
+use Runn\Html\Rendering\RendererInterface;
+use Runn\Html\Rendering\Renderers\NativeRenderer;
 use Runn\Storages\SingleValueStorageInterface;
 
 class RendererAwareTraitTest extends \PHPUnit_Framework_TestCase

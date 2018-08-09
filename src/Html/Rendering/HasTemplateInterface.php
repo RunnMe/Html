@@ -1,6 +1,6 @@
 <?php
 
-namespace Runn\Html;
+namespace Runn\Html\Rendering;
 
 use Runn\Storages\SingleValueStorageInterface;
 

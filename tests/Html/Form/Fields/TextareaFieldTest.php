@@ -4,7 +4,7 @@ namespace Runn\tests\Html\Form\Fields\TextareaField;
 
 use Runn\Fs\File;
 use Runn\Html\Form\Fields\TextareaField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class TextareaFieldTest extends \PHPUnit_Framework_TestCase
 {

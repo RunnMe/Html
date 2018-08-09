@@ -3,7 +3,7 @@
 namespace Runn\tests\Html\Form\Fields\NumberField;
 
 use Runn\Html\Form\Fields\NumberField;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 
 class NumberFieldTest extends \PHPUnit_Framework_TestCase
 {

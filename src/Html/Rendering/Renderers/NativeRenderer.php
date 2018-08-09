@@ -1,16 +1,16 @@
 <?php
 
-namespace Runn\Html\Renderers;
+namespace Runn\Html\Rendering\Renderers;
 
 use Runn\Fs\File;
-use Runn\Html\RendererInterface;
+use Runn\Html\Rendering\RendererInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
 /**
  * Native (PHP) template renderer
  *
  * Class NativeRenderer
- * @package Runn\HtmlRenderers
+ * @package Runn\Html\Rendering\Renderers
  */
 class NativeRenderer
     implements RendererInterface

@@ -5,7 +5,7 @@ namespace Runn\Html\Form;
 use Runn\Core\Std;
 use Runn\Html\HasAttributesTrait;
 use Runn\Html\HasTitleTrait;
-use Runn\Html\RenderableTrait;
+use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * Abstract form button class

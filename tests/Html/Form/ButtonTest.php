@@ -7,7 +7,7 @@ use Runn\Html\Form\Button;
 use Runn\Html\Form\FormButtonInterface;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasAttributesInterface;
-use Runn\Html\RenderableInterface;
+use Runn\Html\Rendering\RenderableInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
 class ButtonTest extends \PHPUnit_Framework_TestCase

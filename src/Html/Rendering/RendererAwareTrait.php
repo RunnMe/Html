@@ -1,26 +1,26 @@
 <?php
 
-namespace Runn\Html;
+namespace Runn\Html\Rendering;
 
-use Runn\Html\Renderers\NativeRenderer;
+use Runn\Html\Rendering\Renderers\NativeRenderer;
 
 /**
  * RendererAwareInterface simplest implementation
  *
  * Trait RendererAwareTrait
- * @package Runn\Core
+ * @package Runn\Html\Rendering
  */
 trait RendererAwareTrait
     /*implements RendererAwareInterface*/
 {
 
     /**
-     * @var \Runn\Html\RendererInterface|null
+     * @var \Runn\Html\Rendering\RendererInterface|null
      */
     protected $renderer;
 
     /**
-     * @param \Runn\Html\RendererInterface|null $renderer
+     * @param \Runn\Html\Rendering\RendererInterface|null $renderer
      * @return $this
      *
      * @7.1
@@ -32,7 +32,7 @@ trait RendererAwareTrait
     }
 
     /**
-     * @return \Runn\Html\RendererInterface|null
+     * @return \Runn\Html\Rendering\RendererInterface|null
      *
      * @7.1
      */
