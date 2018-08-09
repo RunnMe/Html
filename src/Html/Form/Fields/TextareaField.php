@@ -3,7 +3,6 @@
 namespace Runn\Html\Form\Fields;
 
 use Runn\Html\Form\Field;
-use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <textarea> tag
@@ -14,7 +13,4 @@ use Runn\Html\Rendering\RenderableTrait;
 class TextareaField
     extends Field
 {
-
-    use RenderableTrait;
-
 }

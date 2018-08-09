@@ -4,7 +4,6 @@ namespace Runn\Html\Form\Fields;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
-use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <select> with <option>s tags
@@ -15,10 +14,6 @@ use Runn\Html\Rendering\RenderableTrait;
 class SelectField
     extends Field
 {
-
-    use RenderableTrait {
-        render as protected traitRender;
-    }
 
     /**
      * @param iterable|null $values

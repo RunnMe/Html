@@ -4,7 +4,6 @@ namespace Runn\Html\Form\Fields;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
-use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <input> tag
@@ -15,8 +14,6 @@ use Runn\Html\Rendering\RenderableTrait;
 class InputField
     extends Field
 {
-
-    use RenderableTrait;
 
     /**
      * @param string $type

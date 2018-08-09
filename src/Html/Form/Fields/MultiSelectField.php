@@ -3,7 +3,6 @@
 namespace Runn\Html\Form\Fields;
 
 use Runn\Core\Std;
-use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * <select> with <option>s tags with "multiple" attribute
@@ -14,10 +13,6 @@ use Runn\Html\Rendering\RenderableTrait;
 class MultiSelectField
     extends SelectField
 {
-
-    use RenderableTrait {
-        render as protected traitRender;
-    }
 
     /**
      * @param string|null $name
