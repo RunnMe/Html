@@ -53,7 +53,7 @@ _N.B. `NativeRenderer` поддерживает передачу парамет�
 Другие интерфейсы, трейты и классы
 ----------------------------------
 
-`namespace \Runn\Html`:
+`namespace \Runn\Html\Rendering`:
 - `HasTemplateInterface` и `HasTemplateTrait`: интерфейс и стандартная его реализация для объекта, располагающего шаблоном;
 `namespace \Runn\Html\Rendering`:
 - `RendererAwareInterface` и `RendererAwareTrait`: интерфейс и стандартная его реализация для объекта, имеющего движок 
@@ -76,6 +76,7 @@ use Runn\Html\Rendering\RenderableTrait;
 
 class Article implements RenderableInterface
 {
+
   use RenderableTrait;
   
   public $title;
@@ -84,7 +85,7 @@ class Article implements RenderableInterface
 }
 ```
 
-Шаблон, файл Article.template.php, находящийся в той же папке (место и имя для шаблона по умолчанию):
+Шаблон, файл `Article.template.php`, находящийся в той же папке (место и имя для шаблона по умолчанию):
 ```php
 <h1><?php echo $this->title; ?></h1>
 <article><?php echo $this->contents; ?></article>

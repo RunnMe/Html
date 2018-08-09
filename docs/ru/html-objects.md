@@ -2,12 +2,12 @@
 =================================
 
 Для корректной объектно-ориентированной реализации элементов HTML, библиотека Runn Me! HTML определяет ряд важных 
-интерфейсов и их стандартных реализаций в виде трейтов
+интерфейсов и их стандартных реализаций в виде трейтов.
 
 `HasAttributesInterface` и `HasAttributesTrait`
 -------------------------------------------
 
-Интерфейс и его стандартная реализация, задающие поведение объектов, отображающих HTML-элементы, имеющих атрибуты (то есть, в общем-то, все элементы HTML)
+Интерфейс и его стандартная реализация, задающие поведение объектов, отображающих HTML-элементы, имеющих атрибуты (то есть, в общем-то, все элементы HTML).
  
 Пример использования:
 ```php
@@ -65,78 +65,6 @@ $field->setValue('foo');
  
 assert('foo' === $field->getValue());
 ```
-
-`HasValueWithValueObjectInterface` и `HasValueWithValueObjectTrait`
-------------------------------------------------------------------
-
-Интерфейс и трейт, которые позволяют вам задавать значение объекта с помощью механизма Value Objects, получив, таким
-образом, доступ к возможностями валидации значений.
-
-Пример использования:
-
-```php
-
-// Сформируем класс Value Object, который и будет осуществлять валидацию данных
-
-class SomeFormValue extends ComplexValueObject
-{
-    protected static $schema = [
-        'email' => ['class' => EmailValue::class],
-        'password1' => ['class' => StringValue::class],
-        'password2' => ['class' => StringValue::class],
-    ];
-    protected function validate()
-    {
-        if ($this->password1 != $this->password2) {
-            throw new InvalidComplexValue('Несовпадающие пароли');
-        }
-    }
-}
-
-// Создадим класс элемента, используя класс ValueObject для валидации значения
-
-class SomeForm implements HasValueWithValueObjectInterface
-{
-    use HasValueWithValueObjectTrait;
-    
-    public static function getValueObjectClass(): string
-    {
-        return SomeFormValue::class;
-    }
-}
-
-// Наконец, используем класс элемента
-
-try {
-
-    $form = new SomeForm();
-    $form->setValue([
-        'email' => 'wrong email',
-        'password1' => '123',
-        'password2' => '321',
-    ]);
-    
-} catch (Exceptions $e) {
-
-    foreach ($e as $error) {
-        echo get_class($error);
-        echo "\n";
-        echo $error->getMessage();
-        echo "\n\n";
-    }
-    
-}
-
-/*
-Получим примерно следующее:
-
-Runn\ValueObjects\Errors\InvalidFieldValue
-Invalid complex value object field "email" value
-...
-Runn\ValueObjects\Errors\InvalidComplexValue
-Несовпадающие пароли
-*/
-```
  
 `HasTitleInterface` и `HasTitleTrait`
 -------------------------------------
@@ -179,5 +107,4 @@ assert(34 === $el->getOption('bar'));
 assert('bla' === $el->getOption('baz'));
  
 assert('12' === $el->getOptions()->foo);
-...
 ```

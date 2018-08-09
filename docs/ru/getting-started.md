@@ -50,12 +50,14 @@ $form->setValue($_POST);
     
 ```php   
 var_dump($form->getValue());
+
 /*
 array(2) {
   ["login"]=>string(13) "test@test.com"
   ["password"]=>string(3) "123"
 }
 */
+
 var_dump($form->login->getValue()); // string(13) "test@test.com"
 var_dump($form->password->getValue()); // string(3) "123"
 
