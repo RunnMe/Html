@@ -26,4 +26,12 @@ interface HasNameInterface
      */
     public function getName()/*: ?string*/;
 
+    /**
+     * Full element's name includes all it's parents names
+     * @return string|null
+     *
+     * @7.1
+     */
+    public function getFullName()/*: ?string*/;
+
 }

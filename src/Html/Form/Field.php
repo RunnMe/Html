@@ -4,6 +4,14 @@ namespace Runn\Html\Form;
 
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasAttributesTrait;
+use Runn\Html\HasNameInterface;
+use Runn\Html\HasNameTrait;
+use Runn\Html\HasOptionsInterface;
+use Runn\Html\HasOptionsTrait;
+use Runn\Html\HasTitleInterface;
+use Runn\Html\HasTitleTrait;
+use Runn\Html\HasValueInterface;
+use Runn\Html\HasValueTrait;
 
 /**
  * Abstract form field class
@@ -12,16 +20,26 @@ use Runn\Html\HasAttributesTrait;
  * @package Runn\Html\Form
  */
 abstract class Field
-    implements ElementInterface, HasAttributesInterface
+    implements FormElementInterface, HasOptionsInterface, HasAttributesInterface, HasTitleInterface, HasNameInterface, HasValueInterface
 {
 
-    use ElementTrait {
-        setName as protected traitSetName;
-        setTitle as protected traitSetTitle;
-        setValue as protected traitSetValue;
-    }
+    use FormElementTrait;
+
+    use HasOptionsTrait;
 
     use HasAttributesTrait;
+
+    use HasTitleTrait {
+        setTitle as protected traitSetTitle;
+    }
+
+    use HasNameTrait {
+        setName as protected traitSetName;
+    }
+
+    use HasValueTrait {
+        setValue as protected traitSetValue;
+    }
 
     /**
      * @param string|null $name

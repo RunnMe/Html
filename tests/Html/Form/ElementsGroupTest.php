@@ -16,16 +16,6 @@ class testElementsGroup extends ElementsGroup {}
 class ElementsGroupTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testGetTemplatePath()
-    {
-        $method = new \ReflectionMethod(testElementsGroup::class, 'getTemplate');
-        $method->setAccessible(true);
-
-        $elements = new testElementsGroup();
-
-        $this->assertEquals(new File(__DIR__ . '/ElementsGroupTest.template.php'), $method->invoke($elements));
-    }
-
     /**
      * @expectedException \Runn\Html\Form\Exception
      * @expectedExceptionMessage Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) key:
@@ -53,7 +43,7 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $elements = new testElementsGroup(['foo' => new \stdClass()]);
     }
 
-    public function testParent()
+    public function testSetParentForElements()
     {
         $el1 = new TextField('foo');
         $el2 = new PasswordField('bar');
@@ -79,51 +69,61 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(['el1' => 'value1', 'el2' => 'value2'], $group->getValue());
     }
 
-    public function testRender()
-    {
-        $elements = new testElementsGroup();
-        $this->assertInstanceOf(RenderableInterface::class, $elements);
-
-        $this->assertSame("Test template", $elements->render());
-
-        $elements = new testElementsGroup(['f'=>new TextField('foo'), 'b'=>new PasswordField('bar')]);
-
-        $this->assertSame("Test templatef:foob:bar", $elements->render());
-    }
 
     public function testMagicGetSet()
     {
         $elements = new testElementsGroup();
 
+        $test = new NumberField('schema');
+        $elements->schema = $test;
+        $this->assertSame($test, $elements->schema);
+        $this->assertEmpty($elements->getSchema());
+
         $test = new NumberField('parent');
         $elements->parent = $test;
         $this->assertSame($test, $elements->parent);
         $this->assertNull($elements->getParent());
+        $this->assertTrue($elements->getParents()->empty());
 
         $test = new NumberField('name');
         $elements->name = $test;
         $this->assertSame($test, $elements->name);
         $this->assertNull($elements->getName());
 
-        $test = new NumberField('title');
-        $elements->title = $test;
-        $this->assertSame($test, $elements->title);
-        $this->assertNull($elements->getTitle());
-
-        $test = new NumberField('value');
-        $elements->value = $test;
-        $this->assertSame($test, $elements->value);
-        $this->assertNotEquals($test, $elements->getValue());
-
-        $test = new NumberField('option');
-        $elements->option = $test;
-        $this->assertSame($test, $elements->option);
-
+        $test = new NumberField('renderer');
+        $elements->renderer = $test;
+        $this->assertSame($test, $elements->renderer);
+        $this->assertNotSame($elements->renderer, $elements->getRenderer());
 
         $test = new NumberField('form');
         $elements->form = $test;
         $this->assertSame($test, $elements->form);
-        $this->assertNull($elements->getForm());
+        $this->assertNotSame($elements->form, $elements->getForm());
+
+        $test = new NumberField('template');
+        $elements->template = $test;
+        $this->assertSame($test, $elements->template);
+        $this->assertNotSame($elements->template, $elements->getTemplate());
+
+        $test = new NumberField('defaultTemplate');
+        $elements->defaultTemplate = $test;
+        $this->assertSame($test, $elements->defaultTemplate);
+        $this->assertNotSame($elements->defaultTemplate, $elements->getDefaultTemplate());
+
+        $test = new NumberField('name');
+        $elements->name = $test;
+        $this->assertSame($test, $elements->name);
+        $this->assertNotSame($elements->name, $elements->getName());
+
+        $test = new NumberField('fullName');
+        $elements->fullName = $test;
+        $this->assertSame($test, $elements->fullName);
+        $this->assertNotSame($elements->fullName, $elements->getFullName());
+
+        $test = new NumberField('value');
+        $elements->value = $test;
+        $this->assertSame($test, $elements->value);
+        $this->assertNotSame($elements->value, $elements->getValue());
     }
 
     public function testSetValue()

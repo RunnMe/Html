@@ -2,6 +2,7 @@
 
 namespace Runn\Html\Form;
 
+use Runn\Html\HasNameTrait;
 use Runn\Html\Rendering\RenderableTrait;
 
 /**
@@ -14,6 +15,26 @@ trait FormElementTrait
     /*implements FormElementInterface*/
 {
 
-    use ElementHasParentTrait, BelongsToFormTrait, RenderableTrait;
+    use ElementHasParentTrait {
+        setParent as traitSetParent;
+    }
+
+    use BelongsToFormTrait, RenderableTrait;
+
+    /**
+     * @param \Runn\Html\Form\FormElementInterface $parent
+     * @return $this
+     *
+     * @7.1
+     */
+    public function setParent(/*?*/FormElementInterface $parent)
+    {
+        if ($parent instanceof Form) {
+            $this->setForm($parent);
+        } elseif ($parent->belongsToForm()) {
+            $this->setForm($parent->getForm());
+        }
+        return $this->traitSetParent($parent);
+    }
 
 }

@@ -14,9 +14,12 @@ class ElementsCollection
     extends TypedCollection
 {
 
+    /**
+     * @return string
+     */
     public static function getType()
     {
-        return ElementInterface::class;
+        return FormElementInterface::class;
     }
 
 }

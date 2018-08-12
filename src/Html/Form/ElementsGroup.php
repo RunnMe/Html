@@ -9,9 +9,11 @@ use Runn\Core\StdGetSetInterface;
 use Runn\Core\StdGetSetTrait;
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasNameInterface;
+use Runn\Html\HasNameTrait;
 use Runn\Html\HasOptionsInterface;
 use Runn\Html\HasTitleInterface;
 use Runn\Html\HasValueInterface;
+use Runn\Html\HasValueTrait;
 
 /**
  * Abstract elements group
@@ -20,29 +22,14 @@ use Runn\Html\HasValueInterface;
  * @package Runn\Html\Form
  */
 abstract class ElementsGroup
-    implements ObjectAsArrayInterface, StdGetSetInterface, HasSchemaInterface, ElementInterface
+    implements
+    ObjectAsArrayInterface, StdGetSetInterface, HasSchemaInterface,
+    FormElementInterface, HasNameInterface, HasValueInterface
 {
 
     use StdGetSetTrait {
         innerSet as traitInnerSet;
     }
-
-    /**
-     * @return array
-     */
-    protected function notgetters(): array
-    {
-        return ['schema', 'template', 'name', 'title', 'value', 'option', 'options', 'parent', 'parents', 'form', 'fullName'];
-    }
-
-    /**
-     * @return array
-     */
-    protected function notsetters(): array
-    {
-        return ['name', 'template', 'title', 'value', 'option', 'options', 'parent', 'form'];
-    }
-
 
     protected static $schema = [];
 
@@ -50,7 +37,42 @@ abstract class ElementsGroup
         prepareValueBySchemaDef as traitPrepareValueBySchemaDef;
     }
 
-    use ElementTrait;
+    use FormElementTrait;
+
+    use HasNameTrait;
+
+    use HasValueTrait;
+
+    /**
+     * @return array
+     */
+    protected function notgetters(): array
+    {
+        return [
+            'schema',
+            'parent', 'parents',
+            'form',
+            'renderer',
+            'template', 'defaultTemplate',
+            'name', 'fullName',
+            'value',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function notsetters(): array
+    {
+        return [
+            'parent',
+            'form',
+            'renderer',
+            'template',
+            'name',
+            'value',
+        ];
+    }
 
     /**
      * Constructor.
@@ -83,7 +105,7 @@ abstract class ElementsGroup
         if ('' === $key || is_numeric($key)) {
             throw new Exception('Invalid ElementsGroup (' . static::class . ') key: ' . $key);
         }
-        if (!($val instanceof ElementInterface) && !($val instanceof FormButtonInterface)) {
+        if (!($val instanceof FormElementInterface)) {
             throw new Exception('Invalid ElementsGroup (' . static::class . ') value by key: ' . $key);
         }
         $this->traitInnerSet($key, $val);
@@ -105,7 +127,7 @@ abstract class ElementsGroup
         }
 
         $class = $def['class'];
-        if (!is_subclass_of($class, ElementInterface::class)) {
+        if (!is_subclass_of($class, FormElementInterface::class)) {
             throw new Exception('Invalid group schema: class for element "' . $key  .'" is not a form element class');
         }
 

@@ -1,1 +1,0 @@
-Test template<?php foreach ($this as $key => $element):?><?php echo $key; ?>:<?php echo $element->getName(); ?><?php endforeach; ?>

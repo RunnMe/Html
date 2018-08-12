@@ -2,10 +2,13 @@
 
 namespace Runn\tests\Html\Form\ElementsSet;
 
+use Runn\Core\TypedCollection;
+use Runn\Html\Form\ElementsCollection;
 use Runn\Html\Form\ElementsSet;
 use Runn\Html\Form\Fields\TextField;
+use Runn\Html\Form\FormElementInterface;
+use Runn\Html\HasNameInterface;
 use Runn\Html\HasValueInterface;
-use Runn\Html\Rendering\RenderableInterface;
 
 class ExtendedTextField extends TextField {}
 
@@ -29,6 +32,20 @@ class testElementsSetFixedName extends ElementsSet {
 
 class ElementsSetTest extends \PHPUnit_Framework_TestCase
 {
+
+    public function testInstances()
+    {
+        $set = new class extends ElementsSet {};
+
+        $this->assertInstanceOf(ElementsSet::class, $set);
+        $this->assertInstanceOf(TypedCollection::class, $set);
+        $this->assertInstanceOf(ElementsCollection::class, $set);
+        $this->assertInstanceOf(FormElementInterface::class, $set);
+        $this->assertInstanceOf(HasNameInterface::class, $set);
+        $this->assertInstanceOf(HasValueInterface::class, $set);
+
+        $this->assertSame(FormElementInterface::class, ElementsSet::getType());
+    }
 
     /**
      * @expectedException \Runn\Html\Form\Exception
@@ -95,6 +112,7 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
     public function testHasValueInterface()
     {
         $set = new testElementsSet;
+
         $this->assertInstanceOf(HasValueInterface::class, $set);
         $this->assertSame([], $set->getValue());
 
@@ -102,16 +120,12 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
         $set[] = new TextField('bar', 'value2');
 
         $this->assertSame([0 => 'value1', 1 => 'value2'], $set->getValue());
-    }
 
-    public function testRender()
-    {
-        $set = new testElementsSetFixedName();
-        $set[] = new TextField('foo', 42);
-        $set[] = new TextField('bar', 24);
+        $set->setValue([0 => 'foo', 1 => 'bar']);
 
-        $this->assertInstanceOf(RenderableInterface::class, $set);
-        $this->assertSame("Test template|foo=42||bar=24|", $set->render());
+        $this->assertSame([0 => 'foo', 1 => 'bar'], $set->getValue());
+        $this->assertSame('foo', $set[0]->getValue());
+        $this->assertSame('bar', $set[1]->getValue());
     }
 
 }

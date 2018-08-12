@@ -3,9 +3,10 @@
 namespace Runn\Html\Form;
 
 use Runn\Core\Std;
+use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasAttributesTrait;
+use Runn\Html\HasTitleInterface;
 use Runn\Html\HasTitleTrait;
-use Runn\Html\Rendering\RenderableTrait;
 
 /**
  * Abstract form button class
@@ -13,11 +14,10 @@ use Runn\Html\Rendering\RenderableTrait;
  * Class Button
  * @package Runn\Html\Form
  */
-abstract class Button
-    implements FormButtonInterface
+abstract class Button implements FormElementInterface, HasAttributesInterface, HasTitleInterface
 {
 
-    use HasAttributesTrait, ElementHasParentTrait, BelongsToFormTrait, RenderableTrait, HasTitleTrait;
+    use FormElementTrait, HasAttributesTrait, HasTitleTrait;
 
     // @7.1
     /*public */const DEFAULT_TYPE = 'submit';

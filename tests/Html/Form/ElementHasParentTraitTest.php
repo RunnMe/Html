@@ -3,9 +3,10 @@
 namespace Runn\tests\Html\Form\HasParentTrait;
 
 use Runn\Html\Form\ElementHasParentInterface;
-use Runn\Html\Form\ElementInterface;
+use Runn\Html\Form\ElementHasParentTrait;
 use Runn\Html\Form\ElementsCollection;
-use Runn\Html\Form\ElementTrait;
+use Runn\Html\Form\FormElementInterface;
+use Runn\Html\Form\FormElementTrait;
 
 class HasParentTraitTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,7 +14,7 @@ class HasParentTraitTest extends \PHPUnit_Framework_TestCase
     public function testSetGetParent()
     {
         $element = new class implements ElementHasParentInterface {
-            use \Runn\Html\Form\ElementHasParentTrait;
+            use ElementHasParentTrait;
         };
 
         $this->assertFalse($element->hasParent());
@@ -21,8 +22,8 @@ class HasParentTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new ElementsCollection(), $element->getParents());
         $this->assertTrue($element->getParents()->empty());
 
-        $parent = new class implements ElementInterface {
-            use ElementTrait;
+        $parent = new class implements FormElementInterface {
+            use FormElementTrait;
         };
 
         $res = $element->setParent($parent);
@@ -35,15 +36,15 @@ class HasParentTraitTest extends \PHPUnit_Framework_TestCase
     public function testGetParentsChain()
     {
         $element11 = new class implements ElementHasParentInterface {
-            use \Runn\Html\Form\ElementHasParentTrait;
+            use ElementHasParentTrait;
         };
 
-        $element1 =new class implements ElementInterface {
-            use ElementTrait;
+        $element1 =new class implements FormElementInterface {
+            use FormElementTrait;
         };
 
-        $super = new class implements ElementInterface {
-            use ElementTrait;
+        $super = new class implements FormElementInterface {
+            use FormElementTrait;
         };
 
         $element1->setParent($super);

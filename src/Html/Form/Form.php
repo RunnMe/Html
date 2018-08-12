@@ -18,7 +18,7 @@ class Form
 
     use HasAttributesTrait;
 
-    public function setParent(ElementInterface $parent)
+    public function setParent(FormElementInterface $parent)
     {
         throw new \BadMethodCallException();
     }

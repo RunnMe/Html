@@ -2,7 +2,7 @@
 
 namespace Runn\Html\Form\Errors;
 
-use Runn\Html\Form\ElementInterface;
+use Runn\Html\Form\FormElementInterface;
 use Runn\Validation\ValidationError;
 
 /**
@@ -15,27 +15,27 @@ class ElementValidationError extends ValidationError
 {
 
     /**
-     * @var ElementInterface
+     * @var FormElementInterface
      */
     protected $element;
 
     /**
-     * @param ElementInterface $element
+     * @param FormElementInterface $element
      * @param mixed $value
      * @param string $message
      * @param int $code
      * @param \Throwable|null $previous
      */
-    public function __construct(ElementInterface $element, $value, $message = "", $code = 0, \Throwable $previous = null)
+    public function __construct(FormElementInterface $element, $value, $message = "", $code = 0, \Throwable $previous = null)
     {
         $this->element = $element;
         parent::__construct($value, $message, $code, $previous);
     }
 
     /**
-     * @return ElementInterface
+     * @return FormElementInterface
      */
-    public function getElement(): ElementInterface
+    public function getElement(): FormElementInterface
     {
         return $this->element;
     }

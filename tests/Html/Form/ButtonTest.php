@@ -4,10 +4,9 @@ namespace Runn\tests\Html\Form\Button;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Button;
-use Runn\Html\Form\FormButtonInterface;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasAttributesInterface;
-use Runn\Html\Rendering\RenderableInterface;
+use Runn\Html\HasTitleInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
 class ButtonTest extends \PHPUnit_Framework_TestCase
@@ -19,8 +18,8 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(FormElementInterface::class, $button);
         $this->assertInstanceOf(HasAttributesInterface::class, $button);
-        $this->assertInstanceOf(RenderableInterface::class, $button);
-        $this->assertInstanceOf(FormButtonInterface::class, $button);
+        $this->assertInstanceOf(HasTitleInterface::class, $button);
+        $this->assertInstanceOf(Button::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
@@ -30,7 +29,7 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNull($button->getTitle());
 
-        $this->assertSame('<button type="submit"></button>', $button->render());
+        $this->assertSame('<button type="' . Button::DEFAULT_TYPE . '"></button>', $button->render());
     }
 
     public function testConstructAndType()
@@ -39,8 +38,8 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(FormElementInterface::class, $button);
         $this->assertInstanceOf(HasAttributesInterface::class, $button);
-        $this->assertInstanceOf(RenderableInterface::class, $button);
-        $this->assertInstanceOf(FormButtonInterface::class, $button);
+        $this->assertInstanceOf(HasTitleInterface::class, $button);
+        $this->assertInstanceOf(Button::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
@@ -69,8 +68,8 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(FormElementInterface::class, $button);
         $this->assertInstanceOf(HasAttributesInterface::class, $button);
-        $this->assertInstanceOf(RenderableInterface::class, $button);
-        $this->assertInstanceOf(FormButtonInterface::class, $button);
+        $this->assertInstanceOf(HasTitleInterface::class, $button);
+        $this->assertInstanceOf(Button::class, $button);
 
         $this->assertInstanceOf(Std::class, $button->getAttributes());
         $this->assertCount(1, $button->getAttributes());
