@@ -2,7 +2,7 @@
 
 namespace Runn\Html\Form;
 
-use Runn\Html\HasNameInterface;
+use Runn\Html\Form\Errors\ElementValidationErrors;
 use Runn\Html\Rendering\RenderableInterface;
 
 /**
@@ -14,4 +14,20 @@ use Runn\Html\Rendering\RenderableInterface;
 interface FormElementInterface
     extends BelongsToFormInterface, ElementHasParentInterface, RenderableInterface
 {
+
+
+    /**
+     * Is the value of this element valid?
+     *
+     * @return bool
+     */
+    public function isValid(): bool;
+
+    /**
+     * Return collection of validation errors for this element
+     *
+     * @return ElementValidationErrors
+     */
+    public function getErrors(): ElementValidationErrors;
+
 }
