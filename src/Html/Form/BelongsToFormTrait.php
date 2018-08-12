@@ -31,7 +31,7 @@ trait BelongsToFormTrait
      *
      * @7.1
      */
-    public function setForm(/*?*/Form $form)
+    public function setForm(/*?*/Form $form = null)
     {
         $this->form = $form;
         return $this;

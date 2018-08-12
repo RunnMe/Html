@@ -22,7 +22,7 @@ interface BelongsToFormInterface
      *
      * @7.1
      */
-    public function setForm(/*?*/Form $form);
+    public function setForm(/*?*/Form $form = null);
 
     /**
      * @return \Runn\Html\Form\Form|null
