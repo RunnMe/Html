@@ -20,11 +20,11 @@ trait HasOptionsTrait
     protected $options = null;
 
     /**
-     * @param string|int $key
+     * @param string $key
      * @param mixed $val
      * @return $this
      */
-    public function setOption($key, $val)
+    public function setOption(string $key, $val)
     {
         if (null === $this->options) {
             $this->options = new Std;
@@ -34,10 +34,10 @@ trait HasOptionsTrait
     }
 
     /**
-     * @param string|int $key
+     * @param string $key
      * @return mixed|null
      */
-    public function getOption($key)
+    public function getOption(string $key)
     {
         return $this->options->$key ?? null;
     }
