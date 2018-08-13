@@ -5,10 +5,10 @@ namespace Runn\Html;
 /**
  * Common interface for all elements that have value, it's validation and store errors
  *
- * Interface HasValidationInterface
+ * Interface HasValueValidationInterface
  * @package Runn\Html
  */
-interface HasValidationInterface extends HasValueInterface
+interface HasValueValidationInterface extends HasValueInterface
 {
 
     /**

@@ -6,8 +6,16 @@ use Runn\Core\Exceptions;
 use Runn\Validation\Validator;
 use Runn\Validation\Validators\PassThruValidator;
 
-trait HasValidationTrait
-    /*implements HasValidationInterface*/
+/**
+ * Trait for elements that have value, it's validation and store errors
+ *
+ * Trait HasValueValidationTrait
+ * @package Runn\Html
+ *
+ * @implements \Runn\Html\HasValueValidationInterface
+ */
+trait HasValueValidationTrait
+    /*implements HasValueValidationInterface*/
 {
 
     use HasValueTrait {
@@ -52,18 +60,15 @@ trait HasValidationTrait
 
         try {
             $result = $validator($value);
+            if (!$result) {
+                $this->errors[] = new ValidationError($this, $value);
+            }
         } catch (Exceptions $errors) {
             foreach ($errors as $error) {
                 $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode());
             }
         } catch (\Throwable $error) {
             $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode());
-        } finally {
-            if (isset($result) && ($result instanceof \Generator)) {
-                foreach ($result as $error) {
-                    $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode());
-                }
-            }
         }
 
         return $this->errors->empty();
