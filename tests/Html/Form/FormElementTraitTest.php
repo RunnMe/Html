@@ -46,19 +46,4 @@ class FormElementTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($form, $element->getForm());
     }
 
-    public function testValidateReturnsFalse()
-    {
-        $element = new class implements FormElementInterface {
-            use FormElementTrait;
-            protected function validate(): bool
-            {
-                return false;
-            }
-        };
-
-        $this->assertCount(1, $element->getErrors());
-        $this->assertFalse($element->isValid());
-        $this->assertEquals(new ElementValidationErrors([new ElementValidationError($element, null)]), $element->getErrors());
-    }
-
 }
