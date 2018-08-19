@@ -19,7 +19,7 @@ trait HasValueValidationTrait
 {
 
     use HasValueTrait {
-        setValue as traitSetValue;
+        setValue as traitHasValueSetValue;
     }
 
     /**
@@ -41,7 +41,7 @@ trait HasValueValidationTrait
      */
     public function setValue($value)
     {
-        $this->traitSetValue($value);
+        $this->traitHasValueSetValue($value);
         $this->validate();
     }
 

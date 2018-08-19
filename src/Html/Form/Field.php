@@ -11,7 +11,8 @@ use Runn\Html\HasOptionsTrait;
 use Runn\Html\HasTitleInterface;
 use Runn\Html\HasTitleTrait;
 use Runn\Html\HasValueInterface;
-use Runn\Html\HasValueTrait;
+use Runn\Html\HasValueValidationInterface;
+use Runn\Html\HasValueValidationTrait;
 
 /**
  * Abstract form field class
@@ -20,7 +21,7 @@ use Runn\Html\HasValueTrait;
  * @package Runn\Html\Form
  */
 abstract class Field
-    implements FormElementInterface, HasOptionsInterface, HasAttributesInterface, HasTitleInterface, HasNameInterface, HasValueInterface
+    implements FormElementInterface, HasOptionsInterface, HasAttributesInterface, HasTitleInterface, HasNameInterface, HasValueInterface, HasValueValidationInterface
 {
 
     use FormElementTrait;
@@ -37,7 +38,7 @@ abstract class Field
         setName as protected traitSetName;
     }
 
-    use HasValueTrait {
+    use HasValueValidationTrait {
         setValue as protected traitSetValue;
     }
 

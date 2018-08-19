@@ -1,6 +1,6 @@
 FormElementInterface [BelongsToForm, HasParent, Renderable]
 
-- abstract Field [+ HasOptions, HasAttributes, HasTitle, HasName, HasValue]
+- abstract Field [+ HasOptions, HasAttributes, HasTitle, HasName, HasValue, HasValueValidation]
 
 - abstract Button [+ HasAttributes, HasTitle]
 
