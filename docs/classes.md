@@ -6,7 +6,7 @@ FormElementInterface [BelongsToForm, HasParent, Renderable]
 
 - ElementsCollection [TypedCollection<FormElementInterface>]
 
-    - abstract ElementSet [+ HasName, HasValue]
+    - abstract ElementSet [+ HasName, HasValue, HasValueValidation]
 
 - abstract ElementsGroup [Std, HasSchema + HasName, HasValue]
 

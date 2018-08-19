@@ -2,11 +2,12 @@
 
 namespace Runn\Html\Form;
 
-use Runn\Core\TypedCollection;
 use Runn\Html\HasNameInterface;
 use Runn\Html\HasNameTrait;
 use Runn\Html\HasValueInterface;
-use Runn\Html\HasValueTrait;
+use Runn\Html\HasValueValidationInterface;
+use Runn\Html\HasValueValidationTrait;
+use Runn\Html\ValidationErrors;
 
 /**
  * Set of elements with same class
@@ -17,14 +18,14 @@ use Runn\Html\HasValueTrait;
  */
 abstract class ElementsSet
     extends ElementsCollection
-    implements FormElementInterface, HasNameInterface, HasValueInterface
+    implements FormElementInterface, HasNameInterface, HasValueInterface, HasValueValidationInterface
 {
 
     use FormElementTrait;
 
     use HasNameTrait;
 
-    use HasValueTrait;
+    use HasValueValidationTrait;
 
     /**
      * @param mixed $value
@@ -62,9 +63,9 @@ abstract class ElementsSet
     public function getValue()
     {
         $values = [];
-        foreach ($this as $key => $el) {
-            if ($el instanceof HasValueInterface) {
-                $values[$key] = $el->getValue();
+        foreach ($this as $key => $element) {
+            if ($element instanceof HasValueInterface) {
+                $values[$key] = $element->getValue();
             }
         }
         return $values;
@@ -87,6 +88,41 @@ abstract class ElementsSet
             }
         }
         return $this;
+    }
+
+    /**
+     * Makes value validation
+     *
+     * Returns true if there are no validation errors, false otherwise
+     * @return bool
+     */
+    public function validate(): bool
+    {
+        foreach ($this as $element) {
+            if ($element instanceof HasValueValidationInterface) {
+                $element->validate();
+            }
+        }
+        return $this->errors()->empty();
+    }
+
+    /**
+     * Returns validation errors collection
+     *
+     * @return \Runn\Html\ValidationErrors
+     */
+    public function errors(): ValidationErrors
+    {
+        $errors = new ValidationErrors();
+        foreach ($this as $key => $element) {
+            if ($element instanceof HasValueValidationInterface) {
+                $e = $element->errors();
+                if (!$e->empty()) {
+                    $errors[$key] = $e;
+                }
+            }
+        }
+        return $errors;
     }
 
 }
