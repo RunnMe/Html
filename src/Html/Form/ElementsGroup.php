@@ -16,6 +16,7 @@ use Runn\Html\HasValueInterface;
 use Runn\Html\HasValueValidationInterface;
 use Runn\Html\HasValueValidationTrait;
 use Runn\Html\ValidationErrors;
+use Runn\Validation\Validator;
 
 /**
  * Abstract elements group
@@ -150,6 +151,13 @@ abstract class ElementsGroup
 
         if (($value instanceof HasTitleInterface) && isset($def['title'])) {
             $value->setTitle($def['title']);
+        }
+
+        if (($value instanceof HasValueValidationInterface) && isset($def['validator'])) {
+            if (!is_subclass_of($def['validator'], Validator::class)) {
+                throw new Exception('Invalid group schema: validator class for element "' . $key  .'" is not a validator class');
+            }
+            $value->setValidator(new $def['validator']);
         }
 
         if (($value instanceof HasValueInterface) && isset($def['value'])) {

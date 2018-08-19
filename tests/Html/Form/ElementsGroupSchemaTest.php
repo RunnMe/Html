@@ -3,8 +3,11 @@
 namespace Runn\tests\Html\Form\ElementsGroup;
 
 use Runn\Html\Form\ElementsGroup;
+use Runn\Html\Form\Fields\EmailField;
 use Runn\Html\Form\Fields\TextareaField;
 use Runn\Html\Form\Fields\TextField;
+use Runn\Html\ValidationError;
+use Runn\Validation\Validators\EmailValidator;
 
 class testElementsGroupSchema extends ElementsGroup {
     protected static $schema = [
@@ -22,6 +25,11 @@ class testElementsGroupSchema extends ElementsGroup {
             'attributes' => ['foo' => 'bar', 'baz' => 42],
             'options'    => ['foo' => 'bar', 'baz' => 42],
         ],
+        'field3' => [
+            'class' => EmailField::class,
+            'validator' => EmailValidator::class,
+            'value' => 'it-is-not-email!',
+        ]
     ];
 }
 
@@ -86,11 +94,27 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         };
     }
 
+    /**
+     * @expectedException \Runn\Html\Form\Exception
+     * @expectedExceptionMessage Invalid group schema: validator class for element "foo" is not a validator class
+     */
+    public function testSchemaInvalidValidatorClass()
+    {
+        $group = new class extends ElementsGroup {
+            protected static $schema = [
+                'foo' => [
+                    'class' => TextField::class,
+                    'validator' => \stdClass::class,
+                ],
+            ];
+        };
+    }
+
     public function testSchema()
     {
         $group = new testElementsGroupSchema;
 
-        $this->assertCount(3, $group);
+        $this->assertCount(4, $group);
 
         // foo:
 
@@ -138,6 +162,20 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(2, $group->field2->getOptions());
         $this->assertSame('bar', $group->field2->getOptions()->foo);
         $this->assertSame(42, $group->field2->getOptions()->baz);
+
+        // field3 :
+
+        $this->assertInstanceOf(EmailField::class, $group->field3);
+        $this->assertSame($group, $group->field3->getParent());
+
+        $this->assertSame('field3', $group->field3->getName());
+        $this->assertSame('it-is-not-email!', $group->field3->getValue());
+
+        $this->assertFalse($group->field3->errors()->empty());
+        $this->assertCount(1, $group->field3->errors());
+        $this->assertInstanceOf(ValidationError::class, $group->field3->errors()[0]);
+        $this->assertSame($group->field3, $group->field3->errors()[0]->getElement());
+        $this->assertSame($group->field3->getValue(), $group->field3->errors()[0]->getValue());
     }
 
     public function testNestedGroup()
@@ -158,7 +196,7 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(ElementsGroup::class, $group->inner);
         $this->assertSame($group, $group->inner->getParent());
-        $this->assertCount(3, $group->inner);
+        $this->assertCount(4, $group->inner);
     }
 
 }
