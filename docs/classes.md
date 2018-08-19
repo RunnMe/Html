@@ -8,6 +8,6 @@ FormElementInterface [BelongsToForm, HasParent, Renderable]
 
     - abstract ElementSet [+ HasName, HasValue, HasValueValidation]
 
-- abstract ElementsGroup [Std, HasSchema + HasName, HasValue]
+- abstract ElementsGroup [Std, HasSchema + HasName, HasValue, HasValueValidation]
 
     - Form [+ HasAttributes]

@@ -2,14 +2,12 @@
 
 namespace Runn\tests\Html\Form\ElementsGroup;
 
-use Runn\Fs\File;
 use Runn\Html\Form\Buttons\SubmitButton;
 use Runn\Html\Form\ElementsGroup;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\HasValueInterface;
-use Runn\Html\Rendering\RenderableInterface;
 
 class testElementsGroup extends ElementsGroup {}
 
@@ -124,6 +122,10 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $elements->value = $test;
         $this->assertSame($test, $elements->value);
         $this->assertNotSame($elements->value, $elements->getValue());
+
+        $test = new NumberField('validator');
+        $elements->validator = $test;
+        $this->assertSame($test, $elements->validator);
     }
 
     public function testSetValue()

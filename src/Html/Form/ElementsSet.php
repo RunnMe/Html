@@ -109,6 +109,8 @@ abstract class ElementsSet
     /**
      * Returns validation errors collection
      *
+     * @todo: cache errors
+     *
      * @return \Runn\Html\ValidationErrors
      */
     public function errors(): ValidationErrors

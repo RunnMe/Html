@@ -13,7 +13,9 @@ use Runn\Html\HasNameTrait;
 use Runn\Html\HasOptionsInterface;
 use Runn\Html\HasTitleInterface;
 use Runn\Html\HasValueInterface;
-use Runn\Html\HasValueTrait;
+use Runn\Html\HasValueValidationInterface;
+use Runn\Html\HasValueValidationTrait;
+use Runn\Html\ValidationErrors;
 
 /**
  * Abstract elements group
@@ -24,7 +26,7 @@ use Runn\Html\HasValueTrait;
 abstract class ElementsGroup
     implements
     ObjectAsArrayInterface, StdGetSetInterface, HasSchemaInterface,
-    FormElementInterface, HasNameInterface, HasValueInterface
+    FormElementInterface, HasNameInterface, HasValueInterface, HasValueValidationInterface
 {
 
     use StdGetSetTrait {
@@ -41,7 +43,7 @@ abstract class ElementsGroup
 
     use HasNameTrait;
 
-    use HasValueTrait;
+    use HasValueValidationTrait;
 
     /**
      * @return array
@@ -55,7 +57,7 @@ abstract class ElementsGroup
             'renderer',
             'template', 'defaultTemplate',
             'name', 'fullName',
-            'value',
+            'value', 'validator',
         ];
     }
 
@@ -163,9 +165,9 @@ abstract class ElementsGroup
     public function getValue()
     {
         $values = [];
-        foreach ($this as $key => $el) {
-            if ($el instanceof HasValueInterface) {
-                $values[$key] = $el->getValue();
+        foreach ($this as $key => $element) {
+            if ($element instanceof HasValueInterface) {
+                $values[$key] = $element->getValue();
             }
         }
         return $values;
@@ -188,6 +190,43 @@ abstract class ElementsGroup
                 }
         }
         return $this;
+    }
+
+    /**
+     * Makes value validation
+     *
+     * Returns true if there are no validation errors, false otherwise
+     * @return bool
+     */
+    public function validate(): bool
+    {
+        foreach ($this as $element) {
+            if ($element instanceof HasValueValidationInterface) {
+                $element->validate();
+            }
+        }
+        return $this->errors()->empty();
+    }
+
+    /**
+     * Returns validation errors collection
+     *
+     * @todo: cache errors
+     *
+     * @return \Runn\Html\ValidationErrors
+     */
+    public function errors(): ValidationErrors
+    {
+        $errors = new ValidationErrors();
+        foreach ($this as $key => $element) {
+            if ($element instanceof HasValueValidationInterface) {
+                $e = $element->errors();
+                if (!$e->empty()) {
+                    $errors[$key] = $e;
+                }
+            }
+        }
+        return $errors;
     }
 
 }
