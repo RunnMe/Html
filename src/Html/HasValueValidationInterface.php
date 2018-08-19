@@ -2,13 +2,15 @@
 
 namespace Runn\Html;
 
+use Runn\Validation\ValidatorAwareInterface;
+
 /**
  * Common interface for all elements that have value, it's validation and store errors
  *
  * Interface HasValueValidationInterface
  * @package Runn\Html
  */
-interface HasValueValidationInterface extends HasValueInterface
+interface HasValueValidationInterface extends HasValueInterface, ValidatorAwareInterface
 {
 
     /**

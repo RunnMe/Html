@@ -15,7 +15,7 @@ class validationReturnsTrue implements HasValueValidationInterface {
 
     use HasValueValidationTrait;
 
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
         return new class extends Validator {
             public function validate($value): bool
@@ -31,7 +31,7 @@ class validationReturnsFalse implements HasValueValidationInterface {
 
     use HasValueValidationTrait;
 
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
         return new class extends Validator {
             public function validate($value): bool
@@ -47,7 +47,7 @@ class validationWithOneException implements HasValueValidationInterface {
 
     use HasValueValidationTrait;
 
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
         return new class extends Validator {
             public function validate($value): bool
@@ -66,7 +66,7 @@ class validationWithMultiExceptions implements HasValueValidationInterface {
 
     use HasValueValidationTrait;
 
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
         return new class extends Validator {
             public function validate($value): bool

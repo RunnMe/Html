@@ -72,7 +72,7 @@ abstract class ElementsGroup
             'renderer',
             'template',
             'name',
-            'value',
+            'value', 'validator'
         ];
     }
 

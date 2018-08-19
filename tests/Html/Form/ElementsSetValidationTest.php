@@ -11,7 +11,7 @@ use Runn\Validation\Validator;
 
 class testTextField extends TextField
 {
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
         echo $this->getValue();
         return parent::getValidator();
@@ -20,7 +20,7 @@ class testTextField extends TextField
 
 class testNotEvenNumberField extends NumberField
 {
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
         return new class extends Validator {
             public function validate($value): bool

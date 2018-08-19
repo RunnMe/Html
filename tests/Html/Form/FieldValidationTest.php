@@ -13,7 +13,7 @@ class FieldValidationTest extends \PHPUnit_Framework_TestCase
     public function testValidatorReturnsTrue()
     {
         $field = new class('foo', 42) extends Field {
-            protected function getValidator(): Validator {
+            public function getValidator(): Validator {
                 return new class extends Validator {
                     public function validate($value): bool {
                         return true;
@@ -29,7 +29,7 @@ class FieldValidationTest extends \PHPUnit_Framework_TestCase
     public function testValidatorReturnsFalse()
     {
         $field = new class('foo', 42) extends Field {
-            protected function getValidator(): Validator {
+            public function getValidator(): Validator {
                 return new class extends Validator {
                     public function validate($value): bool {
                         return false;
@@ -50,7 +50,7 @@ class FieldValidationTest extends \PHPUnit_Framework_TestCase
     public function testSingleErrorValidator()
     {
         $field = new class('foo', 42) extends Field {
-            protected function getValidator(): Validator {
+            public function getValidator(): Validator {
                 return new class extends Validator {
                     public function validate($value): bool {
                         throw new \Exception('Invalid value');
@@ -71,7 +71,7 @@ class FieldValidationTest extends \PHPUnit_Framework_TestCase
     public function testMultiErrorsValidator()
     {
         $field = new class('foo', 42) extends Field {
-            protected function getValidator(): Validator {
+            public function getValidator(): Validator {
                 return new class extends Validator {
                     public function validate($value): bool {
                         throw new Exceptions([

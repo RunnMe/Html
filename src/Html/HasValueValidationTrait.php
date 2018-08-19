@@ -13,6 +13,8 @@ use Runn\Validation\Validators\PassThruValidator;
  * @package Runn\Html
  *
  * @implements \Runn\Html\HasValueValidationInterface
+ * @implements \Runn\Html\HasValueInterface
+ * @implements \Runn\Validation\ValidatorAwareInterface
  */
 trait HasValueValidationTrait
     /*implements HasValueValidationInterface*/
@@ -23,16 +25,31 @@ trait HasValueValidationTrait
     }
 
     /**
+     * @var \Runn\Validation\Validator
+     */
+    protected $validator;
+
+    /**
      * @var \Runn\Html\ValidationErrors
      */
     protected $errors;
 
     /**
+     * @param Validator $validator
+     * @return $this
+     */
+    public function setValidator(Validator $validator)
+    {
+        $this->validator = $validator;
+        return $this;
+    }
+
+    /**
      * @return \Runn\Validation\Validator
      */
-    protected function getValidator(): Validator
+    public function getValidator(): Validator
     {
-        return new PassThruValidator;
+        return $this->validator ?? new PassThruValidator;
     }
 
     /**
