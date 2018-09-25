@@ -73,10 +73,10 @@ class ElementsSetValidationTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(ValidationErrors::class, $set->errors()[2]);
 
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($set[0], 0, 'Value is even')
+            new ValidationError($set[0], 0, 'Value is even', 0, new \Exception('Value is even'))
         ]), $set->errors()[0]);
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($set[2], 2, 'Value is even')
+            new ValidationError($set[2], 2, 'Value is even', 0, new \Exception('Value is even'))
         ]), $set->errors()[2]);
     }
 

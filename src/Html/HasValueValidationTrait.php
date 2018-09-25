@@ -82,10 +82,10 @@ trait HasValueValidationTrait
             }
         } catch (Exceptions $errors) {
             foreach ($errors as $error) {
-                $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode());
+                $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode(), $error);
             }
         } catch (\Throwable $error) {
-            $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode());
+            $this->errors[] = new ValidationError($this, $value, $error->getMessage(), $error->getCode(), $error);
         }
 
         return $this->errors->empty();

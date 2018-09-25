@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\Form\ElementsGroup;
 
+use Runn\Core\Exception;
 use Runn\Html\Form\ElementsGroup;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\TextField;
@@ -65,10 +66,10 @@ class ElementsGroupValidationTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(ValidationErrors::class, $group->errors()['baz']);
 
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($group->foo, 0, 'Value is even')
+            new ValidationError($group->foo, 0, 'Value is even', 0, new \Exception('Value is even'))
         ]), $group->errors()['foo']);
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($group->baz, 2, 'Value is even')
+            new ValidationError($group->baz, 2, 'Value is even', 0, new \Exception('Value is even'))
         ]), $group->errors()['baz']);
     }
 
@@ -90,10 +91,10 @@ class ElementsGroupValidationTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(2, $super->errors());
 
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($super->one->foo, 0, 'Value is even')
+            new ValidationError($super->one->foo, 0, 'Value is even', 0, new \Exception('Value is even'))
         ]), $super->errors()['one']['foo']);
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($super->two->baz, 2, 'Value is even')
+            new ValidationError($super->two->baz, 2, 'Value is even', 0, new \Exception('Value is even'))
         ]), $super->errors()['two']['baz']);
     }
 

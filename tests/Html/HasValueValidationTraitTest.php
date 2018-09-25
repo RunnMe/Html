@@ -176,8 +176,9 @@ class HasValueValidationTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($element->errors()->empty());
         $this->assertCount(1, $element->errors());
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($element, 42, 'Value is even')
+            new ValidationError($element, 42, 'Value is even', 0, new Exception('Value is even'))
         ]), $element->errors());
+        $this->assertEquals(new Exception('Value is even'), $element->errors()[0]->getPrevious());
 
         $res = $element->validate();
 
@@ -185,8 +186,9 @@ class HasValueValidationTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($element->errors()->empty());
         $this->assertCount(1, $element->errors());
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($element, 42, 'Value is even')
+            new ValidationError($element, 42, 'Value is even', 0, new Exception('Value is even'))
         ]), $element->errors());
+        $this->assertEquals(new Exception('Value is even'), $element->errors()[0]->getPrevious());
 
         $element->setValue(43);
 
@@ -215,9 +217,11 @@ class HasValueValidationTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($element->errors()->empty());
         $this->assertCount(2, $element->errors());
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($element, 42, 'Value is even 1'),
-            new ValidationError($element, 42, 'Value is even 2'),
+            new ValidationError($element, 42, 'Value is even 1', 0, new Exception('Value is even 1')),
+            new ValidationError($element, 42, 'Value is even 2', 0, new Exception('Value is even 2')),
         ]), $element->errors());
+        $this->assertEquals(new Exception('Value is even 1'), $element->errors()[0]->getPrevious());
+        $this->assertEquals(new Exception('Value is even 2'), $element->errors()[1]->getPrevious());
 
         $res = $element->validate();
 
@@ -225,9 +229,11 @@ class HasValueValidationTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($element->errors()->empty());
         $this->assertCount(2, $element->errors());
         $this->assertEquals(new ValidationErrors([
-            new ValidationError($element, 42, 'Value is even 1'),
-            new ValidationError($element, 42, 'Value is even 2'),
+            new ValidationError($element, 42, 'Value is even 1', 0, new Exception('Value is even 1')),
+            new ValidationError($element, 42, 'Value is even 2', 0, new Exception('Value is even 2')),
         ]), $element->errors());
+        $this->assertEquals(new Exception('Value is even 1'), $element->errors()[0]->getPrevious());
+        $this->assertEquals(new Exception('Value is even 2'), $element->errors()[1]->getPrevious());
 
         $element->setValue(43);
 
