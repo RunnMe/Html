@@ -18,7 +18,7 @@ interface HasAttributesInterface
      *
      * @7.1
      */
-    public function setAttribute(string $key, /*?*/string $val = null);
+    public function setAttribute(string $key, ?string $val);
 
     /**
      * @param string $key
@@ -26,7 +26,7 @@ interface HasAttributesInterface
      *
      * @7.1
      */
-    public function getAttribute(string $key)/*: ?string*/;
+    public function getAttribute(string $key): ?string;
 
     /**
      * @param iterable|null $attributes
@@ -34,13 +34,13 @@ interface HasAttributesInterface
      *
      * @7.1
      */
-    public function setAttributes(/*iterable */$attributes = null);
+    public function setAttributes(iterable $attributes = null);
 
     /**
      * @return \Runn\Core\Std
      *
      * @7.1
      */
-    public function getAttributes()/*: ?\Runn\Core\Std*/;
+    public function getAttributes(): ?\Runn\Core\Std;
 
 }

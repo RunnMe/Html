@@ -26,7 +26,7 @@ trait HasNameTrait
      *
      * @7.1
      */
-    public function setName(/*?*/string $name = null)
+    public function setName(?string $name)
     {
         $this->name = $name;
         return $this;
@@ -37,7 +37,7 @@ trait HasNameTrait
      *
      * @7.1
      */
-    public function getName()/*: ?string*/
+    public function getName(): ?string
     {
         return $this->name;
     }

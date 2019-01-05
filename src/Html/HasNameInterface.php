@@ -17,14 +17,14 @@ interface HasNameInterface
      *
      * @7.1
      */
-    public function setName(/*?*/string $name = null);
+    public function setName(?string $name);
 
     /**
      * @return string|null
      *
      * @7.1
      */
-    public function getName()/*: ?string*/;
+    public function getName(): ?string;
 
     /**
      * Full element's name includes all it's parents names

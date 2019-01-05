@@ -17,13 +17,13 @@ interface HasTitleInterface
      *
      * @7.1
      */
-    public function setTitle(/*?*/string $title = null);
+    public function setTitle(?string $title);
 
     /**
      * @return string|null
      *
      * @7.1
      */
-    public function getTitle()/*: ?string*/;
+    public function getTitle(): ?string;
 
 }

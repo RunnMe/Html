@@ -30,7 +30,7 @@ trait RenderableTrait
      *
      * @7.1
      */
-    public function getDefaultTemplate()/*: ?File*/
+    public function getDefaultTemplate(): ?File
     {
         $class = get_class($this);
         $reflector = new \ReflectionClass($class);
@@ -50,7 +50,7 @@ trait RenderableTrait
      *
      * @7.1
      */
-    public function getTemplate()/*: ?SingleValueStorageInterface*/
+    public function getTemplate(): ?SingleValueStorageInterface
     {
         $template = $this->trait_getTemplate();
         if (null === $template) {

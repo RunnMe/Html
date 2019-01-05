@@ -23,7 +23,7 @@ class NativeRenderer
      *
      * @7.1
      */
-    public function render(SingleValueStorageInterface $template, /*iterable */$data = null): string
+    public function render(SingleValueStorageInterface $template, iterable $data = null): string
     {
         $rendering = function ($data) use ($template) {
 
