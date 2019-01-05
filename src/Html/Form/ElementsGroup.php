@@ -80,10 +80,8 @@ abstract class ElementsGroup
     /**
      * Constructor.
      * @param iterable|null $data
-     *
-     * @7.1
      */
-    public function __construct(/* iterable */ $data = null)
+    public function __construct(?iterable $data = null)
     {
         if (null !== $data) {
             $this->fromArray($data);
@@ -120,10 +118,8 @@ abstract class ElementsGroup
      * @param iterable $def
      * @return mixed
      * @throws \Runn\Html\Form\Exception
-     *
-     * @7.1
      */
-    protected function prepareValueBySchemaDef($key, /*iterable */$def)
+    protected function prepareValueBySchemaDef($key, iterable $def)
     {
         if (empty($def['class'])) {
             throw new Exception('Invalid group schema: class for element "' . $key  .'" is missing');
@@ -184,18 +180,15 @@ abstract class ElementsGroup
     /**
      * @param iterable $value
      * @return $this
-     *
-     * @7.1
      */
-    public function setValue(/*iterable */$value)
+    public function setValue($value)
     {
-        // @7.1 delete this because of type hint
         if ( is_array($value) || $value instanceof \Traversable ) {
-                foreach ($value as $key => $val) {
-                    if (isset($this->$key) && ($this->$key instanceof HasValueInterface)) {
-                        $this->$key->setValue($val);
-                    }
+            foreach ($value as $key => $val) {
+                if (isset($this->$key) && ($this->$key instanceof HasValueInterface)) {
+                    $this->$key->setValue($val);
                 }
+            }
         }
         return $this;
     }

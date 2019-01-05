@@ -23,8 +23,6 @@ trait HasNameTrait
     /**
      * @param string|null $name
      * @return $this
-     *
-     * @7.1
      */
     public function setName(?string $name)
     {
@@ -34,8 +32,6 @@ trait HasNameTrait
 
     /**
      * @return string|null
-     *
-     * @7.1
      */
     public function getName(): ?string
     {
@@ -44,11 +40,9 @@ trait HasNameTrait
 
     /**
      * Full element's name includes all it's parents names
-     * @return string
-     *
-     * @7.1
+     * @return string|null
      */
-    public function getFullName()/*: ?string*/
+    public function getFullName(): ?string
     {
         if (null === $this->getName()) {
             return null;

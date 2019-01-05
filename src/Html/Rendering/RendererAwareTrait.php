@@ -22,8 +22,6 @@ trait RendererAwareTrait
     /**
      * @param \Runn\Html\Rendering\RendererInterface|null $renderer
      * @return $this
-     *
-     * @7.1
      */
     public function setRenderer(?RendererInterface $renderer)
     {
@@ -33,8 +31,6 @@ trait RendererAwareTrait
 
     /**
      * @return \Runn\Html\Rendering\RendererInterface|null
-     *
-     * @7.1
      */
     public function getRenderer(): ?RendererInterface
     {

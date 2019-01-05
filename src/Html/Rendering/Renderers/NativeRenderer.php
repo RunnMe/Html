@@ -20,15 +20,12 @@ class NativeRenderer
      * @param \Runn\Storages\SingleValueStorageInterface $template
      * @param iterable|null $data
      * @return string
-     *
-     * @7.1
      */
     public function render(SingleValueStorageInterface $template, iterable $data = null): string
     {
         $rendering = function ($data) use ($template) {
 
-            /* @7.1 change this to null !== $data because of type hint */
-            if (is_array($data) || ($data instanceof \Traversable)) {
+            if (null !== $data) {
                 foreach ($data as $key => $val) {
                     $$key = $val;
                 }

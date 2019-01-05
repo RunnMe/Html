@@ -26,10 +26,8 @@ trait FormElementTrait
     /**
      * @param \Runn\Html\Form\FormElementInterface $parent
      * @return $this
-     *
-     * @7.1
      */
-    public function setParent(/*?*/FormElementInterface $parent)
+    public function setParent(?FormElementInterface $parent)
     {
         if ($parent instanceof Form) {
             $this->setForm($parent);

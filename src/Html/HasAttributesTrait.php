@@ -23,8 +23,6 @@ trait HasAttributesTrait
      * @param string $key
      * @param string|null $val
      * @return $this
-     *
-     * @7.1
      */
     public function setAttribute(string $key, ?string $val)
     {
@@ -38,8 +36,6 @@ trait HasAttributesTrait
     /**
      * @param string $key
      * @return string|null
-     *
-     * @7.1
      */
     public function getAttribute(string $key): ?string
     {
@@ -49,8 +45,6 @@ trait HasAttributesTrait
     /**
      * @param iterable|null $attributes
      * @return $this
-     *
-     * @7.1
      */
     public function setAttributes(iterable $attributes = null)
     {
@@ -67,8 +61,6 @@ trait HasAttributesTrait
 
     /**
      * @return \Runn\Core\Std|null
-     *
-     * @7.1
      */
     public function getAttributes(): ?\Runn\Core\Std
     {

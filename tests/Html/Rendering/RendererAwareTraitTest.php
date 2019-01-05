@@ -18,7 +18,6 @@ class RendererAwareTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new NativeRenderer(), $obj->getRenderer());
 
         $renderer = new class implements RendererInterface {
-            /** @7.1 */
             public function render(SingleValueStorageInterface $template, iterable $data = null): string {
                 return 'test';
             }

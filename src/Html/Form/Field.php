@@ -45,12 +45,10 @@ abstract class Field
     /**
      * @param string|null $name
      * @param string|null $value
-     * @param iterable $attributes
-     * @param iterable $options
-     *
-     * @7.1
+     * @param iterable|null $attributes
+     * @param iterable|null $options
      */
-    public function __construct(string $name = null, $value = null, /*iterable */$attributes = null, /*iterable */$options = null)
+    public function __construct(string $name = null, $value = null, ?iterable $attributes = null, ?iterable $options = null)
     {
         $this->setAttributes($attributes);
         $this->setOptions($options);
@@ -65,8 +63,6 @@ abstract class Field
     /**
      * @param string|null $name
      * @return $this
-     *
-     * @7.1
      */
     public function setName(?string $name)
     {
@@ -78,10 +74,8 @@ abstract class Field
     /**
      * @param string|null $title
      * @return \Runn\Html\Form\Field $this
-     *
-     * @7.1
      */
-    public function setTitle(/*?*/string $title = null)
+    public function setTitle(?string $title)
     {
         $this->setAttribute('title', $title);
         $this->traitSetTitle($title);

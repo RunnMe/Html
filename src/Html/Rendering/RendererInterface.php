@@ -17,8 +17,6 @@ interface RendererInterface
      * @param \Runn\Storages\SingleValueStorageInterface $template
      * @param iterable|null $data
      * @return string
-     *
-     * @7.1
      */
     public function render(SingleValueStorageInterface $template, iterable $data = null): string;
 

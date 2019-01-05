@@ -27,8 +27,6 @@ trait RenderableTrait
 
     /**
      * @return \Runn\Fs\File|null
-     *
-     * @7.1
      */
     public function getDefaultTemplate(): ?File
     {
@@ -47,8 +45,6 @@ trait RenderableTrait
 
     /**
      * @return \Runn\Storages\SingleValueStorageInterface|null
-     *
-     * @7.1
      */
     public function getTemplate(): ?SingleValueStorageInterface
     {

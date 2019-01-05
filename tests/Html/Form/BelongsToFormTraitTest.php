@@ -28,11 +28,6 @@ class BelongsToFormTraitTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($element->belongsToForm());
         $this->assertNull($element->getForm());
-
-        $element->setForm();
-
-        $this->assertFalse($element->belongsToForm());
-        $this->assertNull($element->getForm());
     }
 
 }

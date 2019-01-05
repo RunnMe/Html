@@ -35,10 +35,10 @@ trait HasValueValidationTrait
     protected $errors;
 
     /**
-     * @param Validator $validator
+     * @param Validator|null $validator
      * @return $this
      */
-    public function setValidator(Validator $validator)
+    public function setValidator(?Validator $validator)
     {
         $this->validator = $validator;
         return $this;

@@ -20,8 +20,6 @@ trait HasTitleTrait
     /**
      * @param string|null $title
      * @return $this
-     *
-     * @7.1
      */
     public function setTitle(?string $title)
     {
@@ -31,8 +29,6 @@ trait HasTitleTrait
 
     /**
      * @return string|null
-     *
-     * @7.1
      */
     public function getTitle(): ?string
     {

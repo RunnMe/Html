@@ -22,8 +22,6 @@ trait HasTemplateTrait
     /**
      * @param \Runn\Storages\SingleValueStorageInterface|null $template
      * @return $this
-     *
-     * @7.1
      */
     public function setTemplate(?SingleValueStorageInterface $template)
     {
@@ -33,8 +31,6 @@ trait HasTemplateTrait
 
     /**
      * @return \Runn\Storages\SingleValueStorageInterface|null
-     *
-     * @7.1
      */
     public function getTemplate(): ?SingleValueStorageInterface
     {

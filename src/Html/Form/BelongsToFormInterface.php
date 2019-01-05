@@ -17,18 +17,14 @@ interface BelongsToFormInterface
     public function belongsToForm(): bool;
 
     /**
-     * @param \Runn\Html\Form\Form $form
+     * @param \Runn\Html\Form\Form|null $form
      * @return $this
-     *
-     * @7.1
      */
-    public function setForm(/*?*/Form $form = null);
+    public function setForm(?Form $form);
 
     /**
      * @return \Runn\Html\Form\Form|null
-     *
-     * @7.1
      */
-    public function getForm()/*: ?Form*/;
+    public function getForm(): ?Form;
 
 }

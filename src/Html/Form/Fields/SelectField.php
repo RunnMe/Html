@@ -18,10 +18,8 @@ class SelectField
     /**
      * @param iterable|null $values
      * @return \Runn\Html\Form\Fields\SelectField $this
-     *
-     * @7.1
      */
-    public function values(/*iterable */$values = null)
+    public function values(?iterable $values = null)
     {
         $this->setOption('values', new Std);
         if (null !== $values) {

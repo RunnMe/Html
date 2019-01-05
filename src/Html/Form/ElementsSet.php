@@ -74,12 +74,9 @@ abstract class ElementsSet
     /**
      * @param iterable $value
      * @return $this
-     *
-     * @7.1
      */
-    public function setValue(/*iterable */$value)
+    public function setValue($value)
     {
-        // @7.1 delete this because of type hint
         if ( is_array($value) || $value instanceof \Traversable ) {
             foreach ($value as $key => $val) {
                 if (isset($this[$key]) && ($this[$key] instanceof HasValueInterface)) {

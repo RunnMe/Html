@@ -19,14 +19,11 @@ abstract class Button implements FormElementInterface, HasAttributesInterface, H
 
     use FormElementTrait, HasAttributesTrait, HasTitleTrait;
 
-    // @7.1
-    /*public */const DEFAULT_TYPE = 'submit';
+    public const DEFAULT_TYPE = 'submit';
 
     /**
      * @param string|null $type
      * @param string|null $title
-     *
-     * @7.1
      */
     public function __construct(string $type = null, string $title = null)
     {
@@ -50,10 +47,8 @@ abstract class Button implements FormElementInterface, HasAttributesInterface, H
 
     /**
      * @return string|null
-     *
-     * @7.1
      */
-    public function getType()/*: ?string*/
+    public function getType(): ?string
     {
         return $this->getAttributes()->type ?? null;
     }

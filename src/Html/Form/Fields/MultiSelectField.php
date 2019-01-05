@@ -17,12 +17,10 @@ class MultiSelectField
     /**
      * @param string|null $name
      * @param string|null $value
-     * @param iterable $attributes
-     * @param iterable $options
-     *
-     * @7.1
+     * @param iterable|null $attributes
+     * @param iterable|null $options
      */
-    public function __construct(string $name = null, $value = null, /*iterable */$attributes = null, /*iterable */$options = null)
+    public function __construct(string $name = null, $value = null, ?iterable $attributes = null, ?iterable $options = null)
     {
         parent::__construct($name, $value, $attributes, $options);
         $this->setAttribute('multiple', null);
@@ -31,10 +29,8 @@ class MultiSelectField
     /**
      * @param iterable|null $values
      * @return \Runn\Html\Form\Fields\MultiSelectField $this
-     *
-     * @7.1
      */
-    public function values(/*iterable */$values = null)
+    public function values(?iterable $values = null)
     {
         $this->setOption('values', new Std);
         if (null !== $values) {

@@ -28,10 +28,8 @@ class InputField
 
     /**
      * @return string|null
-     *
-     * @7.1
      */
-    public function getType()/*: ?string*/
+    public function getType(): ?string
     {
         return $this->getAttributes()->type ?? null;
     }

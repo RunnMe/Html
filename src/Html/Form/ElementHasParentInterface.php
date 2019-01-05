@@ -12,19 +12,15 @@ interface ElementHasParentInterface
 {
 
     /**
-     * @param \Runn\Html\Form\FormElementInterface $parent
+     * @param \Runn\Html\Form\FormElementInterface|null $parent
      * @return $this
-     *
-     * @7.1
      */
-    public function setParent(/*?*/FormElementInterface $parent);
+    public function setParent(?FormElementInterface $parent);
 
     /**
      * @return \Runn\Html\Form\FormElementInterface|null
-     *
-     * @7.1
      */
-    public function getParent()/*: ?FormElementInterface*/;
+    public function getParent(): ?FormElementInterface;
 
     /**
      * @return bool

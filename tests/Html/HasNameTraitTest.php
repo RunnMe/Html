@@ -38,10 +38,6 @@ class HasNameTraitTest extends \PHPUnit_Framework_TestCase
         $res = $element->setName(null);
         $this->assertSame($element, $res);
         $this->assertNull($element->getName());
-
-        $res = $element->setName();
-        $this->assertSame($element, $res);
-        $this->assertNull($element->getName());
     }
 
     public function testElementFullNameHasNoParentElement()

@@ -18,7 +18,7 @@ class Form
 
     use HasAttributesTrait;
 
-    public function setParent(FormElementInterface $parent)
+    public function setParent(?FormElementInterface $parent)
     {
         throw new \BadMethodCallException();
     }
@@ -26,10 +26,8 @@ class Form
     /**
      * @param string|null $action
      * @return $this
-     *
-     * @7.1
      */
-    public function action(/*?*/string $action = null)
+    public function action(?string $action = null)
     {
         $this->setAttribute('action', $action);
         return $this;
@@ -38,10 +36,8 @@ class Form
     /**
      * @param string|null $method
      * @return $this
-     *
-     * @7.1
      */
-    public function method(/*?*/string $method = null)
+    public function method(?string $method = null)
     {
         $this->setAttribute('method', $method);
         return $this;

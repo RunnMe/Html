@@ -27,15 +27,11 @@ interface HasOptionsInterface
     /**
      * @param iterable|null $options
      * @return $this
-     *
-     * @7.1
      */
-    public function setOptions(iterable $options = null);
+    public function setOptions(?iterable $options = null);
 
     /**
-     * @return \Runn\Core\Std
-     *
-     * @7.1
+     * @return \Runn\Core\Std|null
      */
     public function getOptions(): ?\Runn\Core\Std;
 

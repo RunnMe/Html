@@ -45,10 +45,8 @@ trait HasOptionsTrait
     /**
      * @param iterable|null $options
      * @return $this
-     *
-     * @7.1
      */
-    public function setOptions(iterable $options = null)
+    public function setOptions(?iterable $options = null)
     {
         if (null === $options) {
             $this->options = null;
@@ -63,8 +61,6 @@ trait HasOptionsTrait
 
     /**
      * @return \Runn\Core\Std|null
-     *
-     * @7.1
      */
     public function getOptions(): ?\Runn\Core\Std
     {
