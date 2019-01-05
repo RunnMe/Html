@@ -6,7 +6,7 @@
 
     <testsuites>
         <testsuite name="Html">
-            <directory phpVersionOperator=">=" phpVersion="7.0">Html</directory>
+            <directory phpVersionOperator=">=" phpVersion="7.2">Html</directory>
         </testsuite>
     </testsuites>
 
