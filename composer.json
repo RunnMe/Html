@@ -17,9 +17,9 @@
   "prefer-stable": true,
   "require": {
     "php": ">=7.2",
-    "runn/core": "dev-master",
+    "runn/core": "7.2.*",
     "runn/fs": "dev-master",
-    "runn/validation": "dev-master"
+    "runn/validation": "7.2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "5.*"
