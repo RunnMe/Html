@@ -18,7 +18,7 @@
   "require": {
     "php": ">=7.2",
     "runn/core": "7.2.*",
-    "runn/fs": "dev-master",
+    "runn/fs": "7.2.*",
     "runn/validation": "7.2.*"
   },
   "require-dev": {
