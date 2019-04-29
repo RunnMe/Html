@@ -8,10 +8,11 @@ use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\HasValueInterface;
+use PHPUnit\Framework\TestCase;
 
 class testElementsGroup extends ElementsGroup {}
 
-class ElementsGroupTest extends \PHPUnit_Framework_TestCase
+class ElementsGroupTest extends TestCase
 {
 
     /**

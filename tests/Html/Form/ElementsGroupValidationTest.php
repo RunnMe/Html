@@ -9,6 +9,7 @@ use Runn\Html\Form\Fields\TextField;
 use Runn\Html\ValidationError;
 use Runn\Html\ValidationErrors;
 use Runn\Validation\Validator;
+use PHPUnit\Framework\TestCase;
 
 class testTextField extends TextField
 {
@@ -35,7 +36,7 @@ class testNotEvenNumberField extends NumberField
     }
 }
 
-class ElementsGroupValidationTest extends \PHPUnit_Framework_TestCase
+class ElementsGroupValidationTest extends TestCase
 {
 
     public function testValidate()

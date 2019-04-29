@@ -4,8 +4,9 @@ namespace Runn\tests\Html\Form\Fields\PasswordField;
 
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Rendering\RenderableInterface;
+use PHPUnit\Framework\TestCase;
 
-class PasswordFieldTest extends \PHPUnit_Framework_TestCase
+class PasswordFieldTest extends TestCase
 {
 
     public function testGetType()

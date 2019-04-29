@@ -5,8 +5,9 @@ namespace Runn\tests\Html\HasAttributesTrait;
 use Runn\Core\Std;
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasAttributesTrait;
+use PHPUnit\Framework\TestCase;
 
-class HasAttributesTraitTest extends \PHPUnit_Framework_TestCase
+class HasAttributesTraitTest extends TestCase
 {
 
     public function testAttributes()
@@ -23,8 +24,8 @@ class HasAttributesTraitTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame($element, $ret);
         $this->assertCount(1, $element->getAttributes());
-        $this->assertSame(null, $element->getAttributes()->attr1);
-        $this->assertSame(null, $element->getAttribute('attr1'));
+        $this->assertNull($element->getAttributes()->attr1);
+        $this->assertNull($element->getAttribute('attr1'));
 
         $ret = $element->setAttribute('attr1', 'val1');
 

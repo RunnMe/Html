@@ -6,6 +6,7 @@ use Runn\Core\Std;
 use Runn\Fs\File;
 use Runn\Html\Rendering\Renderers\NativeRenderer;
 use Runn\Storages\SingleValueStorageInterface;
+use PHPUnit\Framework\TestCase;
 
 class testStorage implements SingleValueStorageInterface
 {
@@ -31,7 +32,7 @@ class testStorageWithThis extends testStorage
     }
 }
 
-class NativeRendererTest extends \PHPUnit_Framework_TestCase
+class NativeRendererTest extends TestCase
 {
 
     public function testRenderByFile()

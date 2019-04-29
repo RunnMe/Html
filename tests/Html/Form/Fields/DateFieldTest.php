@@ -4,8 +4,9 @@ namespace Runn\tests\Html\Form\Fields\DateField;
 
 use Runn\Html\Form\Fields\DateField;
 use Runn\Html\Rendering\RenderableInterface;
+use PHPUnit\Framework\TestCase;
 
-class DateFieldTest extends \PHPUnit_Framework_TestCase
+class DateFieldTest extends TestCase
 {
 
     public function testGetType()

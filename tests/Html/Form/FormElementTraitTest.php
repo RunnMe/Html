@@ -7,8 +7,10 @@ use Runn\Html\Form\Errors\ElementValidationErrors;
 use Runn\Html\Form\Form;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\Form\FormElementTrait;
+use PHPUnit\Framework\TestCase;
 
-class FormElementTraitTest extends \PHPUnit_Framework_TestCase
+
+class FormElementTraitTest extends TestCase
 {
 
     public function testSetParentSimple()

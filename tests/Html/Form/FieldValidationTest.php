@@ -6,8 +6,9 @@ use Runn\Core\Exceptions;
 use Runn\Html\Form\Field;
 use Runn\Html\ValidationError;
 use Runn\Validation\Validator;
+use PHPUnit\Framework\TestCase;
 
-class FieldValidationTest extends \PHPUnit_Framework_TestCase
+class FieldValidationTest extends TestCase
 {
 
     public function testValidatorReturnsTrue()

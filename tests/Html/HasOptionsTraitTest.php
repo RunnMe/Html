@@ -5,8 +5,9 @@ namespace Runn\tests\Html\HasOptionsTrait;
 use Runn\Core\Std;
 use Runn\Html\HasOptionsInterface;
 use Runn\Html\HasOptionsTrait;
+use PHPUnit\Framework\TestCase;
 
-class HasOptionsTraitTest extends \PHPUnit_Framework_TestCase
+class HasOptionsTraitTest extends TestCase
 {
 
     public function testOptions()
@@ -23,8 +24,8 @@ class HasOptionsTraitTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame($element, $ret);
         $this->assertCount(1, $element->getOptions());
-        $this->assertSame(null, $element->getOptions()->opt1);
-        $this->assertSame(null, $element->getOption('opt1'));
+        $this->assertNull($element->getOptions()->opt1);
+        $this->assertNull($element->getOption('opt1'));
 
         $ret = $element->setOption('opt1', 'val1');
 

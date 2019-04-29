@@ -5,8 +5,9 @@ namespace Runn\tests\Html\Rendering\HasTemplateTrait;
 use Runn\Fs\File;
 use Runn\Html\Rendering\HasTemplateInterface;
 use Runn\Html\Rendering\HasTemplateTrait;
+use PHPUnit\Framework\TestCase;
 
-class HasTemplateTraitTest extends \PHPUnit_Framework_TestCase
+class HasTemplateTraitTest extends TestCase
 {
 
     public function testSetGetValue()

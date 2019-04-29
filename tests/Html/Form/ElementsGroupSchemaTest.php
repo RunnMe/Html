@@ -8,6 +8,7 @@ use Runn\Html\Form\Fields\TextareaField;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\ValidationError;
 use Runn\Validation\Validators\EmailValidator;
+use PHPUnit\Framework\TestCase;
 
 class testElementsGroupSchema extends ElementsGroup {
     protected static $schema = [
@@ -44,7 +45,7 @@ class testElementsGroupNested extends ElementsGroup {
     ];
 }
 
-class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
+class ElementsGroupSchemaTest extends TestCase
 {
 
     public function testGetSchema()
