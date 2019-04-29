@@ -4,8 +4,9 @@ namespace Runn\tests\Html\HasValueTrait;
 
 use Runn\Html\HasValueInterface;
 use Runn\Html\HasValueTrait;
+use PHPUnit\Framework\TestCase;
 
-class HasValueTraitTest extends \PHPUnit_Framework_TestCase
+class HasValueTraitTest extends TestCase
 {
 
     public function testSetGetValue()

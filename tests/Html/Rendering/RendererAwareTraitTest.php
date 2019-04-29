@@ -7,8 +7,9 @@ use Runn\Html\Rendering\RendererAwareTrait;
 use Runn\Html\Rendering\RendererInterface;
 use Runn\Html\Rendering\Renderers\NativeRenderer;
 use Runn\Storages\SingleValueStorageInterface;
+use PHPUnit\Framework\TestCase;
 
-class RendererAwareTraitTest extends \PHPUnit_Framework_TestCase
+class RendererAwareTraitTest extends TestCase
 {
 
     public function testTrait()

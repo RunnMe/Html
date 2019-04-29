@@ -5,8 +5,9 @@ namespace Runn\tests\Html\Form\Fields\InputField;
 use Runn\Fs\File;
 use Runn\Html\Form\Fields\InputField;
 use Runn\Html\Rendering\RenderableInterface;
+use PHPUnit\Framework\TestCase;
 
-class InputFieldTest extends \PHPUnit_Framework_TestCase
+class InputFieldTest extends TestCase
 {
 
     public function testSetGetType()

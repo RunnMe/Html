@@ -6,8 +6,9 @@ use Runn\Core\Std;
 use Runn\Html\Form\Field;
 use Runn\Html\Rendering\RenderableInterface;
 use Runn\Storages\SingleValueStorageInterface;
+use PHPUnit\Framework\TestCase;
 
-class FieldTest extends \PHPUnit_Framework_TestCase
+class FieldTest extends TestCase
 {
 
     public function testEmptyConstruct()

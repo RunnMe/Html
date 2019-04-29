@@ -4,8 +4,9 @@ namespace Runn\tests\Html\Form\Fields\EmailField;
 
 use Runn\Html\Form\Fields\EmailField;
 use Runn\Html\Rendering\RenderableInterface;
+use PHPUnit\Framework\TestCase;
 
-class EmailFieldTest extends \PHPUnit_Framework_TestCase
+class EmailFieldTest extends TestCase
 {
 
     public function testGetType()

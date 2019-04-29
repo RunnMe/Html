@@ -9,6 +9,7 @@ use Runn\Html\Form\Fields\TextField;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasNameInterface;
 use Runn\Html\HasValueInterface;
+use PHPUnit\Framework\TestCase;
 
 class ExtendedTextField extends TextField {}
 
@@ -30,7 +31,7 @@ class testElementsSetFixedName extends ElementsSet {
     }
 }
 
-class ElementsSetTest extends \PHPUnit_Framework_TestCase
+class ElementsSetTest extends TestCase
 {
 
     public function testInstances()

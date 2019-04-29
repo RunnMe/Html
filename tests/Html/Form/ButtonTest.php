@@ -8,8 +8,9 @@ use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasTitleInterface;
 use Runn\Storages\SingleValueStorageInterface;
+use PHPUnit\Framework\TestCase;
 
-class ButtonTest extends \PHPUnit_Framework_TestCase
+class ButtonTest extends TestCase
 {
 
     public function testEmptyConstruct()

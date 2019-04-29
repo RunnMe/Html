@@ -10,6 +10,7 @@ use Runn\Html\HasValueInterface;
 use Runn\Html\ValidationError;
 use Runn\Html\ValidationErrors;
 use Runn\Validation\Validator;
+use PHPUnit\Framework\TestCase;
 
 class validationReturnsTrue implements HasValueValidationInterface {
 
@@ -84,7 +85,7 @@ class validationWithMultiExceptions implements HasValueValidationInterface {
 
 }
 
-class HasValueValidationTraitTest extends \PHPUnit_Framework_TestCase
+class HasValueValidationTraitTest extends TestCase
 {
 
     public function testDefault()

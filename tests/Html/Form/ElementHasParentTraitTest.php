@@ -7,8 +7,9 @@ use Runn\Html\Form\ElementHasParentTrait;
 use Runn\Html\Form\ElementsCollection;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\Form\FormElementTrait;
+use PHPUnit\Framework\TestCase;
 
-class HasParentTraitTest extends \PHPUnit_Framework_TestCase
+class HasParentTraitTest extends TestCase
 {
 
     public function testSetGetParent()

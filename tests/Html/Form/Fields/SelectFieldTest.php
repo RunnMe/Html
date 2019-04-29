@@ -6,8 +6,9 @@ use Runn\Core\Std;
 use Runn\Fs\File;
 use Runn\Html\Form\Fields\SelectField;
 use Runn\Html\Rendering\RenderableInterface;
+use PHPUnit\Framework\TestCase;
 
-class SelectFieldTest extends \PHPUnit_Framework_TestCase
+class SelectFieldTest extends TestCase
 {
 
     public function testRenderWoOptions()

@@ -3,8 +3,9 @@
 namespace Runn\tests\Html\Form\Buttons\ResetButton;
 
 use Runn\Html\Form\Buttons\ResetButton;
+use PHPUnit\Framework\TestCase;
 
-class ResetButtonTest extends \PHPUnit_Framework_TestCase
+class ResetButtonTest extends TestCase
 {
 
     public function testGetType()

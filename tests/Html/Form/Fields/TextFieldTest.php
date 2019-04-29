@@ -4,8 +4,9 @@ namespace Runn\tests\Html\Form\Fields\TextField;
 
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\Rendering\RenderableInterface;
+use PHPUnit\Framework\TestCase;
 
-class TextFieldTest extends \PHPUnit_Framework_TestCase
+class TextFieldTest extends TestCase
 {
 
     public function testGetType()
