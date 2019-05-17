@@ -18,8 +18,9 @@ interface HasValueInterface
     public function setValue($value);
 
     /**
+     * @param string $class
      * @return mixed
      */
-    public function getValue();
+    public function getValue($class = null);
 
 }

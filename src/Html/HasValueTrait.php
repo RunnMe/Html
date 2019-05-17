@@ -28,11 +28,15 @@ trait HasValueTrait
     }
 
     /**
+     * @param string $class
      * @return mixed
      */
-    public function getValue()
+    public function getValue($class = null)
     {
-        return $this->value;
+        if (null === $this->value || null === $class) {
+            return $this->value;
+        }
+        return new $class($this->value);
     }
 
 }
