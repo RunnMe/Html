@@ -8,8 +8,18 @@ use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\HasValueInterface;
+use Runn\ValueObjects\ComplexValueObject;
+use Runn\ValueObjects\Values\IntValue;
+use Runn\ValueObjects\Values\StringValue;
 
 class testElementsGroup extends ElementsGroup {}
+
+class testValueObject extends ComplexValueObject {
+    protected static $schema = [
+        'el1' => ['class' => StringValue::class],
+        'el2' => ['class' => IntValue::class],
+    ];
+}
 
 class ElementsGroupTest extends \PHPUnit_Framework_TestCase
 {
@@ -67,6 +77,16 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(['el1' => 'value1', 'el2' => 'value2'], $group->getValue());
     }
 
+    public function testGetValueWithClass()
+    {
+        $el1 = new TextField('foo', 'value1');
+        $el2 = new NumberField('bar', 42);
+        $group = new testElementsGroup(['el1' => $el1, 'el2' => $el2]);
+
+        $this->assertSame(['el1' => 'value1', 'el2' => 42], $group->getValue());
+        $this->assertInstanceOf(testValueObject::class, $group->getValue(testValueObject::class));
+        $this->assertEquals(new testValueObject(['el1' => 'value1', 'el2' => 42]), $group->getValue(testValueObject::class));
+    }
 
     public function testMagicGetSet()
     {

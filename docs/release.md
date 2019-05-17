@@ -1,3 +1,7 @@
+7.2.3, 7.3.3, 7.4.3
+===================
+* Getting value of elements as value objects is added
+
 7.2.2, 7.3.2, 7.4.2
 ===================
 * PHP 7.0 support is dropped

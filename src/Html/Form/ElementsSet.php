@@ -58,9 +58,10 @@ abstract class ElementsSet
     }
 
     /**
-     * @return array
+     * @param string $class
+     * @return mixed
      */
-    public function getValue()
+    public function getValue($class = null)
     {
         $values = [];
         foreach ($this as $key => $element) {
@@ -68,7 +69,10 @@ abstract class ElementsSet
                 $values[$key] = $element->getValue();
             }
         }
-        return $values;
+        if (null === $class) {
+            return $values;
+        }
+        return new $class($values);
     }
 
     /**

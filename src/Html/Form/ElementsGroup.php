@@ -164,9 +164,10 @@ abstract class ElementsGroup
     }
 
     /**
-     * @return array
+     * @param string $class
+     * @return mixed
      */
-    public function getValue()
+    public function getValue($class = null)
     {
         $values = [];
         foreach ($this as $key => $element) {
@@ -174,7 +175,11 @@ abstract class ElementsGroup
                 $values[$key] = $element->getValue();
             }
         }
-        return $values;
+        if (null === $class) {
+            return $values;
+        }
+        return new $class($values);
+
     }
 
     /**

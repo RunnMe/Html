@@ -9,6 +9,8 @@ use Runn\Html\Form\Fields\TextField;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasNameInterface;
 use Runn\Html\HasValueInterface;
+use Runn\ValueObjects\ValueObjectsCollection;
+use Runn\ValueObjects\Values\StringValue;
 
 class ExtendedTextField extends TextField {}
 
@@ -27,6 +29,13 @@ class testElementsSetInvalidBaseClass extends ElementsSet {
 class testElementsSetFixedName extends ElementsSet {
     public static function getType() {
         return TextField::class;
+    }
+}
+
+class testValueObject extends ValueObjectsCollection {
+    public static function getType()
+    {
+        return StringValue::class;
     }
 }
 
@@ -126,6 +135,17 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
         $this->assertSame([0 => 'foo', 1 => 'bar'], $set->getValue());
         $this->assertSame('foo', $set[0]->getValue());
         $this->assertSame('bar', $set[1]->getValue());
+    }
+
+    public function testGetValueWithClass()
+    {
+        $set = new testElementsSet;
+        $set[] = new TextField('foo', 'value1');
+        $set[] = new TextField('bar', 'value2');
+
+        $this->assertSame([0 => 'value1', 1 => 'value2'], $set->getValue());
+        $this->assertInstanceOf(testValueObject::class, $set->getValue(testValueObject::class));
+        $this->assertEquals(new testValueObject([0 => 'value1', 1 => 'value2']), $set->getValue(testValueObject::class));
     }
 
 }
