@@ -20,10 +20,10 @@
     "runn/core": "7.2.*",
     "runn/fs": "7.2.*",
     "runn/validation": "7.2.*",
-    "runn/valueobjects": "7.2.*"
   },
   "require-dev": {
-    "phpunit/phpunit": "5.*"
+    "phpunit/phpunit": "5.*",
+    "runn/valueobjects": "dev-master"
   },
   "autoload": {
     "psr-4": {

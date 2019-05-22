@@ -190,8 +190,8 @@ abstract class ElementsGroup
     {
         if ( is_array($value) || $value instanceof \Traversable ) {
             foreach ($value as $key => $val) {
-                if (isset($this->$key) && ($this->$key instanceof HasValueInterface)) {
-                    $this->$key->setValue($val);
+                if ($this->innerIsSet($key) && ($this->innerGet($key) instanceof HasValueInterface)) {
+                    $this->innerGet($key)->setValue($val);
                 }
             }
         }
