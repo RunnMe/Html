@@ -93,59 +93,85 @@ class ElementsGroupTest extends \PHPUnit_Framework_TestCase
         $elements = new testElementsGroup();
 
         $test = new NumberField('schema');
+
         $elements->schema = $test;
         $this->assertSame($test, $elements->schema);
         $this->assertEmpty($elements->getSchema());
 
         $test = new NumberField('parent');
+
         $elements->parent = $test;
         $this->assertSame($test, $elements->parent);
         $this->assertNull($elements->getParent());
         $this->assertTrue($elements->getParents()->empty());
 
         $test = new NumberField('name');
+
         $elements->name = $test;
         $this->assertSame($test, $elements->name);
         $this->assertNull($elements->getName());
 
         $test = new NumberField('renderer');
+
         $elements->renderer = $test;
         $this->assertSame($test, $elements->renderer);
         $this->assertNotSame($elements->renderer, $elements->getRenderer());
 
         $test = new NumberField('form');
+
         $elements->form = $test;
         $this->assertSame($test, $elements->form);
         $this->assertNotSame($elements->form, $elements->getForm());
 
         $test = new NumberField('template');
+
         $elements->template = $test;
         $this->assertSame($test, $elements->template);
         $this->assertNotSame($elements->template, $elements->getTemplate());
 
         $test = new NumberField('defaultTemplate');
+
         $elements->defaultTemplate = $test;
         $this->assertSame($test, $elements->defaultTemplate);
         $this->assertNotSame($elements->defaultTemplate, $elements->getDefaultTemplate());
 
         $test = new NumberField('name');
+
         $elements->name = $test;
         $this->assertSame($test, $elements->name);
         $this->assertNotSame($elements->name, $elements->getName());
 
         $test = new NumberField('fullName');
+
         $elements->fullName = $test;
         $this->assertSame($test, $elements->fullName);
         $this->assertNotSame($elements->fullName, $elements->getFullName());
 
         $test = new NumberField('value');
+
         $elements->value = $test;
         $this->assertSame($test, $elements->value);
         $this->assertNotSame($elements->value, $elements->getValue());
 
         $test = new NumberField('validator');
+
         $elements->validator = $test;
         $this->assertSame($test, $elements->validator);
+
+    }
+
+    public function testMagisSetValue()
+    {
+        $fields = ['__data', 'name', 'parent', 'form', 'renderer', 'template', 'value', 'validator', 'errors'];
+        $data = array_combine($fields, array_fill(0, count($fields), rand(1, 10)));
+
+        $group = new testElementsGroup();
+        foreach ($fields as $field) {
+            $group->$field = new NumberField();
+        }
+        $group->setValue($data);
+
+        $this->assertSame($data, $group->getValue());
     }
 
     public function testSetValue()
