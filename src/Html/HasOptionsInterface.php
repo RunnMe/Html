@@ -25,6 +25,17 @@ interface HasOptionsInterface
     public function getOption(string $key);
 
     /**
+     * @param string $key
+     * @return bool
+     */
+    public function issetOption(string $key): bool;
+
+    /**
+     * @param string $key
+     */
+    public function unsetOption(string $key): void;
+
+    /**
      * @param iterable|null $options
      * @return $this
      */

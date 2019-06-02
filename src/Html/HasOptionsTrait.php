@@ -17,7 +17,7 @@ trait HasOptionsTrait
 {
 
     /** @var \Runn\Core\Std|null  */
-    protected $options = null;
+    protected $__options = null;
 
     /**
      * @param string $key
@@ -26,10 +26,10 @@ trait HasOptionsTrait
      */
     public function setOption(string $key, $val)
     {
-        if (null === $this->options) {
-            $this->options = new Std;
+        if (null === $this->__options) {
+            $this->__options = new Std;
         }
-        $this->options->$key = $val;
+        $this->__options->$key = $val;
         return $this;
     }
 
@@ -39,7 +39,24 @@ trait HasOptionsTrait
      */
     public function getOption(string $key)
     {
-        return $this->options->$key ?? null;
+        return $this->__options->$key ?? null;
+    }
+
+    /**
+     * @param string $key
+     * @return bool
+     */
+    public function issetOption(string $key): bool
+    {
+        return isset($this->__options->$key);
+    }
+
+    /**
+     * @param string $key
+     */
+    public function unsetOption(string $key): void
+    {
+        unset($this->__options->$key);
     }
 
     /**
@@ -49,10 +66,10 @@ trait HasOptionsTrait
     public function setOptions(?iterable $options = null)
     {
         if (null === $options) {
-            $this->options = null;
+            $this->__options = null;
             return $this;
         }
-        $this->options = new Std;
+        $this->__options = new Std;
         foreach ($options as $key => $val) {
             $this->setOption($key, $val);
         }
@@ -64,7 +81,7 @@ trait HasOptionsTrait
      */
     public function getOptions(): ?\Runn\Core\Std
     {
-        return $this->options;
+        return $this->__options;
     }
 
 }

@@ -2,6 +2,7 @@
 ===================
 * Улучшения в `HasAttributesInterface` и `HasAttributesTrait`
 * Улучшения в `HasNameTrait`
+* Улучшения в `HasOptionsInterface` и `HasOptionsTrait`
 
 7.2.3, 7.3.3, 7.4.3
 ===================
