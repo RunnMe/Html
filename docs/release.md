@@ -3,6 +3,7 @@
 * `HasAttributesInterface` and `HasAttributesTrait` enhancements
 * `HasNameTrait` enhancements
 * `HasOptionsInterface` and `HasOptionsTrait` enhancements
+* `HasTitleTrait` enhancements
 
 7.2.3, 7.3.3, 7.4.3
 ===================
