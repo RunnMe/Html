@@ -24,7 +24,7 @@ class SelectField
         $this->setOption('values', new Std);
         if (null !== $values) {
             foreach ($values as $key => $val) {
-                $this->options->values[$key] = $val;
+                $this->__options->values[$key] = $val;
             }
         }
         return $this;
@@ -35,7 +35,7 @@ class SelectField
      */
     public function getValues()
     {
-        return $this->options->values ?? [];
+        return $this->__options->values ?? [];
     }
 
 }
