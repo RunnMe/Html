@@ -1,3 +1,7 @@
+7.2.4, 7.3.4, 7.4.4
+===================
+* `HasAttributesInterface` and `HasAttributesTrait` enhancements
+
 7.2.3, 7.3.3, 7.4.3
 ===================
 * Getting value of elements as value objects is added

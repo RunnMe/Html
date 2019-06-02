@@ -40,8 +40,8 @@ abstract class Button implements FormElementInterface, HasAttributesInterface, H
     public function setType(string $type)
     {
         /* set type to first place! */
-        $this->attributes = (new Std(['type' => $type]))->merge($this->attributes ?: []);
-        $this->attributes->type = $type;
+        $this->setAttributes( (new Std(['type' => $type]))->merge($this->getAttributes() ?: []) );
+        $this->setAttribute('type',  $type);
         return $this;
     }
 

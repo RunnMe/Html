@@ -17,19 +17,20 @@ trait HasAttributesTrait
 {
 
     /** @var \Runn\Core\Std|null  */
-    protected $attributes = null;
+    protected $__attributes = null;
 
     /**
      * @param string $key
      * @param string|null $val
      * @return $this
+     * @throws \Runn\Core\Exceptions
      */
     public function setAttribute(string $key, ?string $val)
     {
-        if (null === $this->attributes ) {
-            $this->attributes  = new Std;
+        if (null === $this->__attributes ) {
+            $this->__attributes  = new Std;
         }
-        $this->attributes->$key = $val;
+        $this->__attributes->$key = $val;
         return $this;
     }
 
@@ -39,21 +40,39 @@ trait HasAttributesTrait
      */
     public function getAttribute(string $key): ?string
     {
-        return $this->attributes->$key ?? null;
+        return $this->__attributes->$key ?? null;
     }
 
     /**
-     * @param iterable|null $attributes
-     * @return $this
+     * @param string $key
+     * @return bool
      */
-    public function setAttributes(iterable $attributes = null)
+    public function issetAttribute(string $key): bool
     {
-        if (null === $attributes) {
-            $this->attributes = null;
+        return isset($this->__attributes->$key);
+    }
+
+    /**
+     * @param string $key
+     */
+    public function unsetAttribute(string $key): void
+    {
+        unset($this->__attributes->$key);
+    }
+
+    /**
+     * @param iterable|null $__attributes
+     * @return $this
+     * @throws \Runn\Core\Exceptions
+     */
+    public function setAttributes(iterable $__attributes = null)
+    {
+        if (null === $__attributes) {
+            $this->__attributes = null;
             return $this;
         }
-        $this->attributes = new Std;
-        foreach ($attributes as $key => $val) {
+        $this->__attributes = new Std;
+        foreach ($__attributes as $key => $val) {
             $this->setAttribute($key, $val);
         }
         return $this;
@@ -64,7 +83,7 @@ trait HasAttributesTrait
      */
     public function getAttributes(): ?\Runn\Core\Std
     {
-        return $this->attributes;
+        return $this->__attributes;
     }
 
 }
