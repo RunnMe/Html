@@ -21,12 +21,13 @@ class SelectField
      */
     public function values(?iterable $values = null)
     {
-        $this->setOption('values', new Std);
+        $v = new Std;
         if (null !== $values) {
             foreach ($values as $key => $val) {
-                $this->__options->values[$key] = $val;
+                $v[$key] = $val;
             }
         }
+        $this->setOption('values', $v);
         return $this;
     }
 
@@ -35,7 +36,7 @@ class SelectField
      */
     public function getValues()
     {
-        return $this->__options->values ?? [];
+        return $this->getOptions()->values ?? [];
     }
 
 }
