@@ -61,18 +61,18 @@ trait HasAttributesTrait
     }
 
     /**
-     * @param iterable|null $__attributes
+     * @param iterable|null $attributes
      * @return $this
      * @throws \Runn\Core\Exceptions
      */
-    public function setAttributes(iterable $__attributes = null)
+    public function setAttributes(iterable $attributes = null)
     {
-        if (null === $__attributes) {
+        if (null === $attributes) {
             $this->__attributes = null;
             return $this;
         }
         $this->__attributes = new Std;
-        foreach ($__attributes as $key => $val) {
+        foreach ($attributes as $key => $val) {
             $this->setAttribute($key, $val);
         }
         return $this;
