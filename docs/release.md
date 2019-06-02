@@ -6,6 +6,7 @@
 * `HasTitleTrait` enhancements
 * `HasValueTrait` enhancements
 * `BelongsToFormTrait` enhancements
+* `ElementHasParentTrait` enhancements
 
 7.2.3, 7.3.3, 7.4.3
 ===================

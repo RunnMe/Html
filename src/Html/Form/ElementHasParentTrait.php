@@ -15,7 +15,7 @@ trait ElementHasParentTrait
 {
 
     /** @var \Runn\Html\Form\FormElementInterface|null  */
-    protected $parent;
+    protected $__parent;
 
     /**
      * @param \Runn\Html\Form\FormElementInterface|null $parent
@@ -23,7 +23,7 @@ trait ElementHasParentTrait
      */
     public function setParent(?FormElementInterface $parent)
     {
-        $this->parent = $parent;
+        $this->__parent = $parent;
         return $this;
     }
 
@@ -32,7 +32,7 @@ trait ElementHasParentTrait
      */
     public function getParent(): ?FormElementInterface
     {
-        return $this->parent;
+        return $this->__parent;
     }
 
     /**
@@ -40,7 +40,7 @@ trait ElementHasParentTrait
      */
     public function hasParent(): bool
     {
-        return null !== $this->parent;
+        return null !== $this->__parent;
     }
 
     /**
