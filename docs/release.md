@@ -7,6 +7,7 @@
 * `HasValueTrait` enhancements
 * `BelongsToFormTrait` enhancements
 * `ElementHasParentTrait` enhancements
+* `Runn\Html\Rendering\escape()` function is added
 
 7.2.3, 7.3.3, 7.4.3
 ===================

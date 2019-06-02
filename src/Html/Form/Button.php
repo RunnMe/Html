@@ -53,9 +53,4 @@ abstract class Button implements FormElementInterface, HasAttributesInterface, H
         return $this->getAttributes()->type ?? null;
     }
 
-    protected function escape(string $val): string
-    {
-        return htmlspecialchars($val, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    }
-
 }

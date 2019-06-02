@@ -4,6 +4,7 @@ namespace Runn\tests\Html\Form\Field;
 
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
+use function Runn\Html\Rendering\escape;
 use Runn\Html\Rendering\RenderableInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
@@ -132,7 +133,7 @@ class FieldTest extends \PHPUnit_Framework_TestCase
     {
         $field = new class extends Field {
             public function render(SingleValueStorageInterface $template = null): string {
-                return $this->escape($this->getValue());
+                return escape($this->getValue());
             }
         };
 

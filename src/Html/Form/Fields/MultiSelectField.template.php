@@ -1,5 +1,7 @@
 <?php
 
+use function Runn\Html\Rendering\escape;
+
 /** @var \Runn\Html\Form\Fields\SelectField $this */
 
 $attrs = [];
@@ -9,7 +11,7 @@ foreach ($this->getAttributes() ?? [] as $key => $val) {
         if ('name' == $key) {
             $val .= '[]';
         }
-        $attrs[] = $key . '="' . $this->escape($val) . '"';
+        $attrs[] = $key . '="' . escape($val) . '"';
     } else {
         $attrs[] = $key;
     }
@@ -22,8 +24,8 @@ $html  = '<select' . ($attrs ? ' ' . implode(' ', $attrs) : '') . '>';
 $options = [];
 foreach ($this->getValues() as $key => $val) {
     $options[] =
-        '<option value="' . $this->escape($key) . '"' . (in_array($val, $value) ? ' selected' : '') . '>'
-        . $this->escape($val)
+        '<option value="' . escape($key) . '"' . (in_array($val, $value) ? ' selected' : '') . '>'
+        . escape($val)
         . '</option>';
 }
 

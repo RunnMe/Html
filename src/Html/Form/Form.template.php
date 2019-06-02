@@ -1,13 +1,14 @@
 <?php
 
+use function Runn\Html\Rendering\escape;
+
 /** @var \Runn\Html\Form\Form $this */
 
 $attrs = [];
 
 foreach ($this->getAttributes() ?? [] as $key => $val) {
     if (null !== $val) {
-        // @todo: escape method!
-        $attrs[] = $key . '="' . htmlspecialchars($val) . '"';
+        $attrs[] = $key . '="' . escape($val) . '"';
     } else {
         $attrs[] = $key;
     }

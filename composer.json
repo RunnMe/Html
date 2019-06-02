@@ -28,6 +28,9 @@
   "autoload": {
     "psr-4": {
       "Runn\\": "src/"
-    }
+    },
+    "files": [
+      "src/Html/Rendering/functions.php"
+    ]
   }
 }
