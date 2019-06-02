@@ -15,14 +15,14 @@ trait BelongsToFormTrait
 {
 
     /** @var \Runn\Html\Form\Form|null  */
-    protected $form = null;
+    protected $__form = null;
 
     /**
      * @return bool
      */
     public function belongsToForm(): bool
     {
-        return null !== $this->form;
+        return null !== $this->__form;
     }
 
     /**
@@ -31,7 +31,7 @@ trait BelongsToFormTrait
      */
     public function setForm(?Form $form)
     {
-        $this->form = $form;
+        $this->__form = $form;
         return $this;
     }
 
@@ -40,7 +40,7 @@ trait BelongsToFormTrait
      */
     public function getForm(): ?Form
     {
-        return $this->form;
+        return $this->__form;
     }
 
 }
