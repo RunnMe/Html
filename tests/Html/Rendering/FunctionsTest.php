@@ -2,9 +2,10 @@
 
 namespace Runn\tests\Html\Rendering\functions;
 
+use PHPUnit\Framework\TestCase;
 use function Runn\Html\Rendering\escape;
 
-class FunctionsTest extends \PHPUnit_Framework_TestCase
+class FunctionsTest extends TestCase
 {
 
     public function testEscape()

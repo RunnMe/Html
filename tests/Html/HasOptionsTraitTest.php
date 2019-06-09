@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\HasOptionsTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Html\HasOptionsInterface;
 use Runn\Html\HasOptionsTrait;
 
-class HasOptionsTraitTest extends \PHPUnit_Framework_TestCase
+class HasOptionsTraitTest extends TestCase
 {
 
     public function testOptions()

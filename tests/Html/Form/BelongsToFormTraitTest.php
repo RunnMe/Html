@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\Form\BelongsToFormTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\BelongsToFormInterface;
 use Runn\Html\Form\BelongsToFormTrait;
 use Runn\Html\Form\Form;
 
-class BelongsToFormTraitTest extends \PHPUnit_Framework_TestCase
+class BelongsToFormTraitTest extends TestCase
 {
 
     public function testSetGetForm()

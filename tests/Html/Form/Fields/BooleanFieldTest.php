@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\BooleanField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\BooleanField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class BooleanFieldTest extends \PHPUnit_Framework_TestCase
+class BooleanFieldTest extends TestCase
 {
 
     public function testGetType()

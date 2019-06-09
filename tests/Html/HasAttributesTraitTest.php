@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\HasAttributesTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasAttributesTrait;
 
-class HasAttributesTraitTest extends \PHPUnit_Framework_TestCase
+class HasAttributesTraitTest extends TestCase
 {
 
     public function testAttributes()

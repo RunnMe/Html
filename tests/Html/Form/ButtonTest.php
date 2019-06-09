@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\Form\Button;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Html\Form\Button;
 use Runn\Html\Form\FormElementInterface;
@@ -10,7 +11,7 @@ use Runn\Html\HasTitleInterface;
 use function Runn\Html\Rendering\escape;
 use Runn\Storages\SingleValueStorageInterface;
 
-class ButtonTest extends \PHPUnit_Framework_TestCase
+class ButtonTest extends TestCase
 {
 
     public function testEmptyConstruct()

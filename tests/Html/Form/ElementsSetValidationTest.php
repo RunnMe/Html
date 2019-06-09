@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\Form\ElementsSet;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\ElementsSet;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\TextField;
@@ -34,7 +35,7 @@ class testNotEvenNumberField extends NumberField
     }
 }
 
-class ElementsSetValidationTest extends \PHPUnit_Framework_TestCase
+class ElementsSetValidationTest extends TestCase
 {
 
     public function testValidate()

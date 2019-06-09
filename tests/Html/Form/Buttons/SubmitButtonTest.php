@@ -2,9 +2,10 @@
 
 namespace Runn\tests\Html\Form\Buttons\SubmitButton;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Buttons\SubmitButton;
 
-class SubmitButtonTest extends \PHPUnit_Framework_TestCase
+class SubmitButtonTest extends TestCase
 {
 
     public function testGetType()

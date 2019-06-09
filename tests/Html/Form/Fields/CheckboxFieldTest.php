@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\CheckboxField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\CheckboxField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class CheckboxFieldTest extends \PHPUnit_Framework_TestCase
+class CheckboxFieldTest extends TestCase
 {
 
     public function testGetType()

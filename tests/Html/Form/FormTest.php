@@ -2,31 +2,30 @@
 
 namespace Runn\tests\Html\Form\Form;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\Form\Form;
 use Runn\Html\Form\ElementsGroup;
 
-class FormTest extends \PHPUnit_Framework_TestCase
+class FormTest extends TestCase
 {
 
-    /**
-     * @expectedException \BadMethodCallException
-     */
     public function testSetParent1()
     {
         $group = new class extends ElementsGroup {};
         $form = new Form;
+
+        $this->expectException(\BadMethodCallException::class);
         $form->setParent($group);
     }
 
-    /**
-     * @expectedException \BadMethodCallException
-     */
     public function testSetParent2()
     {
         $group = new class extends ElementsGroup {};
         $form = new Form;
+
+        $this->expectException(\BadMethodCallException::class);
         $group->part = $form;
     }
 

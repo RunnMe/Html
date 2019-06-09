@@ -2,8 +2,10 @@
 
 namespace Runn\tests\Html\Form\ElementsGroup;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Buttons\SubmitButton;
 use Runn\Html\Form\ElementsGroup;
+use Runn\Html\Form\Exception;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Form\Fields\PasswordField;
 use Runn\Html\Form\Fields\TextField;
@@ -21,33 +23,30 @@ class testValueObject extends ComplexValueObject {
     ];
 }
 
-class ElementsGroupTest extends \PHPUnit_Framework_TestCase
+class ElementsGroupTest extends TestCase
 {
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) key:
-     */
     public function testInvalidKeyEmpty()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) key:');
+
         $elements = new testElementsGroup([new TextField()]);
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) key: 1
-     */
     public function testInvalidKeyNumeric()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) key: 1');
+
         $elements = new testElementsGroup([1 => new TextField()]);
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) value by key: foo
-     */
     public function testInvalidValue()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid ElementsGroup (Runn\tests\Html\Form\ElementsGroup\testElementsGroup) value by key: foo');
+
         $elements = new testElementsGroup(['foo' => new \stdClass()]);
     }
 

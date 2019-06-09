@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\NumberField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class NumberFieldTest extends \PHPUnit_Framework_TestCase
+class NumberFieldTest extends TestCase
 {
 
     public function testGetType()

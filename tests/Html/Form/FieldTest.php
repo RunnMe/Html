@@ -2,13 +2,14 @@
 
 namespace Runn\tests\Html\Form\Field;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Html\Form\Field;
 use function Runn\Html\Rendering\escape;
 use Runn\Html\Rendering\RenderableInterface;
 use Runn\Storages\SingleValueStorageInterface;
 
-class FieldTest extends \PHPUnit_Framework_TestCase
+class FieldTest extends TestCase
 {
 
     public function testEmptyConstruct()
