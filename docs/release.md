@@ -9,6 +9,7 @@
 * `ElementHasParentTrait` enhancements
 * `Runn\Html\Rendering\escape()` function is added
 * Tests are using PHPUnit 8 framework now
+* Validation error messages are added in standard form template
 
 7.2.3, 7.3.3, 7.4.3
 ===================
