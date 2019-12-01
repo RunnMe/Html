@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\HiddenField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\HiddenField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class HiddenFieldTest extends \PHPUnit_Framework_TestCase
+class HiddenFieldTest extends TestCase
 {
 
     public function testGetType()

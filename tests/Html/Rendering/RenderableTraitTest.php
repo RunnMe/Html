@@ -2,13 +2,14 @@
 
 namespace Runn\tests\Html\Rendering\RenderableTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Fs\File;
 use Runn\Html\Rendering\RenderableInterface;
 use Runn\Html\Rendering\RenderableTrait;
 use Runn\Storages\SingleValueStorageInterface;
 use Runn\tests\Html\Rendering\RenderableTraitTestEmptyTemplate;
 
-class RenderableTraitTest extends \PHPUnit_Framework_TestCase
+class RenderableTraitTest extends TestCase
 {
 
     public function testGetDefaultTemplateExists()

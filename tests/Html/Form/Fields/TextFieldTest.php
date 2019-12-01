@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\TextField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class TextFieldTest extends \PHPUnit_Framework_TestCase
+class TextFieldTest extends TestCase
 {
 
     public function testGetType()

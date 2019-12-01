@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\Form\Fields\TextareaField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Fs\File;
 use Runn\Html\Form\Fields\TextareaField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class TextareaFieldTest extends \PHPUnit_Framework_TestCase
+class TextareaFieldTest extends TestCase
 {
 
     public function testRender()

@@ -31,9 +31,9 @@ class CheckboxField
     public function setChecked(bool $val = true)
     {
         if ($val) {
-            $this->attributes->checked = null;
+            $this->setAttribute('checked', null);
         } else {
-            unset($this->attributes->checked);
+            $this->unsetAttribute('checked');
         }
         return $this;
     }
@@ -43,7 +43,7 @@ class CheckboxField
      */
     public function isChecked(): bool
     {
-        return isset($this->attributes->checked);
+        return $this->issetAttribute('checked');
     }
 
 }

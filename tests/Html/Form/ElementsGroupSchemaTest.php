@@ -2,7 +2,9 @@
 
 namespace Runn\tests\Html\Form\ElementsGroup;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\ElementsGroup;
+use Runn\Html\Form\Exception;
 use Runn\Html\Form\Fields\EmailField;
 use Runn\Html\Form\Fields\TextareaField;
 use Runn\Html\Form\Fields\TextField;
@@ -44,7 +46,7 @@ class testElementsGroupNested extends ElementsGroup {
     ];
 }
 
-class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
+class ElementsGroupSchemaTest extends TestCase
 {
 
     public function testGetSchema()
@@ -64,12 +66,11 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(0, $group);
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid group schema: class for element "foo" is missing
-     */
     public function testSchemaEmptyClass()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid group schema: class for element "foo" is missing');
+
         $group = new class extends ElementsGroup {
             protected static $schema = [
                 'foo' => [
@@ -79,12 +80,11 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         };
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid group schema: class for element "foo" is not a form element class
-     */
     public function testSchemaInvalidClass()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid group schema: class for element "foo" is not a form element class');
+
         $group = new class extends ElementsGroup {
             protected static $schema = [
                 'foo' => [
@@ -94,12 +94,11 @@ class ElementsGroupSchemaTest extends \PHPUnit_Framework_TestCase
         };
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid group schema: validator class for element "foo" is not a validator class
-     */
     public function testSchemaInvalidValidatorClass()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid group schema: validator class for element "foo" is not a validator class');
+
         $group = new class extends ElementsGroup {
             protected static $schema = [
                 'foo' => [

@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\FileField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\FileField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class FileFieldTest extends \PHPUnit_Framework_TestCase
+class FileFieldTest extends TestCase
 {
 
     public function testGetType()

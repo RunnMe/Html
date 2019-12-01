@@ -22,7 +22,7 @@ class InputField
     public function setType(string $type)
     {
         /* set type to first place! */
-        $this->attributes = (new Std(['type' => $type]))->merge($this->attributes ?: []);
+        $this->setAttributes( (new Std(['type' => $type]))->merge($this->getAttributes() ?: []) );
         return $this;
     }
 

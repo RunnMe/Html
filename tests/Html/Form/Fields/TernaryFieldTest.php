@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\Form\Fields\TernaryField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\TernaryField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class TernaryFieldTest extends \PHPUnit_Framework_TestCase
+class TernaryFieldTest extends TestCase
 {
 
     public function testGetType()

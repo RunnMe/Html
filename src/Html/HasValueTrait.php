@@ -15,7 +15,7 @@ trait HasValueTrait
 {
 
     /** @var mixed|null  */
-    protected $value = null;
+    protected $__value = null;
 
     /**
      * @param mixed $value
@@ -23,7 +23,7 @@ trait HasValueTrait
      */
     public function setValue($value)
     {
-        $this->value = $value;
+        $this->__value = $value;
         return $this;
     }
 
@@ -33,10 +33,10 @@ trait HasValueTrait
      */
     public function getValue($class = null)
     {
-        if (null === $this->value || null === $class) {
-            return $this->value;
+        if (null === $this->__value || null === $class) {
+            return $this->__value;
         }
-        return new $class($this->value);
+        return new $class($this->__value);
     }
 
 }

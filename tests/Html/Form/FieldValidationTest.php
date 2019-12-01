@@ -2,12 +2,13 @@
 
 namespace Runn\tests\Html\Form\Field;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Exceptions;
 use Runn\Html\Form\Field;
 use Runn\Html\ValidationError;
 use Runn\Validation\Validator;
 
-class FieldValidationTest extends \PHPUnit_Framework_TestCase
+class FieldValidationTest extends TestCase
 {
 
     public function testValidatorReturnsTrue()

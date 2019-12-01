@@ -19,15 +19,19 @@
     "php": ">=7.4",
     "runn/core": "7.4.*",
     "runn/fs": "7.4.*",
-    "runn/validation": "7.4.*"
+    "runn/validation": "7.4.*",
+    "twig/twig": "^3.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "5.*",
+    "phpunit/phpunit": "8.*",
     "runn/valueobjects": "7.4.*"
   },
   "autoload": {
     "psr-4": {
       "Runn\\": "src/"
-    }
+    },
+    "files": [
+      "src/Html/Rendering/functions.php"
+    ]
   }
 }
