@@ -2,14 +2,16 @@
 
 namespace Runn\tests\Html\Form\Button;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Html\Form\Button;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasAttributesInterface;
 use Runn\Html\HasTitleInterface;
+use function Runn\Html\Rendering\escape;
 use Runn\Storages\SingleValueStorageInterface;
 
-class ButtonTest extends \PHPUnit_Framework_TestCase
+class ButtonTest extends TestCase
 {
 
     public function testEmptyConstruct()
@@ -90,7 +92,7 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
     {
         $button = new class extends Button {
             public function render(SingleValueStorageInterface $template = null): string {
-                return $this->escape($this->getTitle());
+                return escape($this->getTitle());
             }
         };
 

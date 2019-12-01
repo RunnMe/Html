@@ -15,7 +15,7 @@ trait HasTitleTrait
 {
 
     /** @var string|null  */
-    protected $title = null;
+    protected $__title = null;
 
     /**
      * @param string|null $title
@@ -23,7 +23,7 @@ trait HasTitleTrait
      */
     public function setTitle(?string $title)
     {
-        $this->title = $title;
+        $this->__title = $title;
         return $this;
     }
 
@@ -32,7 +32,7 @@ trait HasTitleTrait
      */
     public function getTitle(): ?string
     {
-        return $this->title;
+        return $this->__title;
     }
 
 }

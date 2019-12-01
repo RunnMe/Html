@@ -2,13 +2,14 @@
 
 namespace Runn\tests\Html\Form\HasParentTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\ElementHasParentInterface;
 use Runn\Html\Form\ElementHasParentTrait;
 use Runn\Html\Form\ElementsCollection;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\Form\FormElementTrait;
 
-class HasParentTraitTest extends \PHPUnit_Framework_TestCase
+class HasParentTraitTest extends TestCase
 {
 
     public function testSetGetParent()

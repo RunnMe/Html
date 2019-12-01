@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\Rendering\Renderers\NativeRenderer;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Fs\File;
 use Runn\Html\Rendering\Renderers\NativeRenderer;
@@ -31,7 +32,7 @@ class testStorageWithThis extends testStorage
     }
 }
 
-class NativeRendererTest extends \PHPUnit_Framework_TestCase
+class NativeRendererTest extends TestCase
 {
 
     public function testRenderByFile()

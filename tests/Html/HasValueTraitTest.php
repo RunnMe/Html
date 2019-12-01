@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\HasValueTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\HasValueInterface;
 use Runn\Html\HasValueTrait;
 use Runn\ValueObjects\Values\IntValue;
 
-class HasValueTraitTest extends \PHPUnit_Framework_TestCase
+class HasValueTraitTest extends TestCase
 {
 
     public function testSetGetValue()

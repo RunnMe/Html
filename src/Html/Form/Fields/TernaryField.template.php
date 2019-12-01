@@ -1,5 +1,7 @@
 <?php
 
+use function Runn\Html\Rendering\escape;
+
 /** @var \Runn\Html\Form\Fields\TernaryField $this */
 
 $attrs = [];
@@ -17,7 +19,7 @@ foreach ($this->getAttributes() ?? [] as $key => $val) {
         continue;
     }
     if (null !== $val) {
-        $attrs[] = $key . '="' . $this->escape($val) . '"';
+        $attrs[] = $key . '="' . escape($val) . '"';
     } else {
         $attrs[] = $key;
     }

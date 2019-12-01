@@ -18,7 +18,7 @@ trait HasNameTrait
 {
 
     /** @var string|null  */
-    protected $name = null;
+    protected $__name = null;
 
     /**
      * @param string|null $name
@@ -26,7 +26,7 @@ trait HasNameTrait
      */
     public function setName(?string $name)
     {
-        $this->name = $name;
+        $this->__name = $name;
         return $this;
     }
 
@@ -35,7 +35,7 @@ trait HasNameTrait
      */
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->__name;
     }
 
     /**

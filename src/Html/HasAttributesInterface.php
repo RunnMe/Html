@@ -25,6 +25,17 @@ interface HasAttributesInterface
     public function getAttribute(string $key): ?string;
 
     /**
+     * @param string $key
+     * @return bool
+     */
+    public function issetAttribute(string $key): bool;
+
+    /**
+     * @param string $key
+     */
+    public function unsetAttribute(string $key): void;
+
+    /**
      * @param iterable|null $attributes
      * @return $this
      */
