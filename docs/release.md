@@ -1,3 +1,7 @@
+7.2.5, 7.3.5, 7.4.5
+===================
+* `TwigRenderer` is added
+
 7.2.4, 7.3.4, 7.4.4
 ===================
 * `HasAttributesInterface` and `HasAttributesTrait` enhancements
