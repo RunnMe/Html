@@ -2,10 +2,11 @@
 
 namespace Runn\tests\Html\HasTitleTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\HasTitleInterface;
 use Runn\Html\HasTitleTrait;
 
-class HasTitleTraitTest extends \PHPUnit_Framework_TestCase
+class HasTitleTraitTest extends TestCase
 {
 
     public function testSetGetTitle()

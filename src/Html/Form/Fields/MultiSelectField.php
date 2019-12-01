@@ -26,27 +26,4 @@ class MultiSelectField
         $this->setAttribute('multiple', null);
     }
 
-    /**
-     * @param iterable|null $values
-     * @return \Runn\Html\Form\Fields\MultiSelectField $this
-     */
-    public function values(?iterable $values = null)
-    {
-        $this->setOption('values', new Std);
-        if (null !== $values) {
-            foreach ($values as $key => $val) {
-                $this->options->values[$key] = $val;
-            }
-        }
-        return $this;
-    }
-
-    /**
-     * @return \Runn\Core\Std
-     */
-    public function getValues()
-    {
-        return $this->options->values ?? [];
-    }
-
 }

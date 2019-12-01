@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\Form\Errors\ElementValidationError;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\Fields\BooleanField;
 use Runn\Html\Form\Fields\NumberField;
 use Runn\Html\ValidationError;
 
-class ValidationErrorTest extends \PHPUnit_Framework_TestCase
+class ValidationErrorTest extends TestCase
 {
 
     public function testConstruct()

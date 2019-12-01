@@ -4,7 +4,6 @@ namespace Runn\Html\Form;
 
 use Runn\Html\Form\Errors\ElementValidationError;
 use Runn\Html\Form\Errors\ElementValidationErrors;
-use Runn\Html\HasValueInterface;
 use Runn\Html\Rendering\RenderableTrait;
 
 /**

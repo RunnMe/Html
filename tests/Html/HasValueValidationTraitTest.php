@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\HasValueValidationTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Exception;
 use Runn\Core\Exceptions;
 use Runn\Html\HasValueValidationInterface;
@@ -84,7 +85,7 @@ class validationWithMultiExceptions implements HasValueValidationInterface {
 
 }
 
-class HasValueValidationTraitTest extends \PHPUnit_Framework_TestCase
+class HasValueValidationTraitTest extends TestCase
 {
 
     public function testDefault()

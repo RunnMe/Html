@@ -93,9 +93,4 @@ abstract class Field
         return $this;
     }
 
-    protected function escape(string $val): string
-    {
-        return htmlspecialchars($val, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    }
-
 }

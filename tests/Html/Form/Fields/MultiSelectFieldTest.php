@@ -2,11 +2,12 @@
 
 namespace Runn\tests\Html\Form\Fields\MultiSelectField;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\Std;
 use Runn\Html\Form\Fields\MultiSelectField;
 use Runn\Html\Rendering\RenderableInterface;
 
-class MultiSelectFieldTest extends \PHPUnit_Framework_TestCase
+class MultiSelectFieldTest extends TestCase
 {
 
     public function testRenderWoOptions()

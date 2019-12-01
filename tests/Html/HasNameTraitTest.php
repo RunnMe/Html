@@ -2,6 +2,7 @@
 
 namespace Runn\tests\Html\HasNameTrait;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Html\Form\ElementHasParentInterface;
 use Runn\Html\Form\ElementHasParentTrait;
 use Runn\Html\Form\ElementsCollection;
@@ -16,7 +17,7 @@ use Runn\Html\HasNameTrait;
 
 class testGroup extends ElementsGroup {};
 
-class HasNameTraitTest extends \PHPUnit_Framework_TestCase
+class HasNameTraitTest extends TestCase
 {
 
     public function testSetGetName()
@@ -45,7 +46,7 @@ class HasNameTraitTest extends \PHPUnit_Framework_TestCase
         $element = new class implements HasNameInterface { use HasNameTrait; };
 
         $this->assertNull($element->getName());
-        $this->assertNull(null, $element->getFullName());
+        $this->assertNull($element->getFullName());
 
         $element->setName('foo');
 
@@ -57,7 +58,7 @@ class HasNameTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($element->getParents()->empty());
 
         $this->assertNull($element->getName());
-        $this->assertNull(null, $element->getFullName());
+        $this->assertNull($element->getFullName());
 
         $element->setName('foo');
 

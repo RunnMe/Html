@@ -2,9 +2,11 @@
 
 namespace Runn\tests\Html\Form\ElementsSet;
 
+use PHPUnit\Framework\TestCase;
 use Runn\Core\TypedCollection;
 use Runn\Html\Form\ElementsCollection;
 use Runn\Html\Form\ElementsSet;
+use Runn\Html\Form\Exception;
 use Runn\Html\Form\Fields\TextField;
 use Runn\Html\Form\FormElementInterface;
 use Runn\Html\HasNameInterface;
@@ -39,7 +41,7 @@ class testValueObject extends ValueObjectsCollection {
     }
 }
 
-class ElementsSetTest extends \PHPUnit_Framework_TestCase
+class ElementsSetTest extends TestCase
 {
 
     public function testInstances()
@@ -56,53 +58,53 @@ class ElementsSetTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(FormElementInterface::class, ElementsSet::getType());
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid ElementsSet base class "stdClass"
-     */
     public function testInvalidBaseClass()
     {
         $set = new testElementsSetInvalidBaseClass;
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid ElementsSet base class "stdClass"');
+
         $set[] = new \stdClass();
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Elements set type mismatch
-     */
     public function testInvalidElementClass1()
     {
         $set = new testElementsSet;
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Elements set type mismatch');
+
         $set[1] = 42;
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Elements set type mismatch
-     */
     public function testInvalidElementClass2()
     {
         $set = new testElementsSet;
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Elements set type mismatch');
+
         $set[1] = new \stdClass();
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Elements set type mismatch
-     */
     public function testInvalidElementClass3()
     {
         $set = new testElementsSet;
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Elements set type mismatch');
+
         $set[1] = new ExtendedTextField();
     }
 
-    /**
-     * @expectedException \Runn\Html\Form\Exception
-     * @expectedExceptionMessage Invalid ElementsSet (Runn\tests\Html\Form\ElementsSet\testElementsSet) key: "foo"
-     */
     public function testInvalidKey()
     {
         $set = new testElementsSet;
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid ElementsSet (Runn\tests\Html\Form\ElementsSet\testElementsSet) key: "foo"');
+
         $set['foo'] = new TextField();
     }
 
